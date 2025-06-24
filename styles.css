@@ -1,0 +1,582 @@
+/*============================
+  1. Root Variables & Reset
+============================*/
+:root {
+  --primary-color: #555656;
+  --secondary-color: #b5121b;
+  --background-color: #bec0c2;
+  --text-color: #333333;
+  --nav-text-color: #ffffff;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*============================
+  2. Base Styles
+============================*/
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  position: relative;  /* positioning context for the pseudo-element */
+  z-index: 0;          /* ensure content sits above the background */
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: var(--page-bg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.75;
+  z-index: -1;         /* behind everything */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*============================
+  3. Header & Navigation
+============================*/
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  --containercolour: rgba(33, 33, 33,0.7);
+  background-color: var(--containercolour);
+  --textcolour: white;
+  color: var(--textcolour);
+  --linkcolour: #bbb;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+}
+
+.container a {
+  color: var(--linkcolour);
+  text-decoration: none;
+}
+.container a:hover {
+  color: white;
+}
+header {
+  background: #212121;
+  padding: 2.0rem 0;
+}
+
+header h1 {
+  text-align: center;
+  color: #fff;
+}
+
+.footer-logo img {
+  max-width: 275px;
+  height: auto;
+  position: relative;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* display and flow no longer matter */
+}
+nav ul {
+  display: flex; /* Horizontal layout for nav items :contentReference[oaicite:0]{index=0} */
+  justify-content: center;
+  list-style: none;
+  border-top: 5px solid #b5121b;
+  background: #555656;
+}
+
+nav ul li {
+  margin: 0 1.5rem;
+}
+
+nav ul li a {
+  color: var(--nav-text-color);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--secondary-color);
+}
+
+/* 3. Header & Navigation Adjustments */
+header {
+  padding: 2.0rem 0;
+}
+
+/* Target only the header image, not the footer one */
+header .follow-logo {
+  /* make it a reasonable max-height */
+  width: auto;
+
+  /* reset any footer-specific positioning */
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+
+  /* center under the h1 */
+  display: block;
+  margin: 0 auto;
+}
+
+/*============================
+  4. Hero Section
+============================*/
+.hero {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  font-family: Helvetica, sans-serif;
+  font-size: 2.5rem;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  opacity: 0.75;
+}
+
+
+/*============================
+  5. Content Sections
+============================*/
+section {
+  padding: 2rem 5%;
+}
+
+.intro h3 {
+  margin-bottom: 1rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #fff;
+  font-size: 1.5rem;
+
+}
+
+.intro p {
+  margin-bottom: 1rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/*============================
+  6. Astrophotography Gallery & Lightbox (adapted)
+============================*/
+
+/* Gallery grid container (unchanged) */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1.5rem;
+}
+
+/* Treat each figure as a “feature-item” */
+.photo-grid figure {
+  position: relative;
+  display: inline-block;
+  height: 100%;              /* fills the grid column (min 300px) */
+  max-height: 300px;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  border: 2px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Image */
+.photo-grid figure img {
+  height: 100%;
+  width: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: none;         /* remove any zoom effects */
+}
+
+/* Hover overlay */
+.photo-grid figure::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100%; height: 0;
+  background-color: rgba(128, 128, 128, 0.75);
+  transition: height 0.5s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+.photo-grid figure:hover::after {
+  height: 100%;
+}
+
+/* Hover caption */
+.photo-grid figure figcaption {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0 1rem;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: bold;
+  opacity: 0;
+  z-index: 3;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.photo-grid figure:hover figcaption {
+  opacity: 1;
+}
+
+/* =======================
+   Lightbox Styles
+   ======================= */
+
+/* Backdrop */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.lightbox.open {
+  display: flex;
+}
+
+/* Frame */
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow: hidden;
+  text-align: center;
+  display: inline-block;    /* shrinkwrap to image */
+}
+
+/* Image */
+.lightbox-content img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+/* Caption (normal mode) */
+.lb-caption {
+  position: absolute;
+  bottom: 10px; left: 0;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+/* Hide caption in fullscreen */
+.lightbox-content:fullscreen .lb-caption,
+.lightbox-content:-webkit-full-screen .lb-caption,
+.lightbox-content:-moz-full-screen .lb-caption {
+  display: none !important;
+}
+
+/* Control Buttons */
+.lightbox-content button {
+  position: absolute;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 2;
+}
+.lb-close    { top: 10px; right: 10px; }
+.lb-maximize { top: 10px; right: 50px; }
+.lb-prev     { top: 50%; left: 10px; transform: translateY(-50%); }
+.lb-next     { top: 50%; right: 10px; transform: translateY(-50%); }
+
+/* Fullscreen adjustments */
+.lightbox-content:fullscreen,
+.lightbox-content:-webkit-full-screen,
+.lightbox-content:-moz-full-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw; height: 100vh;
+}
+.lightbox-content:fullscreen img,
+.lightbox-content:-webkit-full-screen img,
+.lightbox-content:-moz-full-screen img {
+  max-width: 100vw;
+  max-height: 100vh;
+  object-fit: contain;
+  margin: 0;
+}
+
+/* Prevent gallery clicks when lightbox open */
+.lightbox.open ~ .photo-grid figure {
+  pointer-events: none;
+}
+
+
+/*============================
+  7. Newsletters & Exec List
+============================*/
+.newsletters ul,
+.exec-team ul {
+  list-style: none;
+  padding-left: 1em;
+}
+
+.newsletters li,
+.exec-team li {
+  margin: 0.5rem 0;
+}
+
+/*============================
+  8. Footer
+============================*/
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: var(--primary-color);
+  color: var(--nav-text-color);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+/*============================
+  9. Constellation Explorer
+============================*/
+.explorer {
+  text-align: center;
+  padding: 2rem 5%;
+}
+
+.sky-map-container {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.sky-map {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+}
+
+/* Transparent circular buttons as hotspots */
+.constellation-btn {
+  position: absolute;
+  background: var(--secondary-color);
+  border: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  opacity: 0.8;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.constellation-btn:hover {
+  transform: translate(-50%, -50%) scale(1.3);
+  opacity: 1;
+}
+
+/* Modal overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 4px;
+  position: relative;
+  text-align: left;
+}
+
+.modal-content .close {
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.const-image {
+  width: 100%;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+/* Extra space for scrolling */
+.extra-space {
+  height: 1500px;
+}
+
+/*============================
+  10. Site Footer (NASA.gov style)
+============================*/
+.site-footer {
+  background: #212121;           /* Dark black */
+  color: #f0f0f0;                /* off-white */
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  /* four columns: Mission, Links, Logo, Social */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 2.5rem 5%;
+  align-items: start;
+}
+
+/* Section alignment */
+.footer-mission { text-align: left; }
+.footer-links  { text-align: left; }
+.footer-logo   { text-align: center; position: relative; /* positioning context */ }
+.footer-social { text-align: right; position: relative; /* positioning context */ }
+
+/* Titles in Helvetica */
+.footer-section h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-family: Helvetica, sans-serif;
+  color: #ffffff;
+}
+
+/* Logo styling (pulled out of flow) */
+.footer-logo img {
+  max-width: 275px;
+  height: auto;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* display and flow no longer matter */
+}
+
+/* Quick Links list */
+.footer-links ul {
+  list-style: none;
+  padding-left: 0;
+}
+.footer-links ul li { margin: 0.4rem 0; }
+.footer-links ul li a {
+  color: #f0f0f0;
+  transition: color 0.3s ease;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.footer-links ul li a:hover {
+  color: var(--secondary-color);
+}
+
+/* Social icons */
+.footer-social .social-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.footer-social .social-icons img {
+  width: 1.8rem;
+  height: 1.8rem;
+  filter: none;
+  transition: opacity 0.3s ease;
+}
+.footer-social .social-icons img:hover {
+  opacity: 1;
+}
+
+/* Newsletter link */
+.footer-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #f0f0f0;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Mission paragraph */
+.footer-mission p {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Join button */
+.join-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--secondary-color);
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.join-btn:hover {
+  background: #99231b;
+}
+
+/* Bottom bar */
+.footer-bottom {
+  background: #555656;
+  text-align: left; /* left-centred */
+  padding: 0.75rem 5%;
+  font-size: 0.8rem;
+  border-top: 5px solid #b5121b;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Make the H4 flexible but keep it in flow */
+.footer-social h4 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Worm-style logo inline, lifted 3px */
+.footer-social .follow-logo {
+  display: inline-block;    /* sits in-line with text */
+  vertical-align: middle;   /* aligns with text baseline */
+  position: relative;       /* for the top offset */
+  top: -8px;                /* lift it up */
+  left: 7px;
+  height: 2.5rem;             /* as you specified */
+  width: auto;
+}
