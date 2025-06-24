@@ -484,7 +484,7 @@ footer {
   max-width: 275px;
   height: auto;
   position: absolute;
-  top: 10px;
+  top: -5px;
   left: 50%;
   transform: translateX(-50%);
   /* display and flow no longer matter */
