@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LUAstroSoc | Lancaster University Astronomy Society</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap"
+  rel="stylesheet"
+/>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1><img src="images/LUAstro_Wormstyle_DarkMode.png" alt="LUAstro" class="follow-logo">
+    Meet the Exec! </h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="astrophotography.html">Astrophotography</a></li>
+        <li><a href="newsletters.html">Newsletters</a></li>
+        <li><a href="exec.html">Exec</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+  <div class="container">
+    <section class="hero">
+      <h2>Our current Exec</h2>
+    </section>
+    <section class="intro">
+      <p>The Society is run by a small Exec of students at Lancaster University. They all unanimously agree that Star Trek is infinitely superior to Star Wars. Our current Exec is:</p>
+      <ul>
+        <li><strong>President:</strong> <a href="https://www.johnray.co.uk">John Ray</a></li>
+        <li><strong>Vice President:</strong> Aysha Faquiri</li>
+        <li><strong>Treasurer:</strong> Finlay Daniel-McKeigue</li>
+        <li><strong>Observation Officer:</strong> <a href="https://www.iantoevansphotography.com">Ianto Evans</a></li>
+        <li><strong>Socials & Trips Offier:</strong> Lina Andonova</li>
+      </ul>
+    </section>
+  </div>
+  </main>
+
+
+ </div>	
+  <div class="extra-space"></div>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Mission (left) -->
+    <div class="footer-section footer-mission">
+      <h4>Lancaster University Astronomy Society</h4>
+      <p>LUAstro observes the wonders of space and the stars all from the top of the Physics Building! Join us for observing nights, Astrophotography workshops, socials, and more!</p>
+      <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc" class="join-btn">Join Us →</a>
+    </div>
+
+    <!-- Quick Links (centre-left) -->
+    <div class="footer-section footer-links">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="astrophotography.html">Astrophotography</a></li>
+        <li><a href="newsletters.html">Newsletters</a></li>
+        <li><a href="exec.html">Exec Team</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="constellations.html">Constellation Explorer</a></li>
+      </ul>
+    </div>
+
+<!-- LUAstro Old Logo (centre-right) -->
+    <div class="footer-section footer-logo">
+      <img src="images/LUAstro_Old.png" alt="LUAstro Logo">
+    </div>
+
+    <!-- Follow Us + Newsletters (right) -->
+    <div class="footer-section footer-social">
+      <h4>Follow   
+<img src="images/LUAstro_Wormstyle_DarkMode.png" alt="LUAstro" class="follow-logo">
+      </h4>
+      <div class="social-icons">
+        <a href="https://discord.gg/pWtk7SRUww" aria-label="Discord">
+          <img src="images/discord.png" alt="Discord">
+        </a>
+        <a href="https://www.instagram.com/luastrosoc/" aria-label="Instagram">
+          <img src="images/instagram.png" alt="Instagram">
+        </a>
+        <a href="https://twitter.com/luastrosoc" aria-label="Twitter">
+          <img src="images/twitter.png" alt="Twitter">
+        </a>
+        <a href="https://www.youtube.com/@lancasteruniversityastrono1095" aria-label="YouTube">
+          <img src="images/youtube.png" alt="YouTube">
+        </a>
+        <a href="https://www.facebook.com/LuAstroSoc/" aria-label="Facebook">
+          <img src="images/facebook.png" alt="Facebook">
+        </a>
+      </div>
+      <a href="newsletters.html" class="footer-link">Newsletters</a>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p>Last updated: June 18, 2025 | Last edited by: <a href:"https://www.johnray.co.uk">John Ray</a></p>
+  </div>
+</footer>
+<script>
+  (function() {
+    const images = [
+      'images/bgAndromedabyJohn.jpg',
+      'images/bgRosetteNebulabyFinlay.jpg',
+      'images/bgOrionNebulabyIanto.jpg',
+      'images/bgCaliforniaNebulabyJohn.jpg',
+      'images/bgPleiadesbyOrlando.jpg'
+    ];
+    const choice = images[Math.floor(Math.random() * images.length)];
+    document.body.style.setProperty('--page-bg', `url(${choice})`);
+  })();
+</script>
+</body>
+</html>
