@@ -755,4 +755,59 @@ footer {
     padding: 0.5rem 2%;
   }
 }
+/*============================
+  Even more mobile / tablet tweaks
+============================*/
 
+/* 1. Top wormstyle logo: width scales between 120px and 250px */
+header h1 img.follow-logo {
+  width: clamp(120px, 20vw, 250px);
+  height: auto;
+}
+
+/* 2. “Welcome to LUAstro.space!” heading: font scales between 1.5rem and 2.5rem */
+.regular h2 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+/* 3. Container box: max‐width fluid between 90% and 1200px */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* 4. Photo‐grid items: max‐width fluid between 100px and 300px */
+.photo-grid figure {
+  width: clamp(150px, 25vw, 300px);
+  max-height: clamp(150px, 20vh, 300px);
+}
+
+/* 5. Footer & header boxes: pad and font scale */
+.site-footer,
+header {
+  padding: clamp(1rem, 3vw, 2.5rem) 0;
+}
+footer .footer-bottom {
+  padding: clamp(0.5rem, 2vw, 1rem) 5%;
+  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+}
+
+/* 6. Regular paragraphs: keep readability on narrow viewports */
+.regular p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: clamp(0.75rem, 2vw, 1rem);
+}
+
+/* 7. Ensure nav‐links don’t shrink too small */
+nav ul li a {
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+/* 8. Reduce star‐bar height on small screens */
+@media (max-width: 768px) {
+  .star-bar {
+    height: 120px;
+  }
+}
