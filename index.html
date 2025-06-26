@@ -126,5 +126,132 @@
     document.body.style.setProperty('--page-bg', `url(${choice})`);
   })();
 </script>
+ <!-- Search handler + enhanced search --><!-- Replace your existing “Search handler + enhanced search” script with this: -->
+<script>
+(async function(){
+  // 1) List all your pages (just title & URL here)
+  const pages = [
+    { title: 'Homepage',            url: '/' },
+    { title: 'Astrophotography',url: '/astrophotography/' },
+    { title: 'Newsletters',     url: '/newsletters/' },
+    { title: 'Exec Team',       url: '/exec/' },
+    { title: 'About Us',        url: '/aboutus/' },
+    { title: 'Search page', url: '/search/' }
+    // Add new pages here—and they'll be fetched automatically
+  ];
+
+  // 2) Helper: fetch & parse meta from each page
+  async function fetchMeta(page) {
+    let desc = '', keys = '';
+    try {
+      const res  = await fetch(page.url);
+      const text = await res.text();
+      const doc  = new DOMParser().parseFromString(text, 'text/html');
+      desc = doc.querySelector('meta[name="description"]')?.content || '';
+      keys = doc.querySelector('meta[name="keywords"]')?.content    || '';
+    } catch(e) {
+      console.warn('Failed to fetch', page.url, e);
+    }
+    return { ...page, description: desc, keywords: keys };
+  }
+
+  // 3) Build index by fetching each page
+  const indexed = await Promise.all(pages.map(fetchMeta));
+
+  // 4) Read query and populate input…
+  const params = new URLSearchParams(location.search);
+  const q      = (params.get('q')||'').trim().toLowerCase();
+  const input  = document.getElementById('siteSearchInput');
+  input.value  = params.get('q')||'';
+  document.getElementById('siteSearchForm')
+    .addEventListener('submit', e => {
+      e.preventDefault();
+      const nq = encodeURIComponent(input.value.trim());
+      if(!nq) return;
+      location.search = `?q=${nq}`;
+    });
+
+  // 5) Filter by title OR keywords OR description
+  const results = indexed.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    p.keywords.toLowerCase().includes(q) ||
+    p.description.toLowerCase().includes(q)
+  );
+
+  // 6) Render as before…
+  const container = document.getElementById('searchResults');
+  container.innerHTML = `<h3>Results for “${params.get('q')||''}”</h3>`;
+  if (!q) {
+    container.innerHTML += '<p>Please enter a search term above.</p>';
+  } else if (results.length === 0) {
+    container.innerHTML += '<p>No pages found.</p>';
+  } else {
+    results.forEach(p => {
+      const entry = document.createElement('div');
+      entry.style.marginBottom = '1.5rem';
+      entry.innerHTML = `
+        <a href="${p.url}" style="font-size:1.2rem;font-weight:600;color:#b5121b;">
+          ${p.title}
+        </a>
+        <p style="margin-top:0.3rem;color:#ccc;">${p.description}</p>
+      `;
+      container.appendChild(entry);
+    });
+  }
+})();
+</script>
+
+<!-- Bouncing stars in header (click the top 100px empty area only) -->
+<script>
+(function() {
+  const header = document.querySelector('header');
+  const bar    = document.querySelector('.star-bar');
+  const stars  = [];
+
+  function createStar(x,y) {
+    const s = document.createElement('span');
+    s.className = 'star';
+    s.textContent = '★';
+    s.x = x; s.y = y;
+    s.vx = Math.random()*4 - 2;
+    s.vy = Math.random()*4 - 2;
+    bar.appendChild(s);
+    stars.push(s);
+    update(s);
+  }
+
+  function update(s) {
+    s.style.left = s.x + 'px';
+    s.style.top  = s.y + 'px';
+  }
+
+  function animate() {
+    const w = bar.clientWidth, h = bar.clientHeight;
+    stars.forEach(s => {
+      s.x += s.vx; s.y += s.vy;
+      if (s.x < 0 || s.x > w) s.vx *= -1;
+      if (s.y < 0 || s.y > h) s.vy *= -1;
+      s.x = Math.max(0, Math.min(w, s.x));
+      s.y = Math.max(0, Math.min(h, s.y));
+      update(s);
+    });
+    requestAnimationFrame(animate);
+  }
+
+  header.addEventListener('click', e => {
+    // only in the top 100px
+    if (e.offsetY > 100) return;
+    // but NOT when clicking a link, button, nav item, search input, or logo
+    if ( e.target.closest('a, button, input, nav, h1 img') ) return;
+    // compute position relative to star-bar
+    const rect = bar.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    createStar(x, y);
+  });
+
+  animate();
+})();
+</script>
 </body>
 </html>
