@@ -694,7 +694,7 @@ footer {
     margin: 0.25rem 0;
   }
 
-  /* 2. Shrink the search bar to full width of its container */
+  /* 2. Shrink the search bar to full width */
   .site-search-form {
     width: 90%;
     max-width: 400px;
@@ -703,21 +703,14 @@ footer {
     width: 100%;
   }
 
-  /* 3. Hero / regular section: reduce padding */
+  /* 3. Regular section: reduce padding */
   .regular {
     padding: 1.5rem 2%;
-  }
-  .regular h2 {
-    font-size: 1.8rem;
-  }
-  .regular p {
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
   }
 
   /* 4. Footer columns stack vertically */
   .footer-container {
-    grid-template-columns: 1fr;  /* single column */
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   .footer-logo img {
@@ -728,86 +721,55 @@ footer {
     left: auto;
   }
 
-  /* 5. Reduce star‐bar height so it’s not obscuring too much */
+  /* 5. Reduce star‐bar height */
   .star-bar {
     height: 120px;
+  }
+
+  /* 6. Drastically shrink the “Welcome” heading */
+  .regular h2 {
+    font-size: 0.5rem !important;
+  }
+
+  /* 7. Keep photo-grid images at natural aspect ratio */
+  .photo-grid figure {
+    width: clamp(150px, 25vw, 300px);
+    height: auto;
+  }
+  .photo-grid figure img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* 8. Mobile background: contain, top-center */
+  body::before {
+    background-size: contain;
+    background-position: top center;
   }
 }
 
 /* For very small screens (480px and below)… */
 @media (max-width: 480px) {
+
   /* Further tighten up text sizes */
-  .regular h2 {
-    font-size: 1.5rem;
-  }
   .regular p {
     font-size: 0.9rem;
   }
 
-  /* Shrink header‐actions font a bit */
+  /* Shrink header‐actions font */
   .header-actions a {
     font-size: 0.8rem;
   }
 
-  /* Make footer text smaller */
+  /* Footer bottom smaller */
   .footer-bottom {
     font-size: 0.7rem;
     padding: 0.5rem 2%;
   }
-}
-/*============================
-  Even more mobile / tablet tweaks
-============================*/
 
-/* 1. Top wormstyle logo: width scales between 120px and 250px */
-header h1 img.follow-logo {
-  width: clamp(120px, 20vw, 250px);
-  height: auto;
-}
-
-/* 2. “Welcome to LUAstro.space!” heading: font scales between 1.5rem and 2.5rem */
-.regular h2 {
-  font-size: clamp(1.5rem, 5vw, 2.5rem);
-}
-
-/* 3. Container box: max‐width fluid between 90% and 1200px */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-/* 4. Photo‐grid items: max‐width fluid between 100px and 300px */
-.photo-grid figure {
-  width: clamp(150px, 25vw, 300px);
-  max-height: clamp(150px, 20vh, 300px);
-}
-
-/* 5. Footer & header boxes: pad and font scale */
-.site-footer,
-header {
-  padding: clamp(1rem, 3vw, 2.5rem) 0;
-}
-footer .footer-bottom {
-  padding: clamp(0.5rem, 2vw, 1rem) 5%;
-  font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-}
-
-/* 6. Regular paragraphs: keep readability on narrow viewports */
-.regular p {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  margin-bottom: clamp(0.75rem, 2vw, 1rem);
-}
-
-/* 7. Ensure nav‐links don’t shrink too small */
-nav ul li a {
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
-}
-
-/* 8. Reduce star‐bar height on small screens */
-@media (max-width: 768px) {
-  .star-bar {
-    height: 120px;
+  /* Further shrink logo if needed */
+  header h1 img.follow-logo {
+    width: clamp(100px, 30vw, 200px);
   }
 }
