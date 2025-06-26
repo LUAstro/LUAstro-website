@@ -159,7 +159,7 @@ header .follow-logo {
 }
 /* 3. Header & Navigation Adjustments */
 header {
-  padding: 2.0rem 0;
+  padding: 0.2rem 0;
 }
 
 /* Target only the header image, not the footer one */
@@ -720,7 +720,7 @@ footer {
   }
 
   .hero h2 {
-    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-size: clamp(2.0rem, 3vw, 2.5rem);
   }
 
   .photo-grid figure {
@@ -773,7 +773,7 @@ footer {
 
   .site-footer,
   header {
-    padding: 1rem 0;
+    padding: 1.0rem 0;
   }
 }
 
