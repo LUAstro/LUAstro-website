@@ -29,11 +29,18 @@
         <li><a href="/aboutus/">About us</a></li>
       </ul>
     </nav>
-    
-    <form id="siteSearchForm" class="site-search-form">
-      <input type="text" id="siteSearchInput" name="q" placeholder="Search the site…" aria-label="Site search"/>
-      <button type="submit">🔍</button>
+    <form id="siteSearchForm"
+      class="site-search-form"
+      action="/search.html"     <!-- or "/search/" -->
+      method="get">
+    <input type="text"
+         id="siteSearchInput"
+         name="q"
+         placeholder="Search the site…"
+         aria-label="Site search"/>
+    <button type="submit">🔍</button>
     </form>
+
   </header>
 
 
@@ -126,82 +133,8 @@
     document.body.style.setProperty('--page-bg', `url(${choice})`);
   })();
 </script>
- <!-- Search handler + enhanced search --><!-- Replace your existing “Search handler + enhanced search” script with this: -->
-<script>
-(async function(){
-  // 1) List all your pages (just title & URL here)
-  const pages = [
-    { title: 'Homepage',            url: '/' },
-    { title: 'Astrophotography',url: '/astrophotography/' },
-    { title: 'Newsletters',     url: '/newsletters/' },
-    { title: 'Exec Team',       url: '/exec/' },
-    { title: 'About Us',        url: '/aboutus/' },
-    { title: 'Search page', url: '/search/' }
-    // Add new pages here—and they'll be fetched automatically
-  ];
 
-  // 2) Helper: fetch & parse meta from each page
-  async function fetchMeta(page) {
-    let desc = '', keys = '';
-    try {
-      const res  = await fetch(page.url);
-      const text = await res.text();
-      const doc  = new DOMParser().parseFromString(text, 'text/html');
-      desc = doc.querySelector('meta[name="description"]')?.content || '';
-      keys = doc.querySelector('meta[name="keywords"]')?.content    || '';
-    } catch(e) {
-      console.warn('Failed to fetch', page.url, e);
-    }
-    return { ...page, description: desc, keywords: keys };
-  }
-
-  // 3) Build index by fetching each page
-  const indexed = await Promise.all(pages.map(fetchMeta));
-
-  // 4) Read query and populate input…
-  const params = new URLSearchParams(location.search);
-  const q      = (params.get('q')||'').trim().toLowerCase();
-  const input  = document.getElementById('siteSearchInput');
-  input.value  = params.get('q')||'';
-  document.getElementById('siteSearchForm')
-    .addEventListener('submit', e => {
-      e.preventDefault();
-      const nq = encodeURIComponent(input.value.trim());
-      if(!nq) return;
-      location.search = `?q=${nq}`;
-    });
-
-  // 5) Filter by title OR keywords OR description
-  const results = indexed.filter(p =>
-    p.title.toLowerCase().includes(q) ||
-    p.keywords.toLowerCase().includes(q) ||
-    p.description.toLowerCase().includes(q)
-  );
-
-  // 6) Render as before…
-  const container = document.getElementById('searchResults');
-  container.innerHTML = `<h3>Results for “${params.get('q')||''}”</h3>`;
-  if (!q) {
-    container.innerHTML += '<p>Please enter a search term above.</p>';
-  } else if (results.length === 0) {
-    container.innerHTML += '<p>No pages found.</p>';
-  } else {
-    results.forEach(p => {
-      const entry = document.createElement('div');
-      entry.style.marginBottom = '1.5rem';
-      entry.innerHTML = `
-        <a href="${p.url}" style="font-size:1.2rem;font-weight:600;color:#b5121b;">
-          ${p.title}
-        </a>
-        <p style="margin-top:0.3rem;color:#ccc;">${p.description}</p>
-      `;
-      container.appendChild(entry);
-    });
-  }
-})();
-</script>
-
-<!-- Bouncing stars in header (click the top 100px empty area only) -->
+<!-- Bouncing stars in header (click the top 200px empty area only) -->
 <script>
 (function() {
   const header = document.querySelector('header');
