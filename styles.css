@@ -662,3 +662,97 @@ footer {
   pointer-events: none;
 }
 
+/*============================
+   Mobile / Tablet adjustments
+============================*/
+
+/* At 768px and below… */
+@media (max-width: 768px) {
+
+  /* 1. Header & nav become vertical */
+  header {
+    padding: 0.5rem 0;
+  }
+
+  /* Stack the logo, actions, nav and search */
+  header h1,
+  .header-actions,
+  nav,
+  .site-search-form {
+    margin: 0.5rem auto;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  /* Nav list: vertical and full width */
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  nav ul li {
+    margin: 0.25rem 0;
+  }
+
+  /* 2. Shrink the search bar to full width of its container */
+  .site-search-form {
+    width: 90%;
+    max-width: 400px;
+  }
+  .site-search-form input {
+    width: 100%;
+  }
+
+  /* 3. Hero / regular section: reduce padding */
+  .regular {
+    padding: 1.5rem 2%;
+  }
+  .regular h2 {
+    font-size: 1.8rem;
+  }
+  .regular p {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* 4. Footer columns stack vertically */
+  .footer-container {
+    grid-template-columns: 1fr;  /* single column */
+    gap: 1.5rem;
+  }
+  .footer-logo img {
+    position: static;
+    transform: none;
+    margin: 0 auto;
+    top: auto;
+    left: auto;
+  }
+
+  /* 5. Reduce star‐bar height so it’s not obscuring too much */
+  .star-bar {
+    height: 120px;
+  }
+}
+
+/* For very small screens (480px and below)… */
+@media (max-width: 480px) {
+  /* Further tighten up text sizes */
+  .regular h2 {
+    font-size: 1.5rem;
+  }
+  .regular p {
+    font-size: 0.9rem;
+  }
+
+  /* Shrink header‐actions font a bit */
+  .header-actions a {
+    font-size: 0.8rem;
+  }
+
+  /* Make footer text smaller */
+  .footer-bottom {
+    font-size: 0.7rem;
+    padding: 0.5rem 2%;
+  }
+}
+
