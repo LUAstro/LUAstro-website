@@ -734,6 +734,31 @@ footer {
     object-fit: cover;
   }
 
+  /* 1. Limit image height */
+  .photo-grid figure img {
+    max-height: 100px;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* 2. Ensure figure blocks stack if they’re wide */
+  .photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem; /* optional: space between images */
+  }
+
+  .photo-grid figure {
+    flex: 1 1 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+
   body::before {
     background-size: contain;
     background-position: top center;
