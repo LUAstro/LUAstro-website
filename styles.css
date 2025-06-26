@@ -669,14 +669,11 @@ footer {
 /* At 768px and below… */
 @media (max-width: 768px) {
 
-  /* 1. Header & nav become vertical */
   header {
     padding: 0.5rem 0;
   }
 
-  /* Stack the logo, actions, nav and search */
   header h1,
-  .header-actions,
   nav,
   .site-search-form {
     margin: 0.5rem auto;
@@ -685,7 +682,6 @@ footer {
     text-align: center;
   }
 
-  /* Nav list: vertical and full width */
   nav ul {
     flex-direction: column;
     gap: 0.5rem;
@@ -694,7 +690,6 @@ footer {
     margin: 0.25rem 0;
   }
 
-  /* 2. Shrink the search bar to full width */
   .site-search-form {
     width: 90%;
     max-width: 400px;
@@ -703,16 +698,15 @@ footer {
     width: 100%;
   }
 
-  /* 3. Regular section: reduce padding */
   .regular {
     padding: 1.5rem 2%;
   }
 
-  /* 4. Footer columns stack vertically */
   .footer-container {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
   .footer-logo img {
     position: static;
     transform: none;
@@ -721,55 +715,65 @@ footer {
     left: auto;
   }
 
-  /* 5. Reduce star‐bar height */
   .star-bar {
     height: 120px;
   }
 
-  /* 6. Drastically shrink the “Welcome” heading */
-  .regular h2 {
-    font-size: 0.5rem !important;
+  .hero h2 {
+    font-size: clamp(1rem, 3vw, 1.2rem);
   }
 
-  /* 7. Keep photo-grid images at natural aspect ratio */
   .photo-grid figure {
     width: clamp(150px, 25vw, 300px);
     height: auto;
   }
+
   .photo-grid figure img {
     width: 100%;
     height: auto;
-    object-fit: contain;
+    object-fit: cover;
   }
 
-  /* 8. Mobile background: contain, top-center */
   body::before {
     background-size: contain;
     background-position: top center;
   }
+
+  .container {
+    width: 90%;
+    max-width: 95%;
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+
+  .site-footer,
+  header {
+    padding: 1rem 0;
+  }
 }
 
-/* For very small screens (480px and below)… */
+/* Very small screens (≤480px) */
 @media (max-width: 480px) {
 
-  /* Further tighten up text sizes */
   .regular p {
     font-size: 0.9rem;
   }
 
-  /* Shrink header‐actions font */
   .header-actions a {
     font-size: 0.8rem;
   }
 
-  /* Footer bottom smaller */
   .footer-bottom {
     font-size: 0.7rem;
     padding: 0.5rem 2%;
   }
 
-  /* Further shrink logo if needed */
   header h1 img.follow-logo {
     width: clamp(100px, 30vw, 200px);
+    height: auto;
+  }
+
+  .star-bar {
+    height: 100px;
   }
 }
