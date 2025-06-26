@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LUAstroSoc | Lancaster University Astronomy Society</title>
+  <title>Astrophotography | LUAstro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -11,9 +11,11 @@
   rel="stylesheet"
 />
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="/images/LUAstro_Old.png" type="png">
 </head>
 <body>
   <header>
+    <div class="star-bar"></div>
     <h1><img src="/images/LUAstro_Wormstyle_DarkMode.png" alt="LUAstro" class="follow-logo">
     Astrophotography! </h1>
     <nav>
@@ -25,8 +27,22 @@
         <li><a href="/aboutus/">About us</a></li>
       </ul>
     </nav>
-  </header>
+    
+    <form id="siteSearchForm"
+      class="site-search-form"
+      action="/search/"
+      method="get">
+    <input type="text"
+         id="siteSearchInput"
+         name="q"
+         placeholder="Search the site…"
+         aria-label="Site search"/>
+    <button type="submit">🔍</button>
+    </form>
 
+  </header>
+</head>
+<body>
   <main>
       <div class="container">
       <section class="hero">
