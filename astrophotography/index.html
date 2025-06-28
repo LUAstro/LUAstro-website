@@ -76,9 +76,9 @@
       <select id="creatorFilter">
         <option value="">All Photographers</option>
         <option>John Ray</option>
-        <option>Finlay Daniel-McKeigue</option>
+        <option>Finlay DM</option>
         <option>Ianto Evans</option>
-        <option>Orlando Prugel-Bennett</option>
+        <option>Orlando PB</option>
         <option>Jacob Hughes</option>
         <option>Michael Storey</option>
         <option>Antonio Coutlon</option>
@@ -116,7 +116,7 @@
         <figure
           data-object="Rosette Nebula (NGC 2237)"
           data-equipment="SeeStar S50"
-          data-creator="Finlay Daniel‑McKeigue"
+          data-creator="Finlay DM"
           data-year="2024">
           <img src="/images/bgRosetteNebulabyFinlay.jpg"
                alt="The Rosette Nebula, taken by our Treasurer Finlay.">
@@ -126,7 +126,7 @@
         <figure
           data-object="Pleiades (M45)"
           data-equipment="RedCat51"
-          data-creator="Orlando Prugel‑Bennett"
+          data-creator="Orlando PB"
           data-year="2024">
           <img src="/images/bgPleiadesbyOrlando.jpg"
                alt="The Pleiades, taken by the Society's previous President, Orlando.">
@@ -456,6 +456,7 @@
         .toLowerCase()
         .replace(/\u00A0/g,' ')    // non‑breaking spaces → normal space
         .replace(/\s+/g,' ')      // collapse any whitespace
+        .replace(/[^\w\s]/g,'')   // strip punctuation
         .trim();
     }
 
