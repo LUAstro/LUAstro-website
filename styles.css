@@ -254,8 +254,8 @@ section {
   grid-gap: 1.5rem; */
 
   /* …and use columns instead: */
-  column-width: 300px;      /* each “column” is at least 300px */
-  column-gap: 0.75rem;       /* spacing between those columns */
+  column-width: 400px;      /* each “column” is at least 400px (previously put this as 300px) */
+  column-gap: 0rem;       /* spacing between those columns REMOVED */
   padding: 0 5%;            /* match your container padding */
 }
 
