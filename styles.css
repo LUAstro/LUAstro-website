@@ -255,7 +255,7 @@ section {
 
   /* …and use columns instead: */
   column-width: 300px;      /* each “column” is at least 300px */
-  column-gap: 1.5rem;       /* spacing between those columns */
+  column-gap: 0.75rem;       /* spacing between those columns */
   padding: 0 5%;            /* match your container padding */
 }
 
@@ -263,7 +263,7 @@ section {
 .photo-grid figure {
   display: inline-block;    /* required for column layouts */
   width: 100%;              /* fill the column’s width */
-  margin: 0 0 1.5rem;       /* vertical gap between items */
+  margin: 0 0 0.75rem;       /* vertical gap between items */
   break-inside: avoid;      /* don’t let a figure split across columns */
   position: relative;
   text-decoration: none;
@@ -324,7 +324,7 @@ section {
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
-  margin: 1.5rem auto;
+  margin: 0.75rem auto;
   padding: 0 5%;
 }
 
@@ -338,7 +338,7 @@ section {
 }
 
 .gallery-controls input[type="search"] {
-  flex: 1 1 200px;   /* grow to fill, minimum 200px */
+  flex: 1 1 300px;   /* grow to fill, minimum 300px */
 }
 
 .gallery-controls select {
