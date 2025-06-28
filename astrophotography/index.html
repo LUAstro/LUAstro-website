@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -6,13 +6,13 @@
   <meta name="description" content="Astrophotography page - showing some of the many photos taken by LUAstro members">
   <meta name="keywords" content="Astrophotography, Photography, Photos, photos, pictures, pics, RedCat51, Images, gallery, Astrophotography gallery, LUAstro">
   <title>Astrophotography | LUAstro</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap"
-  rel="stylesheet"
-/>
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="/images/LUAstro_Old.png" type="png">
 </head>
 <body>
@@ -34,160 +34,267 @@
       class="site-search-form"
       action="/search/"
       method="get">
-    <input type="text"
-         id="siteSearchInput"
-         name="q"
-         placeholder="Search the site…"
-         aria-label="Site search"/>
-    <button type="submit">🔍</button>
+      <input type="text"
+             id="siteSearchInput"
+             name="q"
+             placeholder="Search the site…"
+             aria-label="Site search"/>
+      <button type="submit">🔍</button>
     </form>
 
   </header>
-</head>
-<body>
   <main>
-      <div class="container">
+    <div class="container">
       <section class="hero">
-      <h2>Astrophotography Gallery</h2>
+        <h2>Astrophotography Gallery</h2>
       </section>
       <section class="intro">
-      <p>Here are some of the (many) photos taken by our members! Most were taken using the Society's RedCat51 telescope, and processed with Siril, Graxpert, and StarNet. Enjoy! 
-        This page is a work in progress currently - hence the very small selection of images. Fullscreen mode works best on PC currently - I'm working to fix it for portrait mode on mobile devices.</p>
+        <p>Here are some of the (many) photos taken by our members! Most were taken using the Society's RedCat51 telescope, and processed with Siril, Graxpert, and StarNet. Enjoy! 
+          This page is a work in progress currently - hence the very small selection of images. Fullscreen mode works best on PC currently - I'm working to fix it for portrait mode on mobile devices.</p>
       </section>
-      </div>
-      <div class="photo-grid">
+    </div>
+    <div class="gallery-controls">
+      <input 
+        type="search" 
+        id="photoSearch" 
+        placeholder="Search objects…" 
+        list="objectList"
+        autocomplete="off"
+      >
+      <datalist id="objectList">
+        </datalist>
+
+      <select id="equipmentFilter">
+        <option value="">All Equipment</option>
+        <option>RedCat51</option>
+        <option>SeeStar S50</option>
+        <option>Coronado</option>
+        <option>Orlando's Observatory</option>
+        <option>James Webb Space Telescope</option>
+      </select>
+
+      <select id="creatorFilter">
+        <option value="">All Photographers</option>
+        <option>John Ray</option>
+        <option>Finlay Daniel-McKeigue</option>
+        <option>Ianto Evans</option>
+        <option>Orlando Prugel-Bennett</option>
+        <option>Jacob Hughes</option>
+        <option>Michael Storey</option>
+        <option>Antonio Coutlon</option>
+      </select>
+
+      <select id="yearFilter">
+        <option value="">All Years</option>
+        <option>2025</option>
+        <option>2024</option>
+        <option>2023</option>
+        <option>2022</option>
+        <option>2021</option>
+        <option>2020</option>
+        <option>2019</option>
+        <option>2018</option>
+        <option>2017</option>
+      </select>
+    </div>
+    <div class="container">
+      <p id="galleryCaption">All LUAstro photos</p>
+    </div>
+    <div class="photo-grid">
       <section class="gallery">
-        <figure>
-          <img src="/images/bgAndromedabyJohn.jpg" alt="Andromeda Galaxy, taken by our current President, John." />
-          <figcaption>Andromeda Galaxy (M31) with ~ 3.5 hours exposure using the Society's RedCat51 telescope. Taken by our current President, John.</figcaption>
+
+        <figure
+          data-object="Andromeda Galaxy (M31)"
+          data-equipment="RedCat51 Telescope"
+          data-creator="John Ray"
+          data-year="2024">
+          <img src="/images/bgAndromedabyJohn.jpg"
+               alt="Andromeda Galaxy, taken by our current President, John.">
+          <figcaption>Andromeda Galaxy (M31) with ~3.5 h exposure, taken by John Ray using RedCat51 Telescope.</figcaption>
         </figure>
-        <figure>
-          <img src="/images/bgRosetteNebulabyFinlay.jpg" alt="The Rosette Nebula, taken by our Treasurer Finlay." />
-          <figcaption>The Rosette Nebula, taken by our Treasurer Finlay using his SeeStar S50.</figcaption>
+
+        <figure
+          data-object="Rosette Nebula (NGC 2237)"
+          data-equipment="RedCat51 Telescope"
+          data-creator="Finlay Daniel‑McKeigue"
+          data-year="2024">
+          <img src="/images/bgRosetteNebulabyFinlay.jpg"
+               alt="The Rosette Nebula, taken by our Treasurer Finlay.">
+          <figcaption>Rosette Nebula (NGC 2237), taken by Finlay Daniel‑McKeigue using RedCat51 Telescope.</figcaption>
         </figure>
-        <figure>
-          <img src="/images/bgPleiadesbyOrlando.jpg" alt="The Pleiades, taken by the Society's previous President, Orlando." />
-          <figcaption>The Pleiades, taken by the Society's previous President, Orlando, using the Society's RedCat51.</figcaption>
+
+        <figure
+          data-object="Pleiades (M45)"
+          data-equipment="RedCat51 Telescope"
+          data-creator="Orlando Prugel‑Bennett"
+          data-year="2024">
+          <img src="/images/bgPleiadesbyOrlando.jpg"
+               alt="The Pleiades, taken by the Society's previous President, Orlando.">
+          <figcaption>Pleiades (M45), taken by Orlando Prugel‑Bennett using RedCat51 Telescope.</figcaption>
         </figure>
-        <figure>
-          <img src="/images/bgOrionNebulabyIanto.jpg" alt="The Orion Nebula, taken by our Observation Officer, Ianto." />
-          <figcaption>The Orion Nebula, taken by our Observation Officer, Ianto, using the Society's RedCat51.</figcaption>
+
+        <figure
+          data-object="Orion Nebula (M42)"
+          data-equipment="RedCat51 Telescope"
+          data-creator="Ianto Evans"
+          data-year="2024">
+          <img src="/images/bgOrionNebulabyIanto.jpg"
+               alt="The Orion Nebula, taken by our Observation Officer, Ianto.">
+          <figcaption>Orion Nebula (M42), taken by Ianto Evans using RedCat51 Telescope.</figcaption>
         </figure>
-        <figure>
-          <img src="/images/bgCaliforniaNebulabyJohn.jpg" alt="The California Nebula, taken by our current President, John." />
-          <figcaption>The California Nebula (NGC 1499), taken by our current President, John, also using the Society's RedCat Telescope.</figcaption>
+
+        <figure
+          data-object="California Nebula (NGC 1499)"
+          data-equipment="RedCat51 Telescope"
+          data-creator="John Ray"
+          data-year="2024">
+          <img src="/images/bgCaliforniaNebulabyJohn.jpg"
+               alt="The California Nebula, taken by our current President, John.">
+          <figcaption>California Nebula (NGC 1499), taken by John Ray using RedCat51 Telescope.</figcaption>
         </figure>
-        <figure>
-          <img src="/images/King5.JPG" alt="Huh, what's the King doing here?" />
-          <figcaption>Huh, what's the King doing here?</figcaption>
+
+        <figure
+          data-object="JWST Two‑Channel Image"
+          data-equipment="RedCat51 Telescope"
+          data-creator="Finlay Daniel‑McKeigue"
+          data-year="2024">
+          <img src="/images/JWSTtwochannels1080psharp.webp"
+               alt="JWST image, processed by our Treasurer, Finlay">
+          <figcaption>JWST Two‑Channel Image, processed by Finlay Daniel‑McKeigue using RedCat51 Telescope.</figcaption>
         </figure>
-        <figure>
-          <img src="/images/JWSTtwochannels1080psharp.webp" alt="JWST image, processed by our Treasurer, Finlay" />
-          <figcaption>JWST image, processed by our Treasurer, Finlay</figcaption>
+
+        <figure
+          data-object="Eagle Nebula (M16)"
+          data-equipment="RedCat51 Telescope"
+          data-creator="Orlando Prugel‑Bennett"
+          data-year="2024">
+          <img src="/images/M16.webp"
+               alt="M16 taken by our 24/25 President, Orlando">
+          <figcaption>Eagle Nebula (M16), taken by Orlando Prugel‑Bennett using RedCat51 Telescope.</figcaption>
         </figure>
-        <figure>
-          <img src="/images/M16.webp" alt="M16 taken by our 24/25 President, Orlando" />
-          <figcaption>M16 taken by our 24/25 President, Orlando</figcaption>
+
+        <figure
+          data-object="North America Nebula (NGC 7000)"
+          data-equipment="RedCat51 Telescope"
+          data-creator="Finlay Daniel‑McKeigue"
+          data-year="2024">
+          <img src="/images/NGC7000.webp"
+               alt="NGC7000, taken by Finlay, our Treasurer, and John, our President">
+          <figcaption>North America Nebula (NGC 7000), taken by Finlay Daniel‑McKeigue using RedCat51 Telescope.</figcaption>
         </figure>
-        <figure>
-          <img src="/images/NGC7000.webp" alt="NGC7000, taken by Finlay, our Treasurer, and John, our President" />
-          <figcaption>NGC7000, taken by Finlay, our Treasurer, and John, our President</figcaption>
+
+        <figure
+          data-object="Veil Nebula (NGC 6960)"
+          data-equipment="RedCat51 Telescope"
+          data-creator="Finlay Daniel‑McKeigue"
+          data-year="2024">
+          <img src="/images/VeilNebula.webp"
+               alt="The Veil Nebula, taken by our Treasurer, Finlay, using his SeeStar S50">
+          <figcaption>Veil Nebula (NGC 6960), taken by Finlay Daniel‑McKeigue using RedCat51 Telescope.</figcaption>
         </figure>
-        <figure>
-          <img src="/images/VeilNebula.webp" alt="The Veil Nebula, taken by our Treasurer, Finlay, using his SeeStar S50" />
-          <figcaption>The Veil Nebula, taken by our Treasurer, Finlay, using his SeeStar S50</figcaption>
+
+        <figure
+          data-object="Heart Nebula (IC 1805)"
+          data-equipment="RedCat51 Telescope"
+          data-creator="Finlay Daniel‑McKeigue"
+          data-year="2024">
+          <img src="/images/HeartNebulaFinalJPG.webp"
+               alt="The Heart Nebula, taken by our Treasurer, Finlay, using his SeeStar S50">
+          <figcaption>Heart Nebula (IC 1805), taken by Finlay Daniel‑McKeigue using RedCat51 Telescope.</figcaption>
         </figure>
-        <figure>
-          <img src="/images/HeartNebulaFinalJPG.webp" alt="The Heart Nebula, taken by our Treasurer, Finlay, using his SeeStar S50" />
-          <figcaption>The Heart Nebula, taken by our Treasurer, Finlay, using his SeeStar S50</figcaption>
+
+        <figure
+          data-object="Horsehead & Flame Nebulae (Barnard 33 & NGC 2024)"
+          data-equipment="RedCat51 Telescope"
+          data-creator="Orlando Prugel‑Bennett"
+          data-year="2024">
+          <img src="/images/Orion__Flame_Nebula_Original.webp"
+               alt="The Horsehead, Flame, and Orion Nebulae taken by our past President, Orlando.">
+          <figcaption>Horsehead & Flame Nebulae (Barnard 33 & NGC 2024), taken by Orlando Prugel‑Bennett using RedCat51 Telescope.</figcaption>
         </figure>
-        <figure>
-          <img src="/images/Orion__Flame_Nebula_Original.webp" alt="The Horsehead, Flame, and Orion Nebulae taken by our past President, Orlando." />
-          <figcaption>The Horsehead, Flame, and Orion Nebulae taken by our past President, Orlando.</figcaption>
+
+        <figure
+          data-object="Pinwheel Galaxy (M101)"
+          data-equipment="RedCat51 Telescope"
+          data-creator="Orlando Prugel‑Bennett"
+          data-year="2024">
+          <img src="/images/M101_Jpeg_Original.webp"
+               alt="M101, the Pinwheel Galaxy, taken by our past President, Orlando.">
+          <figcaption>Pinwheel Galaxy (M101), taken by Orlando Prugel‑Bennett using RedCat51 Telescope.</figcaption>
         </figure>
-        <figure>
-          <img src="/images/M101_Jpeg_Original.webp" alt="M101, the Pinwheel Galaxy, taken by our past President, Orlando." />
-          <figcaption>M101, the Pinwheel Galaxy, taken by our past President, Orlando.</figcaption>
-        </figure>
+
       </section>
-      </div>
+    </div>
   </main>
 
-
- </div>	
   <div class="extra-space"></div>
 
-<footer class="site-footer">
-  <div class="footer-container">
-    <!-- Mission (left) -->
-    <div class="footer-section footer-mission">
-      <h4>Lancaster University Astronomy Society</h4>
-      <p>LUAstro observes the wonders of space and the stars all from the top of the Physics Building! Join us for observing nights, Astrophotography workshops, socials, and more!</p>
-      <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc" class="join-btn">Join Us →</a>
-    </div>
-
-    <!-- Quick Links (centre-left) -->
-    <div class="footer-section footer-links">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/astrophotography/">Astrophotography</a></li>
-        <li><a href="/newsletters/">Newsletters</a></li>
-        <li><a href="/exec/">Exec Team</a></li>
-        <li><a href="/aboutus/">About Us</a></li>
-      </ul>
-    </div>
-
-<!-- LUAstro Old Logo (centre-right) -->
-    <div class="footer-section footer-logo">
-      <img src="/images/LUAstro_Old.png" alt="LUAstro Logo">
-    </div>
-
-    <!-- Follow Us + Newsletters (right) -->
-    <div class="footer-section footer-social">
-      <h4>Follow   
-<img src="/images/LUAstro_Wormstyle_DarkMode.png" alt="LUAstro" class="follow-logo">
-      </h4>
-      <div class="social-icons">
-        <a href="https://discord.gg/pWtk7SRUww" aria-label="Discord">
-          <img src="/images/discord.png" alt="Discord">
-        </a>
-        <a href="https://www.instagram.com/luastrosoc/" aria-label="Instagram">
-          <img src="/images/instagram.png" alt="Instagram">
-        </a>
-        <a href="https://twitter.com/luastrosoc" aria-label="Twitter">
-          <img src="/images/twitter.png" alt="Twitter">
-        </a>
-        <a href="https://www.youtube.com/@lancasteruniversityastrono1095" aria-label="YouTube">
-          <img src="/images/youtube.png" alt="YouTube">
-        </a>
-        <a href="https://www.facebook.com/LuAstroSoc/" aria-label="Facebook">
-          <img src="/images/facebook.png" alt="Facebook">
-        </a>
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-section footer-mission">
+        <h4>Lancaster University Astronomy Society</h4>
+        <p>LUAstro observes the wonders of space and the stars all from the top of the Physics Building! Join us for observing nights, Astrophotography workshops, socials, and more!</p>
+        <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc" class="join-btn">Join Us →</a>
       </div>
-      <a href="/newsletters/" class="footer-link">Newsletters</a>
+
+      <div class="footer-section footer-links">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/astrophotography/">Astrophotography</a></li>
+          <li><a href="/newsletters/">Newsletters</a></li>
+          <li><a href="/exec/">Exec Team</a></li>
+          <li><a href="/aboutus/">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section footer-logo">
+        <img src="/images/LUAstro_Old.png" alt="LUAstro Logo">
+      </div>
+
+      <div class="footer-section footer-social">
+        <h4>Follow 
+          <img src="/images/LUAstro_Wormstyle_DarkMode.png" alt="LUAstro" class="follow-logo">
+        </h4>
+        <div class="social-icons">
+          <a href="https://discord.gg/pWtk7SRUww" aria-label="Discord">
+            <img src="/images/discord.png" alt="Discord">
+          </a>
+          <a href="https://www.instagram.com/luastrosoc/" aria-label="Instagram">
+            <img src="/images/instagram.png" alt="Instagram">
+          </a>
+          <a href="https://twitter.com/luastrosoc" aria-label="Twitter">
+            <img src="/images/twitter.png" alt="Twitter">
+          </a>
+          <a href="https://www.youtube.com/@lancasteruniversityastrono1095" aria-label="YouTube">
+            <img src="/images/youtube.png" alt="YouTube">
+          </a>
+          <a href="https://www.facebook.com/LuAstroSoc/" aria-label="Facebook">
+            <img src="/images/facebook.png" alt="Facebook">
+          </a>
+        </div>
+        <a href="/newsletters/" class="footer-link">Newsletters</a>
+      </div>
     </div>
-  </div>
 
-  <!-- Bottom bar -->
-  <div class="footer-bottom">
-    <p>Last updated: June 18, 2025 | Last edited by: <a href:"https://www.johnray.co.uk">John Ray</a></p>
-  </div>
-</footer>
-<script>
-  (function() {
-    const images = [
-      '/images/bgAndromedabyJohn.jpg',
-      '/images/bgRosetteNebulabyFinlay.jpg',
-      '/images/bgOrionNebulabyIanto.jpg',
-      '/images/bgCaliforniaNebulabyJohn.jpg',
-      '/images/bgPleiadesbyOrlando.jpg'
-    ];
-    const choice = images[Math.floor(Math.random() * images.length)];
-    document.body.style.setProperty('--page-bg', `url(${choice})`);
-  })();
-</script>
+    <div class="footer-bottom">
+      <p>Last updated: June 18, 2025 | Last edited by: <a href="https://www.johnray.co.uk">John Ray</a></p>
+    </div>
+  </footer>
 
-<!-- Lightbox Markup -->
+  <script>
+    (function() {
+      const images = [
+        '/images/bgAndromedabyJohn.jpg',
+        '/images/bgRosetteNebulabyFinlay.jpg',
+        '/images/bgOrionNebulabyIanto.jpg',
+        '/images/bgCaliforniaNebulabyJohn.jpg',
+        '/images/bgPleiadesbyOrlando.jpg'
+      ];
+      const choice = images[Math.floor(Math.random() * images.length)];
+      document.body.style.setProperty('--page-bg', `url(${choice})`);
+    })();
+  </script>
+
   <div id="lightbox" class="lightbox">
     <div class="lightbox-content">
       <button class="lb-close"    title="Close">✕</button>
@@ -199,119 +306,293 @@
     </div>
   </div>
 
-<script>
-(function() {
-  // Grab all <figure> items in the photo-grid
-  const figures   = Array.from(document.querySelectorAll('.photo-grid figure'));
-  const lightbox  = document.getElementById('lightbox');
-  const lbContent = lightbox.querySelector('.lightbox-content');
-  const lbImg     = lbContent.querySelector('img');
-  const lbCaption = lbContent.querySelector('.lb-caption');
-  const closeBtn  = lbContent.querySelector('.lb-close');
-  const maxBtn    = lbContent.querySelector('.lb-maximize');
-  const prevBtn   = lbContent.querySelector('.lb-prev');
-  const nextBtn   = lbContent.querySelector('.lb-next');
-  let currentIndex = 0;
+  <script>
+  (function() {
+    const figures   = Array.from(document.querySelectorAll('.photo-grid figure'));
+    const lightbox  = document.getElementById('lightbox');
+    const lbContent = lightbox.querySelector('.lightbox-content');
+    const lbImg     = lbContent.querySelector('img');
+    const lbCaption = lbContent.querySelector('.lb-caption');
+    const closeBtn  = lbContent.querySelector('.lb-close');
+    const maxBtn    = lbContent.querySelector('.lb-maximize');
+    const prevBtn   = lbContent.querySelector('.lb-prev');
+    const nextBtn   = lbContent.querySelector('.lb-next');
+    let currentIndex = 0;
 
-  function showLightbox(idx) {
-    currentIndex = idx;
-    const fig = figures[idx];
-    const img = fig.querySelector('img');
-    lbImg.src     = img.src;
-    lbImg.alt     = img.alt;
-    lbCaption.textContent = fig.querySelector('figcaption').innerText;
-    lightbox.classList.add('open');
-  }
-  function hideLightbox() {
-    lightbox.classList.remove('open');
-    if (document.fullscreenElement) document.exitFullscreen();
-  }
-  function showPrev() { showLightbox((currentIndex - 1 + figures.length) % figures.length); }
-  function showNext() { showLightbox((currentIndex + 1) % figures.length); }
-
-  figures.forEach((fig, idx) => {
-    fig.addEventListener('click', e => {
-      e.preventDefault();
-      showLightbox(idx);
-    });
-  });
-
-  closeBtn.addEventListener('click', e => { e.stopPropagation(); hideLightbox(); });
-  lightbox.addEventListener('click', hideLightbox);
-  lbContent.addEventListener('click', e => e.stopPropagation());
-  prevBtn.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
-  nextBtn.addEventListener('click', e => { e.stopPropagation(); showNext(); });
-  maxBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    if (!document.fullscreenElement) {
-      lbContent.requestFullscreen?.();
-    } else {
-      document.exitFullscreen();
+    function showLightbox(idx) {
+      currentIndex = idx;
+      const fig = figures[idx];
+      const img = fig.querySelector('img');
+      lbImg.src       = img.src;
+      lbImg.alt       = img.alt;
+      lbCaption.textContent = fig.querySelector('figcaption').innerText;
+      lightbox.classList.add('open');
     }
-  });
+    function hideLightbox() {
+      lightbox.classList.remove('open');
+      if (document.fullscreenElement) document.exitFullscreen();
+    }
+    function showPrev() { showLightbox((currentIndex - 1 + figures.length) % figures.length); }
+    function showNext() { showLightbox((currentIndex + 1) % figures.length); }
 
-  document.addEventListener('keydown', e => {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') hideLightbox();
-    if (e.key === 'ArrowLeft') showPrev();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'Enter') maxBtn.click();
-  });
-})();
-</script>
-
-  
-<!-- Bouncing stars in header (click the top 200px empty area only) -->
-<script>
-(function() {
-  const header = document.querySelector('header');
-  const bar    = document.querySelector('.star-bar');
-  const stars  = [];
-
-  function createStar(x,y) {
-    const s = document.createElement('span');
-    s.className = 'star';
-    s.textContent = '★';
-    s.x = x; s.y = y;
-    s.vx = Math.random()*4 - 2;
-    s.vy = Math.random()*4 - 2;
-    bar.appendChild(s);
-    stars.push(s);
-    update(s);
-  }
-
-  function update(s) {
-    s.style.left = s.x + 'px';
-    s.style.top  = s.y + 'px';
-  }
-
-  function animate() {
-    const w = bar.clientWidth, h = bar.clientHeight;
-    stars.forEach(s => {
-      s.x += s.vx; s.y += s.vy;
-      if (s.x < 0 || s.x > w) s.vx *= -1;
-      if (s.y < 0 || s.y > h) s.vy *= -1;
-      s.x = Math.max(0, Math.min(w, s.x));
-      s.y = Math.max(0, Math.min(h, s.y));
-      update(s);
+    figures.forEach((fig, idx) => {
+      fig.addEventListener('click', e => {
+        e.preventDefault();
+        showLightbox(idx);
+      });
     });
-    requestAnimationFrame(animate);
+
+    closeBtn.addEventListener('click', e => { e.stopPropagation(); hideLightbox(); });
+    lightbox.addEventListener('click', hideLightbox);
+    lbContent.addEventListener('click', e => e.stopPropagation());
+    prevBtn.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+    nextBtn.addEventListener('click', e => { e.stopPropagation(); showNext(); });
+    maxBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      if (!document.fullscreenElement) {
+        lbContent.requestFullscreen?.();
+      } else {
+        document.exitFullscreen();
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') hideLightbox();
+      if (e.key === 'ArrowLeft') showPrev();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'Enter') maxBtn.click();
+    });
+  })();
+  </script>
+
+  <script>
+  (function() {
+    const header = document.querySelector('header');
+    const bar    = document.querySelector('.star-bar');
+    const stars  = [];
+
+    function createStar(x,y) {
+      const s = document.createElement('span');
+      s.className = 'star';
+      s.textContent = '★';
+      s.x = x; s.y = y;
+      s.vx = Math.random()*4 - 2;
+      s.vy = Math.random()*4 - 2;
+      bar.appendChild(s);
+      stars.push(s);
+      update(s);
+    }
+
+    function update(s) {
+      s.style.left = s.x + 'px';
+      s.style.top  = s.y + 'px';
+    }
+
+    function animate() {
+      const w = bar.clientWidth, h = bar.clientHeight;
+      stars.forEach(s => {
+        s.x += s.vx; s.y += s.vy;
+        if (s.x < 0 || s.x > w) s.vx *= -1;
+        if (s.y < 0 || s.y > h) s.vy *= -1;
+        s.x = Math.max(0, Math.min(w, s.x));
+        s.y = Math.max(0, Math.min(h, s.y));
+        update(s);
+      });
+      requestAnimationFrame(animate);
+    }
+
+    header.addEventListener('click', e => {
+      if (e.offsetY > 100) return;
+      if ( e.target.closest('a, button, input, nav, h1 img') ) return;
+      const rect = bar.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      createStar(x, y);
+    });
+
+    animate();
+  })();
+  </script>
+
+  <script>
+  (function(){
+    const searchInput     = document.getElementById('photoSearch');
+    const equipFilter     = document.getElementById('equipmentFilter');
+    const creatorFilter   = document.getElementById('creatorFilter');
+    const yearFilter      = document.getElementById('yearFilter');
+    const captionEl       = document.getElementById('galleryCaption');
+    const figures         = Array.from(document.querySelectorAll('.photo-grid figure'));
+
+    // Master list with our labels & aliases
+    const objects = [
+      { label: 'Andromeda Galaxy (M31)',             aliases: ['andromeda galaxy','m31'] },
+      { label: 'Pinwheel Galaxy (M101)',             aliases: ['pinwheel galaxy','m101'] },
+      { label: 'Fireworks Galaxy (NGC 6946)',        aliases: ['fireworks galaxy','ngc 6946','ngc6946'] },
+
+      { label: 'Orion Nebula (M42)',                 aliases: ['orion nebula','m42'] },
+      { label: 'Rosette Nebula (NGC 2237)',          aliases: ['rosette nebula','ngc 2237','ngc2237'] },
+      { label: 'California Nebula (NGC 1499)',       aliases: ['california nebula','ngc 1499','ngc1499'] },
+      { label: 'Heart Nebula (IC 1805)',             aliases: ['heart nebula','ic 1805','ic1805'] },
+      { label: 'North America Nebula (NGC 7000)',    aliases: ['north america nebula','ngc 7000','ngc7000'] },
+      { label: 'Veil Nebula (NGC 6960)',             aliases: ['veil nebula','ngc 6960','ngc6960'] },
+      { label: 'Horsehead & Flame Nebulae (Barnard 33 & NGC 2024)',
+        aliases: [
+          'horsehead nebula','barnard 33','barnard33',
+          'flame nebula','ngc 2024','ngc2024','orion nebula'
+        ]
+      },
+      { label: 'Pleiades (M45)',                     aliases: ['pleiades','m45'] },
+      { label: 'Beehive Cluster (M44)',              aliases: ['beehive cluster','m44'] },
+      { label: 'Hercules Cluster (M13)',             aliases: ['hercules cluster','m13'] },
+      { label: 'Eagle Nebula (M16)',                 aliases: ['eagle nebula', 'm16'] }, // Added Eagle Nebula
+      { label: 'Carina Nebula (NGC 3372)',           aliases: [
+          'carina nebula','ngc 3372','ngc3372','jwst','jwst two‑channel image'
+        ]
+      }
+    ];
+
+    // normalize: lowercase, collapse whitespace (including NBSP), strip punctuation
+    function normalize(str) {
+      return str
+        .toLowerCase()
+        .replace(/\u00A0/g,' ')    // non‑breaking spaces → normal space
+        .replace(/\s+/g,' ')      // collapse any whitespace
+        .replace(/[^\w\s]/g,'')   // strip punctuation
+        .trim();
+    }
+
+    function filterAndCaption() {
+      const rawSearchQuery = searchInput.value.trim();
+      const normalizedSearchQuery = normalize(rawSearchQuery);
+      const equipFilterValue = equipFilter.value;
+      const creatorFilterValue = creatorFilter.value;
+      const yearFilterValue = yearFilter.value;
+
+      figures.forEach(fig => {
+        const figureObjectRaw = fig.dataset.object || '';
+        const figureEquipment = fig.dataset.equipment || '';
+        const figureCreator = fig.dataset.creator || '';
+        const figureYear = fig.dataset.year || '';
+
+        // Object name matching logic
+        let objectMatch = true;
+        if (normalizedSearchQuery) {
+          objectMatch = false;
+          // Find the object definition that corresponds to this figure's data-object
+          const matchedObjectDef = objects.find(objDef => {
+            const normalizedObjLabel = normalize(objDef.label);
+            const normalizedFigureObject = normalize(figureObjectRaw);
+
+            // Check if the figure's data-object matches the object definition's label or any of its aliases
+            return normalizedObjLabel === normalizedFigureObject ||
+                   objDef.aliases.some(alias => normalize(alias) === normalizedFigureObject);
+          });
+
+          if (matchedObjectDef) {
+            // Now, check if the normalized search query is included in any of the aliases or the label
+            objectMatch = matchedObjectDef.aliases.some(alias => normalize(alias).includes(normalizedSearchQuery)) ||
+                          normalize(matchedObjectDef.label).includes(normalizedSearchQuery);
+          }
+        }
+
+        const equipmentMatch = !equipFilterValue || figureEquipment === equipFilterValue;
+        const creatorMatch = !creatorFilterValue || figureCreator === creatorFilterValue;
+        const yearMatch = !yearFilterValue || figureYear === yearFilterValue;
+
+        fig.style.display = (objectMatch && equipmentMatch && creatorMatch && yearMatch) ? '' : 'none';
+      });
+
+      // Update caption
+      let subject = rawSearchQuery || 'LUAstro';
+      let text = '';
+      if (!yearFilterValue && !creatorFilterValue && !equipFilterValue && !rawSearchQuery) {
+        text = 'All LUAstro photos';
+      } else {
+        text = `${yearFilterValue || 'All'} ${subject} photos`;
+        if (creatorFilterValue) text += ` by ${creatorFilterValue}`;
+        if (equipFilterValue) text += ` using ${equipFilterValue}`;
+      }
+      captionEl.textContent = text;
+    }
+
+    [searchInput, equipFilter, creatorFilter, yearFilter]
+      .forEach(el => el.addEventListener('input', filterAndCaption));
+
+    filterAndCaption(); // Initial filter on page load
+  })();
+  </script>
+<script>
+(function(){
+  // Master list with our labels & aliases (redundant now, as it's in the other script, but kept for clarity of original intent)
+  const objects = [
+    { label: 'Andromeda Galaxy (M31)',             aliases: ['andromeda galaxy','m31'] },
+    { label: 'Pinwheel Galaxy (M101)',             aliases: ['pinwheel galaxy','m101'] },
+    { label: 'Fireworks Galaxy (NGC 6946)',        aliases: ['fireworks galaxy','ngc 6946','ngc6946'] },
+
+    { label: 'Orion Nebula (M42)',                 aliases: ['orion nebula','m42'] },
+    { label: 'Rosette Nebula (NGC 2237)',          aliases: ['rosette nebula','ngc 2237','ngc2237'] },
+    { label: 'California Nebula (NGC 1499)',       aliases: ['california nebula','ngc 1499','ngc1499'] },
+    { label: 'Heart Nebula (IC 1805)',             aliases: ['heart nebula','ic 1805','ic1805'] },
+    { label: 'North America Nebula (NGC 7000)',    aliases: ['north america nebula','ngc 7000','ngc7000'] },
+    { label: 'Veil Nebula (NGC 6960)',             aliases: ['veil nebula','ngc 6960','ngc6960'] },
+    { label: 'Flame & Horsehead Nebulae (Barnard 33 & NGC 2024)',
+      aliases: [
+        'horsehead nebula','barnard 33','barnard33',
+        'flame nebula','ngc 2024','ngc2024','orion nebula'
+      ]
+    },
+
+    { label: 'Pleiades (M45)',                     aliases: ['pleiades','m45'] },
+    { label: 'Beehive Cluster (M44)',              aliases: ['beehive cluster','m44'] },
+    { label: 'Hercules Cluster (M13)',             aliases: ['hercules cluster','m13'] },
+    { label: 'Eagle Nebula (M16)',                 aliases: ['eagle nebula', 'm16'] }, // Added Eagle Nebula
+    { label: 'Carina Nebula (NGC 3372)',           aliases: [
+        'carina nebula','ngc 3372','ngc3372','jwst','jwst two‑channel image'
+      ]
+    }
+  ];
+
+  const input    = document.getElementById('photoSearch');
+  const dataList = document.getElementById('objectList');
+
+  // normalize: lowercase, collapse whitespace (including NBSP), strip punctuation
+  function normalize(str) {
+    return str
+      .toLowerCase()
+      .replace(/\u00A0/g,' ')    // non‑breaking spaces → normal space
+      .replace(/\s+/g,' ')      // collapse any whitespace
+      .replace(/[^\w\s]/g,'')   // strip punctuation
+      .trim();
   }
 
-  header.addEventListener('click', e => {
-    // only in the top 100px
-    if (e.offsetY > 100) return;
-    // but NOT when clicking a link, button, nav item, search input, or logo
-    if ( e.target.closest('a, button, input, nav, h1 img') ) return;
-    // compute position relative to star-bar
-    const rect = bar.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    createStar(x, y);
-  });
+  function updateDatalist() {
+    const qNorm = normalize(input.value);
+    dataList.innerHTML = '';
+    if (!qNorm) return;
 
-  animate();
+    const categories = ['Galaxy','Nebula','Cluster','Deep Field'];
+    const matches = objects
+      .filter(o => o.aliases.some(a => normalize(a).includes(qNorm)))
+      .sort((a,b) => {
+        const ca = categories.findIndex(c => a.label.includes(c));
+        const cb = categories.findIndex(c => b.label.includes(c));
+        return ca - cb;
+      })
+      .slice(0,5);
+
+    for (const o of matches) {
+      const opt = document.createElement('option');
+      opt.value = o.label;
+      dataList.appendChild(opt);
+    }
+  }
+
+  input.addEventListener('input', updateDatalist);
+  updateDatalist();
 })();
 </script>
+
+
 </body>
 </html>
