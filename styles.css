@@ -246,20 +246,26 @@ section {
 /*============================
   6. Astrophotography Gallery & Lightbox (adapted)
 ============================*/
-
-/* Gallery grid container (unchanged) */
+/* Masonry‑style gallery using CSS columns */
 .photo-grid {
-  display: grid;
+  /* Remove grid display/columns entirely… */
+  /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 1.5rem;
+  grid-gap: 1.5rem; */
+
+  /* …and use columns instead: */
+  column-width: 300px;      /* each “column” is at least 300px */
+  column-gap: 1.5rem;       /* spacing between those columns */
+  padding: 0 5%;            /* match your container padding */
 }
 
-/* Treat each figure as a “feature-item” */
+/* Each figure becomes an inline‑block item in those columns */
 .photo-grid figure {
+  display: inline-block;    /* required for column layouts */
+  width: 100%;              /* fill the column’s width */
+  margin: 0 0 1.5rem;       /* vertical gap between items */
+  break-inside: avoid;      /* don’t let a figure split across columns */
   position: relative;
-  display: inline-block;
-  height: 100%;              /* fills the grid column (min 300px) */
-  max-height: 300px;
   text-decoration: none;
   color: white;
   text-align: center;
@@ -271,8 +277,8 @@ section {
 
 /* Image */
 .photo-grid figure img {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
   display: block;
   position: relative;
   z-index: 1;
@@ -311,6 +317,41 @@ section {
 }
 .photo-grid figure:hover figcaption {
   opacity: 1;
+}
+
+.gallery-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 1.5rem auto;
+  padding: 0 5%;
+}
+
+.gallery-controls input[type="search"],
+.gallery-controls select {
+  padding: 0.4rem 0.6rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.9rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+}
+
+.gallery-controls input[type="search"] {
+  flex: 1 1 200px;   /* grow to fill, minimum 200px */
+}
+
+.gallery-controls select {
+  flex: 0 1 150px;   /* each dropdown 150px wide */
+}
+
+#galleryCaption {
+  font-family: Helvetica, sans‑serif;
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0.5rem auto 1rem;
+  text-align: center;
+  padding: 0 5%;  /* same container padding */
 }
 
 /* =======================
