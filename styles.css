@@ -248,23 +248,17 @@ section {
 ============================*/
 /* Masonry‑style gallery using CSS columns */
 .photo-grid {
-  /* Remove grid display/columns entirely… */
-  /* display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 1.5rem; */
-
-  /* …and use columns instead: */
   column-width: 400px;      /* each “column” is at least 400px (previously put this as 300px) */
   column-gap: 0rem;       /* spacing between those columns REMOVED */
-  padding: 0 5%;            /* match your container padding */
+  padding: 0 5%;            /* matches the container padding */
 }
 
 /* Each figure becomes an inline‑block item in those columns */
 .photo-grid figure {
   display: inline-block;    /* required for column layouts */
-  width: 100%;              /* fill the column’s width */
-  margin: 0 0 0.75rem;       /* vertical gap between items */
-  break-inside: avoid;      /* don’t let a figure split across columns */
+  width: 100%;              /* fills the column’s width */
+  margin: 0 0 0.75rem;       /* a nice vertical gap between items */
+  break-inside: avoid;      /* stops the figures from splitting across columns */
   position: relative;
   text-decoration: none;
   color: white;
@@ -282,7 +276,7 @@ section {
   display: block;
   position: relative;
   z-index: 1;
-  transition: none;         /* remove any zoom effects */
+  transition: none;         /* removes any annoying zoom effects */
 }
 
 /* Hover overlay */
