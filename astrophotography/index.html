@@ -13,7 +13,7 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="/styles.css" />
-  <link rel="icon" href="/images/LUAstro_Old.png" type="png">
+  <link rel="icon" href="/images/JR's LUAstro Logo.png" type="png">
 </head>
 <body>
   <header>
@@ -112,7 +112,17 @@
                alt="Andromeda Galaxy, taken by our current President, John.">
           <figcaption>Andromeda Galaxy (M31) with ~3.5 h exposure, taken by John Ray using RedCat51 Telescope.</figcaption>
         </figure>
-
+        
+        <figure
+          data-object="California Nebula (NGC 1499)"
+          data-equipment="RedCat51"
+          data-creator="John Ray"
+          data-year="2024">
+          <img src="/images/JRCalNebREPROCESSED.jpg"
+               alt="Reprocessed picture of the California Nebula (NGC 1499), taken by our current President, John.">
+          <figcaption>The California Nebula (NGC 1499), taken by John using the RedCat51 Telescope. Reprocessed with StarNet star removal and further Siril processing.</figcaption>
+        </figure>
+        
         <figure
           data-object="Rosette Nebula (NGC 2237)"
           data-equipment="Seestar S50"
@@ -144,6 +154,16 @@
         </figure>
 
         <figure
+          data-object="North America Nebula (NGC 7000)"
+          data-equipment="RedCat51"
+          data-creator="Finlay DM"
+          data-year="2024">
+          <img src="/images/JRNorthAmericanNebREPROCESSED.jpg"
+               alt="Reprocessed NGC7000, taken by Finlay, our Treasurer, and John, our President">
+          <figcaption>The North America Nebula (NGC 7000), taken by John and Finlay, using the RedCat51 Telescope. Reprocessed with StarNet star removal and further Siril processing.</figcaption>
+        </figure>
+        
+        <figure
           data-object="California Nebula (NGC 1499)"
           data-equipment="RedCat51"
           data-creator="John Ray"
@@ -153,6 +173,16 @@
           <figcaption>California Nebula (NGC 1499), taken by John using the RedCat51 Telescope.</figcaption>
         </figure>
 
+        <figure
+          data-object="Horsehead & Flame Nebulae (Barnard 33 & NGC 2024)"
+          data-equipment="RedCat51"
+          data-creator="John Ray"
+          data-year="2024">
+          <img src="/images/JRHorseheadREPROCESSED.jpg"
+               alt="The Horsehead and Flame Nebulae taken by our current President, John.">
+          <figcaption>Horsehead & Flame Nebulae (Barnard 33 & NGC 2024), taken by John using the Society's RedCat51.</figcaption>
+        </figure>
+        
         <figure
           data-object="JWST Two‑Channel Image"
           data-equipment="James Webb Space Telescope"
@@ -169,7 +199,7 @@
           data-creator="Orlando PB"
           data-year="2024">
           <img src="/images/M16.webp"
-               alt="M16 taken by our 24/25 President, Orlando">
+               alt="The Eagle Nebula (M16) taken by our 24/25 President, Orlando">
           <figcaption>Eagle Nebula (M16), taken by Orlando using the RedCat51 Telescope.</figcaption>
         </figure>
 
@@ -202,9 +232,19 @@
                alt="The Heart Nebula, taken by our Treasurer, Finlay, using his SeeStar S50">
           <figcaption>Heart Nebula (IC 1805), taken by Finlay using his SeeStar S50.</figcaption>
         </figure>
+        
+        <figure
+          data-object="Andromeda Galaxy (M31)"
+          data-equipment="RedCat51"
+          data-creator="John Ray"
+          data-year="2024">
+          <img src="/images/JRAndromedaRevisited.jpg"
+               alt="Reprocessed picture of the Andromeda Galaxy, taken by our current President, John.">
+          <figcaption>Andromeda Galaxy (M31) with ~3.5 h exposure, taken by John Ray using RedCat51 Telescope. Reprocessed with StarNet star removal.</figcaption>
+        </figure>
 
         <figure
-          data-object="Horsehead & Flame Nebulae (Barnard 33 & NGC 2024)"
+          data-object="Horsehead, Flame & Orion Nebulae (Barnard 33, NGC 2024 & M42)"
           data-equipment="Orlando's Observatory"
           data-creator="Orlando PB"
           data-year="2024">
@@ -246,7 +286,7 @@
       </div>
 
       <div class="footer-section footer-logo">
-        <img src="/images/LUAstro_Old.png" alt="LUAstro Logo">
+        <img src="/images/JR's LUAstro Logo.png" alt="LUAstro Logo">
       </div>
 
       <div class="footer-section footer-social">
@@ -275,17 +315,17 @@
     </div>
 
     <div class="footer-bottom">
-      <p>Last updated: June 28, 2025 | Last edited by: <a href="https://www.johnray.co.uk">John Ray</a></p>
+      <p>Last updated: August 13, 2025 | Last edited by: <a href="https://www.johnray.co.uk">John Ray</a></p>
     </div>
   </footer>
 
   <script>
     (function() {
       const images = [
-        '/images/bgAndromedabyJohn.jpg',
+        '/images/JRAndromedaRevisited.jpg',
         '/images/bgRosetteNebulabyFinlay.jpg',
         '/images/bgOrionNebulabyIanto.jpg',
-        '/images/bgCaliforniaNebulabyJohn.jpg',
+        '/images/JRCalNebREPROCESSED.jpg',
         '/images/bgPleiadesbyOrlando.jpg'
       ];
       const choice = images[Math.floor(Math.random() * images.length)];
@@ -427,17 +467,22 @@
       { label: 'Andromeda Galaxy (M31)',             aliases: ['andromeda galaxy','m31'] },
       { label: 'Pinwheel Galaxy (M101)',             aliases: ['pinwheel galaxy','m101'] },
       { label: 'Fireworks Galaxy (NGC 6946)',        aliases: ['fireworks galaxy','ngc 6946','ngc6946'] },
-
       { label: 'Orion Nebula (M42)',                 aliases: ['orion nebula','m42'] },
       { label: 'Rosette Nebula (NGC 2237)',          aliases: ['rosette nebula','ngc 2237','ngc2237'] },
       { label: 'California Nebula (NGC 1499)',       aliases: ['california nebula','ngc 1499','ngc1499'] },
       { label: 'Heart Nebula (IC 1805)',             aliases: ['heart nebula','ic 1805','ic1805'] },
       { label: 'North America Nebula (NGC 7000)',    aliases: ['north america nebula','ngc 7000','ngc7000'] },
       { label: 'Veil Nebula (NGC 6960)',             aliases: ['veil nebula','ngc 6960','ngc6960'] },
-      { label: 'Horsehead & Flame Nebulae (Barnard 33 & NGC 2024)',
+      { label: 'Horsehead, Flame & Orion Nebulae (Barnard 33, NGC 2024 & M42)',
         aliases: [
           'horsehead nebula','barnard 33','barnard33','b33','b 33',
           'flame nebula','ngc 2024','ngc2024','orion nebula','m42'
+        ]
+      },
+      { label: 'Horsehead & Flame Nebulae (Barnard 33 & NGC 2024)',
+        aliases: [
+          'horsehead nebula','barnard 33','barnard33','b33','b 33',
+          'flame nebula','ngc 2024','ngc2024'
         ]
       },
       { label: 'Pleiades (M45)',                     aliases: ['pleiades','m45'] },
@@ -524,3 +569,4 @@
 
 </body>
 </html>
+
