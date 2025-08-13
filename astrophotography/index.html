@@ -71,6 +71,7 @@
         <option>Coronado</option>
         <option>Orlando's Observatory</option>
         <option>James Webb Space Telescope</option>
+        <option>12 inch Meade SCT</option>
       </select>
 
       <select id="creatorFilter">
@@ -244,13 +245,53 @@
         </figure>
 
         <figure
-          data-object="Horsehead, Flame & Orion Nebulae (Barnard 33, NGC 2024 & M42)"
+          data-object="Moon"
+          data-equipment="12 inch Meade SCT"
+          data-creator="John Ray"
+          data-year="2018">
+          <img src="/images/Moon.jpg"
+               alt="The Moon taken by our current President John back in 2018, by holding a phone camera up to the LAS's 12-inch Meade SCT.">
+          <figcaption>The Moon, taken by our current President John back in 2018, by holding a phone camera up to the LAS's 12-inch Meade SCT.</figcaption>
+        </figure>
+
+        <figure
+          data-object="Moon"
+          data-equipment="Seestar S50"
+          data-creator="Finlay DM"
+          data-year="2025">
+          <img src="/images/MoonByFinlay.jpg"
+               alt="The Moon taken by our Treasurer, Finlay, using his SeeStar S50.">
+          <figcaption>The Moon taken by our Treasurer, Finlay, using his SeeStar S50.</figcaption>
+        </figure>
+
+        <figure
+          data-object="Sun"
+          data-equipment="Coronado"
+          data-creator="Ianto Evans"
+          data-year="2025">
+          <img src="/images/SUNBYIANTO.jpg"
+               alt="The Sun taken by our Observation Officer, Ianto, using the Coronado Solar-telescope.">
+          <figcaption>The Sun taken by our Observation Officer, Ianto, using the Coronado Solar-telescope.</figcaption>
+        </figure>
+
+        <figure
+          data-object="Seahorse Nebula, Fireworks Galaxy, & the NGC 6939 Star Cluster"
+          data-equipment="RedCat51"
+          data-creator="John Ray"
+          data-year="2025">
+          <img src="/images/SeahorseNebRevisited.jpg"
+               alt="The Seahorse Nebula, with the Fireworks Galaxy and the NGC 6939 Star Cluster visible in the top left. Taken by Finlay & John.">
+          <figcaption>The Seahorse Nebula (centre), with the Fireworks Galaxy and the NGC 6939 Star Cluster (top left). Taken by Finlay & John.</figcaption>
+        </figure>
+        
+        <figure
+          data-object="Horsehead, Flame & Orion Nebulae (Barnard 33, NGC 2024, & M42)"
           data-equipment="Orlando's Observatory"
           data-creator="Orlando PB"
           data-year="2024">
           <img src="/images/Orion__Flame_Nebula_Original.webp"
-               alt="The Horsehead, Flame, and Orion Nebulae taken by our past President, Orlando.">
-          <figcaption>Horsehead & Flame Nebulae (Barnard 33 & NGC 2024), taken by Orlando using his observatory.</figcaption>
+               alt="The Horsehead, Flame, & Orion Nebulae taken by our past President, Orlando.">
+          <figcaption>Horsehead, Flame, & Orion Nebulae (Barnard 33, NGC 2024, & M42), taken by Orlando using his observatory.</figcaption>
         </figure>
 
         <figure
@@ -472,27 +513,31 @@
       { label: 'California Nebula (NGC 1499)',       aliases: ['california nebula','ngc 1499','ngc1499'] },
       { label: 'Heart Nebula (IC 1805)',             aliases: ['heart nebula','ic 1805','ic1805'] },
       { label: 'North America Nebula (NGC 7000)',    aliases: ['north america nebula','ngc 7000','ngc7000'] },
-      { label: 'Veil Nebula (NGC 6960)',             aliases: ['veil nebula','ngc 6960','ngc6960'] },
-      { label: 'Horsehead, Flame & Orion Nebulae (Barnard 33, NGC 2024 & M42)',
+      { label: 'Veil Nebula (NGC 6960)',             aliases: ['veil nebula','ngc 6960','ngc6960','Caldwell 33', 'Cygnus Loop'] },
+      { label: 'Horsehead, Flame & Orion Nebulae (Barnard 33, NGC 2024, & M42)',
         aliases: [
           'horsehead nebula','barnard 33','barnard33','b33','b 33',
-          'flame nebula','ngc 2024','ngc2024','orion nebula','m42'
+          'flame nebula','ngc 2024','ngc2024','orion nebula','m42','Dark Nebula'
         ]
       },
       { label: 'Horsehead & Flame Nebulae (Barnard 33 & NGC 2024)',
         aliases: [
           'horsehead nebula','barnard 33','barnard33','b33','b 33',
-          'flame nebula','ngc 2024','ngc2024'
+          'flame nebula','ngc 2024','ngc2024','Dark Nebula'
         ]
       },
       { label: 'Pleiades (M45)',                     aliases: ['pleiades','m45'] },
       { label: 'Beehive Cluster (M44)',              aliases: ['beehive cluster','m44'] },
       { label: 'Hercules Cluster (M13)',             aliases: ['hercules cluster','m13'] },
-      { label: 'Eagle Nebula (M16)',                 aliases: ['eagle nebula', 'm16'] }, // Added Eagle Nebula
+      { label: 'Eagle Nebula (M16)',                 aliases: ['eagle nebula', 'm16'] },
       { label: 'Carina Nebula (NGC 3372)',           aliases: [
           'carina nebula','ngc 3372','ngc3372','jwst','jwst two‑channel image'
         ]
-      }
+      },
+      { label: 'Sun',             aliases: ['Sun','Sol','Sol 1','The Sun','Planetary'] },
+      { label: 'Moon',             aliases: ['Moon','The Moon','Cheese','Planetary'] },
+      { label: 'Seahorse Nebula, Fireworks Galaxy, & the NGC 6939 Star Cluster',             aliases: [
+        'Seahorse Nebula','NGC 6939','ngc6939','Fireworks Galaxy','NGC 6946','ngc6946','Barnard 150', 'B150', 'B 150','Dark Nebula'] },
     ];
 
     // normalize: lowercase, collapse whitespace (including NBSP), strip punctuation
@@ -569,4 +614,5 @@
 
 </body>
 </html>
+
 
