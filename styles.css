@@ -242,8 +242,117 @@ section {
   color: #fff;
   font-size: 1.2rem;
 }
+
 /*============================
-  Store stuff
+  6. Blog stuff
+============================*/
+
+/* Blog card: whole card is a link */
+.blog-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  max-width: 1100px;
+  margin: 18px auto;
+  padding: 0;
+}
+
+/* internal layout */
+.blog-card__content {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  padding: 14px;
+  border-radius: 10px;
+  transition: box-shadow 180ms ease, transform 120ms ease;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+  --blogcolour: rgba(33, 33, 33,0.7);
+  background: var(--blogcolour);
+}
+
+/* Put image visually to the LEFT on desktop while keeping DOM order unchanged */
+.blog-card__media {
+  order: -1;                   /* moves media before text in visual order */
+  flex: 0 0 400px;             /* fixed-ish width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 8px;
+  min-width: 180px;
+}
+
+/* Keep text after media visually */
+.blog-card__text {
+  order: 0;
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6px 0;
+}
+
+/* Hover affordance */
+.blog-card:hover .blog-card__content,
+.blog-card:focus .blog-card__content {
+  box-shadow: 0 12px 36px rgba(0,0,0,0.10);
+  transform: translateY(-3px);
+}
+
+/* image responsive and preserves alpha/transparency */
+.blog-card__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+  background: transparent;
+}
+
+/* text styling (tweak to match your site) */
+.post-title { margin: 0 0 6px 0;color: #fff;
+  font-family: Helvetica, sans-serif;
+  font-size: 2rem; }
+.post-excerpt { margin: 0 0 8px 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #fff;
+  font-size: 1rem;}
+.meta { font-size: 12px; color: #888; }
+
+/* Responsive: stack image ABOVE text on small screens */
+@media (max-width: 720px) {
+  .blog-card__content {
+    flex-direction: column;   /* stack vertically */
+    gap: 12px;
+  }
+
+  /* ensure image is first in stacked order */
+  .blog-card__media {
+    order: 0;                 /* reset so media is above */
+    width: 100%;
+    flex: 0 0 auto;
+    min-width: 0;
+  }
+
+  .blog-card__text {
+    order: 1;                 /* text below */
+  }
+
+  .blog-card__media img {
+    border-radius: 6px;
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Optional: adjust very small screens */
+@media (max-width: 420px) {
+  .blog-card__content { padding: 10px; gap: 10px; }
+  .post-title { font-size: 1.05rem; }
+}
+
+/*============================
+7. Store stuff
 ============================*/
 
 
@@ -323,17 +432,14 @@ section {
 }
 
 
-/*============================
-  /Store Stuff
-============================*/
+/*=================================================
+  8. Astrophotography Gallery & Lightbox (adapted)
+===================================================*/
 
-/*============================
-  6. Astrophotography Gallery & Lightbox (adapted)
-============================*/
 /* Masonry‑style gallery using CSS columns */
 .photo-grid {
   column-width: 400px;      /* each “column” is at least 400px (previously put this as 300px) */
-  column-gap: 0rem;       /* spacing between those columns REMOVED */
+  column-gap: 0rem;       /* spacing between those columns REMOVED because it just looked bad */
   padding: 0 5%;            /* matches the container padding */
 }
 
@@ -432,9 +538,10 @@ section {
   padding: 0 5%;  /* same container padding */
 }
 
-/* =======================
-   Lightbox Styles
-   ======================= */
+/* =======================================================
+   9. Lightbox Styles (the thing that shows when clicking
+      on an image to magnify it, copied from my website)
+   =======================================================*/
 
 /* Backdrop */
 .lightbox {
@@ -530,9 +637,9 @@ section {
 }
 
 
-/*============================
-  7. Newsletters & Exec List
-============================*/
+/*=====================================================================
+  10. Newsletters & Exec List (probably unused, I can't quite remember)
+=======================================================================*/
 .newsletters ul,
 .exec-team ul {
   list-style: none;
@@ -545,7 +652,7 @@ section {
 }
 
 /*============================
-  8. Footer
+  11. Footer
 ============================*/
 footer {
   text-align: center;
@@ -556,9 +663,10 @@ footer {
   bottom: 0;
   width: 100%;
 }
-/*============================
-  9. Constellation Explorer
-============================*/
+/*=========================================================================
+  12. Constellation Explorer (All of this except the .extra-space code is
+      unused, I'm just scared to delete it in case something random breaks)
+===========================================================================*/
 .explorer {
   text-align: center;
   padding: 2rem 5%;
@@ -635,9 +743,10 @@ footer {
   height: 1500px;
 }
 
-/*============================
-  10. Site Footer (NASA.gov style)
-============================*/
+/*==========================================================================
+  13. Site Footer (NASA.gov style) I spent a lot of time on this,
+          please don't change it, that would make me sad :(
+============================================================================*/
 .site-footer {
   background: #212121;           /* Dark black */
   color: #f0f0f0;                /* off-white */
@@ -771,9 +880,9 @@ footer {
   width: auto;
 }
 
-/*============================  
-  Bouncing stars Easter Egg
-============================*/
+/*===================================================================  
+ 14. Bouncing stars Easter Egg (pretty fun, also please don't delete)
+=====================================================================*/
 .star-bar .star {
   position: absolute;
   font-size: 1.2rem;
@@ -781,9 +890,9 @@ footer {
   pointer-events: none;
 }
 
-/*============================
-   Mobile / Tablet adjustments
-============================*/
+/*===============================
+ 15.  Mobile / Tablet adjustments
+=================================*/
 
 /* At 768px and below… */
 @media (max-width: 768px) {
@@ -921,4 +1030,5 @@ footer {
     height: 100px;
   }
 }
+
 
