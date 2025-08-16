@@ -139,20 +139,30 @@
     })();
   </script>
 
-  <!-- Search handler + enhanced search --><!-- Replace your existing “Search handler + enhanced search” script with this: -->
 <script>
 (async function(){
-  // 1) List all your pages (just title & URL here)
+  // 1) List all the pages here (include a title and url like the ones included and put any blog entries below "LUAstro Blog")
   const pages = [
     { title: 'Homepage',            url: '/' },
-    { title: 'LUAstro Blog', url: '/blog/' },
-    { title: 'Blog: www.luastro.space announcement', url: '/new-website-announcement/' },
     { title: 'LUAstro Store', url: '/store/' },
     { title: 'Astrophotography',url: '/astrophotography/' },
     { title: 'Newsletters',     url: '/newsletters/' },
+    { title: 'LUAstro Blog', url: '/blog/' },
+    { title: 'Blog: www.luastro.space announcement', url: '/blog/new-website-announcement/' },
     { title: 'Exec Team',       url: '/exec/' },
     { title: 'About Us',        url: '/aboutus/' },
-    { title: 'Search page', url: '/search/' }
+    { title: 'Search page', url: '/search/' },
+
+    // Add any newsletter pdfs here (include a description & keywords)
+    { title: 'Week 16, 22/23 Newsletter', url: '/newsletters/February 2023 (Week 16).pdf', description: 'ARCHIVE: LUAstro Newsletter from Feb 2023 (Week 16)' , keywords: 'newsletters, archive, 2023, feb 2023, week 16, newsletter, 22/23'},
+    { title: 'Week 15, 22/23 Newsletter', url: '/newsletters/LYMAN-alpha Special Edition February 2023 (Week 15).pdf', description: 'ARCHIVE: LYMAN-alpha Special-edition LUAstro Newsletter from Feb 2023 (Week 15)', 
+     keywords: 'newsletters, archive, 2023, feb 2023, week 15, LYMAN-alpha, Roses, University of York, University of york astronomy society, competition, newsletter, 22/23' },
+    { title: 'Week 14, 22/23 Newsletter', url: '/newsletters/February 2023 (Week 14).pdf', description: 'ARCHIVE: LUAstro Newsletter from Feb 2023 (Week 14)', keywords: 'newsletters, archive, 2023, feb 2023, week 14, newsletter, 22/23' },
+    { title: 'Week 13, 22/23 Newsletter', url: '/newsletters/February 2023 (Week 13).pdf', description: 'ARCHIVE: LUAstro Newsletter from Feb 2023 (Week 13)', keywords: 'newsletters, archive, 2023, feb 2023, week 13, newsletter, 22/23' },
+    { title: 'Week 12, 22/23 Newsletter', url: '/newsletters/January 2023 (Week 12).pdf', description: 'ARCHIVE: LUAstro Newsletter from Jan 2023 (Week 12)', keywords: 'newsletters, archive, 2023, jan 2023, week 12, newsletter, 22/23' },
+    { title: 'Week 6, 22/23 Newsletter', url: '/newsletters/December 2022 (Week 6).pdf', description: 'ARCHIVE: LUAstro Newsletter from Dec 2022 (Week 6)', keywords: 'newsletters, archive, 2022, dec 2022, week 6, newsletter, 22/23' },
+    { title: 'Week 5, 22/23 Newsletter', url: '/newsletters/December 2022 (Week 5).pdf', description: 'ARCHIVE: LUAstro Newsletter from Dec 2022 (Week 5)', keywords: 'newsletters, archive, 2022, dec 2023, week 5, newsletter, 22/23' },
+    { title: 'Week 1, 22/23 Newsletter', url: '/newsletters/November 2022 (Week 1).pdf', description: 'ARCHIVE: The first LUAstro Newsletter from Nov 2022 (Week 1)', keywords: 'newsletters, archive, 2022, nov 2022, week 1, first newsletter, newsletter, 22/23' },
     // Add new pages here—and they'll be fetched automatically
   ];
 
@@ -160,6 +170,15 @@
   async function fetchMeta(page) {
     let desc = '', keys = '';
     try {
+      // If the URL is a PDF, skip fetching HTML and use provided description or filename fallback
+      const isPdf = /\.pdf(\?.*)?$/i.test(page.url);
+      if (isPdf) {
+        const filename = (page.url.split('/').pop() || page.title || page.url).split('?')[0];
+        desc = page.description || `PDF: ${filename}`;
+        keys = page.keywords || '';
+        return { ...page, description: desc, keywords: keys, isPdf: true };
+      }
+
       const res  = await fetch(page.url);
       const text = await res.text();
       const doc  = new DOMParser().parseFromString(text, 'text/html');
@@ -168,7 +187,7 @@
     } catch(e) {
       console.warn('Failed to fetch', page.url, e);
     }
-    return { ...page, description: desc, keywords: keys };
+    return { ...page, description: desc, keywords: keys, isPdf: false };
   }
 
   // 3) Build index by fetching each page
@@ -205,11 +224,13 @@
     results.forEach(p => {
       const entry = document.createElement('div');
       entry.style.marginBottom = '1.5rem';
+      const isPdf = p.isPdf === true;
+      const descSafe = (p.description || '').replace(/</g,'&lt;').replace(/>/g,'&gt;');
       entry.innerHTML = `
-        <a href="${p.url}" style="font-size:1.2rem;font-weight:600;color:#b5121b;">
-          ${p.title}
+        <a href="${p.url}" style="font-size:1.2rem;font-weight:600;color:#b5121b;" ${isPdf ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+          ${p.title} ${isPdf ? '<small style="font-weight:400;color:#666">[PDF]</small>' : ''}
         </a>
-        <p style="margin-top:0.3rem;color:#ccc;">${p.description}</p>
+        <p style="margin-top:0.3rem;color:#ccc;">${descSafe}</p>
       `;
       container.appendChild(entry);
     });
@@ -217,7 +238,9 @@
 })();
 </script>
 
+
 </body>
 </html>
+
 
 
