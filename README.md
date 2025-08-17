@@ -51,4 +51,51 @@ I'm only going to mention this as a partial aside. As mentioned earlier, GitHub 
 
 > Congrats, you now know how to make edits to GitHub pages!
 
-<h1>Page formatting, an Introduction</h1>
+<h1>Web development, an Introdution</h1>
+
+There are three main computer languages that are vital to frontend web development: HTML, CSS, & JavaScript. Knowledge of these languages to some degree is vital if you wish to code a website. Here, I'm going to go over the most fundamental basics of each language. If you wish to learn more, I'd highly recommend the free tutorials available on W3schools for a more thorough overview.
+
+<h2>HTML</h2>
+
+HTML, or HyperText Markup Language, is the standard language for defining the structure and content of a webpage. It is the most important of the three, and, rather convienently, is in my opinion the easiest of the three to learn.
+
+To create a HTML document (for example the homepage of the website), you first need to ensure the correct version of HTML is used, rather than other older versions or different languages like XML. To do this we have a small initialisation tag at the top of any HTML page:
+
+`<!DOCTYPE html>`
+
+which ensures that the most current version is used. We also ensure that the file ends in .html, and use this tag to set the default language as english:
+
+`<html lang="en">`
+
+Additionally, as explained earlier, almost all of the HTML documents in the repository have the form of /pagename/index.html, too. Now, for the basic formatting:
+
+`<head>`
+`</head>`
+
+This is the next part of code you'll see on the webpages. Inside the `<head>` tag contains the metadata page code, the flavicon code (the image shown at the top of browsers), the title shown in browsers, any used non-default fonts, and very importantly, code linking the page to the CSS stylesheet. Don't worry, I'll explain all of this in more detail later on. Most HTML tags need to be ended by typing a `/` in front of their initial names. This is to prevent conflict with other tags, and to accurately contain code to determined sections of the page.
+
+`<body>`
+`</body>`
+
+This is the main part of code. Inside the body of the page is all the code for everything shown on the physical page, including any JavaScript scripts.
+
+`<header>`
+`</header>`
+
+This is the code to create a header for the webpage (where the top image, the navigation bar, etc. shows).
+
+`<main>`
+`</main>`
+
+This is the tag in which all of the "main" code goes, such as containers, images, etc.
+
+`<footer>`
+`</footer>`
+
+This is the code to create a footer for the webpage (similar to the header).
+
+`</html>`
+
+Finally, the html tag **must** be closed for the page to work correctly.
+
+All other parts will be explained in more detail later.
