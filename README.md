@@ -27,4 +27,24 @@ enable developers to just easily add things in without coding at all, even with 
 
 <h2>The basics</h2>
 
-So, where to begin then?
+So, where to begin then? First of all, navigate to the README.md file in the root directory, and click on the edit button (shown by the green triangle in the image below).
+
+![README_INFO1](/images/README_INFO1.png)
+
+From here, you can enter the edit mode of any page in the directory. You'll see a "Cancel changes" button and a "Commit changes" button in the top right which you can use to ignore or apply changes respectively. To the top-left below the blue rectangle "Website" button in the image, you should see buttons saying "Edit" & "Preview" that allow you to easily see what your changes would look like without leaving the edit mode and before applying them. This is very handy for debugging.
+
+The blue rectangle section is the name of your file, which you can edit by simply typing in the box (you can create a folder by typing /foldername/ before entering your file name). To get a site name in the form "luastro.space/pagename/" you would need to save a HTML file with the name showing up there as "website/pagename/index.html". The first "/" denotes the root directory folder (the main folder in which all the code is saved). For ease of access, I've put all images in a "/images/" folder (so all images must be referenced as "/images/imagename.imagetype"), and all scripts in a "/scripts/" folder (so all JavaScript scripts are referenced as "/scripts/scriptname.js"). This improves navigation of the GitHub page and, in the case of the scripts, actually reduces loading time by a small bit.
+
+Another file you should be aware of is the "404.html" file in the root directory. As the name suggests, this is the page that shows when any non-existent page on the site is visited. If deleted, a default Github 404 page is shown, which isn't ideal for the reason I mentioned in the Drawbacks section earlier.
+
+If you make a small edit to a page and click the "Commit changes..." button, the following box appears:
+
+![README_INFO2](images/README_INFO2.png)
+
+Changing the Commit message or adding a description of the change is not required. As this site isn't an open-source piece of software, it isn't even particularly helpful either, so you can just click "Commit changes" to save your edit.
+
+Finally, in the root directory, or on the most-recently edited page, you'll then see text appear and a circle as shown by the red circle in the first image. This turns into a green tick once the change is finalised. Edits can take anytime from 30s to 5 minutes to save, so don't worry if it takes a while.
+
+> Congrats, you now know how to make edits to GitHub pages!
+
+<h1>Page formatting, an Introduction</h1>
