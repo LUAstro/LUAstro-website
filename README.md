@@ -1,6 +1,6 @@
 # Welcome to **[LUAstro.space](https://www.luastro.space)**'s directory!
 
-In this README file, I'll explain the basics of the website's code as of the time of writing. I've split this document into several parts detailing, firstly, how to use GitHub (which the site is, of course, hosted in), 
+In this README file, I'll explain the basics of the website's code as of the time of writing. I've split this document into several parts detailing, firstly, an Introduction to GitHub (which the site is, of course, hosted in), followed by an Introduction to Web Development (the basics of HTML, CSS & JavaScript),
 how each page is formatted (with templates for new Blog pages), how the header, footer, image, and main container code works, and lastly some of the more technical parts like the Stylesheet's code, the scripts code, and (in my opinion 
 the most complicated bit of code on the site) how the search bars work and how to add new pages or images to the results.
 
@@ -10,7 +10,7 @@ another Exec member will take over from you at some point, so try and leave comm
 
 > Thank you for reading, and happy coding! - John Ray (LUAstro 25/26 President)
 
-<h1>GitHub, an Introduction</h1>
+<h1>An Introduction to GitHub</h1>
 
 Hosting a website in GitHub has numerous benefits. Firstly, it's free, which is a massive plus! Secondly, it enables easy changes to be made via the green "Commit changes..." button you'll see when you open pages or by 
 creating a new pull request (we'll get into them later), and lastly, it has a decent storage capability and good updating time. However it has its drawbacks too, which you should be made away of.
@@ -51,7 +51,7 @@ I'm only going to mention this as a partial aside. As mentioned earlier, GitHub 
 
 > Congrats, you now know how to make edits to GitHub pages!
 
-<h1>Web development, an Introdution</h1>
+<h1>An Introdution to Web Development</h1>
 
 There are three main computer languages that are vital to front-end web development: HTML, CSS, & JavaScript. Knowledge of these languages to some degree is vital if you wish to code a website. Here, I'm going to go over the most fundamental basics of each language. If you wish to learn more, I'd highly recommend free tutorials available on [W3schools](https://www.w3schools.com/), [Codecademy](https://www.codecademy.com/), etc. for a more thorough overview.
 
@@ -147,7 +147,9 @@ Further specifics of the CSS code in the Stylesheet file itself will be explaine
 
 <h2>JavaScript</h2>
 
-JavaScript, a word that fills most programmers and web developers with fear, is the default programming language for websites. Unlike HTML and CSS, JavaScript is a true programming language, not a markup language, and is used on this site for niche uses like choosing an automatic background on startup or magnifying images once they're clicked on. It is the most tricky of the three to grasp, and I would **strongly** recommend learning it through an online tutorial if you wish to mess around with it. Other programming languages exist, like C, C++, Python, Java, etc. but JavaScript is considered the Web standard. On this site, all the JavaScript files are in the "scripts" folder, and end in ".js". I'll explain some example JavaScript code below.
+JavaScript, a word that fills most programmers and web developers with fear, is the default programming language for websites. Unlike HTML and CSS, JavaScript is a true programming language, not a markup language, and is used on this site for niche uses like choosing an automatic background on startup or magnifying images once they're clicked on. It is the most tricky of the three to grasp, and I would **strongly** recommend learning it through an online tutorial if you wish to mess around with it. Other programming languages exist, like C, C++, Python, Java, etc. but JavaScript is considered the Web standard. On this site, all the JavaScript files are in the "scripts" folder, and end in ".js".
+
+Below, I explain some of the basics of JavaScript with reference to the [Astro_Background.js](/scripts/Astro_Background.js) script that determines the background image for webpages once they are loaded. This barely scrapes the surface of JavaScript coding - again, online tutorials would explain it much better.
 
 ` /*
 
@@ -158,24 +160,25 @@ JavaScript, a word that fills most programmers and web developers with fear, is 
 
 */ `
 
-As mentioned earlier, JavaScript comments are the same as in CSS.
+Here, a multi-line comment introduces the file. As mentioned earlier, JavaScript comments are the same as in CSS.
 
 `
   (function() {`
 
-Here a function is defined without any parameters (parameters are inherent properties of the function, and would usually be inserted inside the ending brackets).
+Here, a function is defined without any parameters (parameters are inherent properties of the function, and would usually be inserted inside the ending brackets).
   
   `  const images = [`
 
-Here an array is defined with the name of "images". An array is an object type that enables a collection of different items in one name. JavaScript is what's known as an "Object-oriented" programming language, with objects like arrays forming the heart of it. More information is best taught by online tutorials from people who know more than me about this kind of thing.
+Here, an array is defined with the name of "images". An array is an object type that enables a collection of different items in one name. JavaScript is what's known as an "Object-oriented" programming language, with objects like arrays forming the heart of it. More information is best taught by online tutorials from people who know more than me about this kind of thing.
 
     `  '/images/JRAndromedaRevisited.jpg', // image selected if choice = 0
       '/images/bgRosetteNebulabyFinlay.jpg', // image selected if choice = 1
       '/images/bgOrionNebulabyIanto.jpg', // image selected if choice = 2
       '/images/JRCalNebREPROCESSED.jpg', // image selected if choice = 3
       '/images/bgPleiadesbyOrlando.jpg' // image selected if choice = 4
-    ];
-Here the array is filled with a set of 5 images denotes by file names that are in the images folder of the directory. Notice the `//` single-line comments. The array is importantly closed with another square bracket to prevent further code from being mistaken for any further entries. A single `;` is put afterwards.
+    ];`
+    
+Here, the array is filled with a set of 5 images denotes by file names that are in the images folder of the directory. Notice the `//` single-line comments. The array is importantly closed with another square bracket to prevent further code from being mistaken for any further entries. A single `;` is put afterwards.
 
    ` const choice = images[Math.floor(Math.random() * images.length)];`
 
@@ -186,3 +189,37 @@ Next, a constant variable named "choice" is created. Constant variables cannot b
   })();`
 
 Finally, the following code sets the CSS `--page-bg` variable that represents the page's background as the chosen image using an awkward mix of references in the form of `document.body.style.setProperty(...)`. This variable must be defined as a URL to a specific image, hence the `URL(${choice})` code (which would usually be inside a set of dropticks), where the dollar symbol references the JavaScript variable of "choice". Finally, each line is ended with a `;` and a suitable number and type of brackets.
+
+> Congratulations! Now you know the (extremely fundamental) basics of Web Development!
+
+<h1>Creating or editing a HTML page</h1>
+
+Now you know the basics of Web Development, we're ready to move onto specifics. Every webpage on **[www.luastro.space](https://www.luastro.space)** has the same basic template. Each page has a header LUAstro image, a navigation bar and search bar underneath, some main text, images, or other content, and a footer at the bottom of the page. In this section, I will explain how each part of code works for these sections, before moving onto to how to use this knowledge to create new pages or blog posts in the next section. **This part is optional**, as you can likely just copy-and-paste things from the next section if you wish to make changes or additions, but it will provide you with a better knowledge of how the site functions, and I recommend giving it a short read if you have the time.
+
+<h1>The Head and Header</h1>
+
+All pages on the site have the same Header code. This code defines the title of the page (on the physical page, on tabs, and even in search engine results), the keywords that give the page as a result when typed in the site's search bar, the top LUAstro image and flavicon, the navigation bar, and the search bar. Let's begin!
+
+`<!DOCTYPE html>` <br>
+`<html lang="en">`
+
+This code initialises the page as using Modern HTML5, in English.
+
+`<head>` <br>
+`  <meta charset="UTF-8" />` <br>
+`  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>` <br>
+`  <meta name="description" content="Newsletters page - contains all the most recent newsletters by the Society">` <br>
+`  <meta name="keywords" content="Newsletters, News, updates, info, latest news, communications, LUAstro">` <br>
+`  <title>Newsletters | LUAstro</title>` <br>
+
+This begins the `<head>` code (the rather confusingly-named `<header>` code will be initialised later on), followed by the webpage's specific `<meta>` code. The `<meta>` code is vital for the webpage to work correctly. The first line of `<meta>` code specifies that the page will run using UTF-8 character encoding (which is already the standard) to enable the search bar magnifying glass to load correctly, as well as enabling the use of other emoticons on the page.
+
+The next line ensures that the page is viewed exactly as large as the browser window (again, this is also a standard, but is good for safeguarding).
+
+The third `<meta>` line creates a description for the page. This description appears in search results not only from the site's domestic search bar, but also in universal search engines like Google, Bing, AskJeeves, etc.
+
+The fourth, and final, `<meta>` line defines the "keywords" for the page. This forms [luastro.space's](https://www.luastro.space) entire SEO, or "Search-Engine Optimisation"; each keyword is tied to the page in search results. For example, searching for "latest news" on the site's searchbar will return this page as an entry (as we're using the Newsletters page code as an example here), but also increases the rating of the page to appear when "luastro latest news" is searched for in Google.
+
+**Please ensure to tailor both the description and keywords to each page!** Additionally, please include **luastro** as a keyword on every page that is added to improve the overall site's rating in Search Engine results.
+
+The `<title>` code defines the text that shows at the top of a browser tab for the webpage.
