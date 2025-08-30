@@ -66,7 +66,7 @@
   <div class="container">
 	  <section class="hero">
 		  <h2>Currently unavailable</h2>
-		  <p>None of the merchandise or memberships are currently available. They will all be available from the <b>25th September</b>. For now, 
+		  <p>None of the merchandise or memberships are currently available. They will all be available from the <b>29th September</b>. For now, 
 		  this page serves merely as a preview.</p>
 	  </section>
   </div>
@@ -201,7 +201,7 @@
   <div class="shoppicture">
     <a class="card-link" href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc" title="Limited-edition LUAstro Pin Badges - LUSU">
       <div class="thumb" aria-hidden="false">
-        <img class="normal" src="/images/Pin_Badge_Sample.jpg" alt="LUAstro Pin Badge">
+        <img class="normal" src="/images/LUAstro_Pin_Badge_repeat.JPG" alt="LUAstro Pin Badge">
       </div>
       <div class="caption">
   <div class="container">
@@ -255,7 +255,7 @@
       </ul>
     </div>
 
-<!-- LUAstro Old Logo (centre-right) -->
+<!-- LUAstro New Logo (centre-right) -->
     <div class="footer-section footer-logo">
       <img src="/images/JR's LUAstro Logo.png" alt="LUAstro Logo">
     </div>
@@ -291,72 +291,11 @@
     <p>Last updated: August 13, 2025 | Last edited by: <a href:"https://www.johnray.co.uk">John Ray</a></p>
   </div>
 </footer>
-<script>
-  (function() {
-    const images = [
-      '/images/JRAndromedaRevisited.jpg',
-      '/images/bgRosetteNebulabyFinlay.jpg',
-      '/images/bgOrionNebulabyIanto.jpg',
-      '/images/JRCalNebREPROCESSED.jpg',
-      '/images/bgPleiadesbyOrlando.jpg'
-    ];
-    const choice = images[Math.floor(Math.random() * images.length)];
-    document.body.style.setProperty('--page-bg', `url(${choice})`);
-  })();
-</script>
 
-<!-- Bouncing stars in header (click the top 200px empty area only) -->
-<script>
-(function() {
-  const header = document.querySelector('header');
-  const bar    = document.querySelector('.star-bar');
-  const stars  = [];
-
-  function createStar(x,y) {
-    const s = document.createElement('span');
-    s.className = 'star';
-    s.textContent = '★';
-    s.x = x; s.y = y;
-    s.vx = Math.random()*4 - 2;
-    s.vy = Math.random()*4 - 2;
-    bar.appendChild(s);
-    stars.push(s);
-    update(s);
-  }
-
-  function update(s) {
-    s.style.left = s.x + 'px';
-    s.style.top  = s.y + 'px';
-  }
-
-  function animate() {
-    const w = bar.clientWidth, h = bar.clientHeight;
-    stars.forEach(s => {
-      s.x += s.vx; s.y += s.vy;
-      if (s.x < 0 || s.x > w) s.vx *= -1;
-      if (s.y < 0 || s.y > h) s.vy *= -1;
-      s.x = Math.max(0, Math.min(w, s.x));
-      s.y = Math.max(0, Math.min(h, s.y));
-      update(s);
-    });
-    requestAnimationFrame(animate);
-  }
-
-  header.addEventListener('click', e => {
-    // only in the top 100px
-    if (e.offsetY > 100) return;
-    // but NOT when clicking a link, button, nav item, search input, or logo
-    if ( e.target.closest('a, button, input, nav, h1 img') ) return;
-    // compute position relative to star-bar
-    const rect = bar.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    createStar(x, y);
-  });
-
-  animate();
-})();
-</script>
+<!-- Cool randomised background code -->
+<script src="/scripts/Astro_Background.js"></script>
+<!-- Imports fun Easter Egg code-->
+<script src="/scripts/Easter_Egg.js"></script>
 
 </body>
 </html>
