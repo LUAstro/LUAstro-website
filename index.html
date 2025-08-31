@@ -139,7 +139,7 @@
     if (!window.Counter) return fail('Counter library not loaded');
     const client = new Counter({ workspace: 'counters' }); // case-sensitive
     client.get('luastro-homepage')                                   // use .up(...) to increment
-      .then(res => render(res.value))
+      .then(res => render(res.data.value))
       .catch(fail);
   }
 
@@ -158,6 +158,7 @@
 <script src="/scripts/Easter_Egg.js"></script>
 </body>
 </html>
+
 
 
 
