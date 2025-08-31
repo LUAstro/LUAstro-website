@@ -129,8 +129,18 @@
   <!-- Bottom bar -->
   <div class="footer-bottom">
     <p>Last updated: August 31st, 2025 | Last edited by: <a href:"https://www.johnray.co.uk">John Ray</a></p>
-    <script src="https://counterapi.com/c.js" async></script>
-    <div class="counterapi" ns="Counters" key="luastro-homepage" label="views" style="min-height:44px"></div>
+<script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
+<script>
+  const client = new Counter({ workspace: 'Counters' });
+
+  // increment the "homepage" counter and get value
+  client.up('luastro-homepage').then(res => {
+    console.log(res.value);
+    document.getElementById('visits').textContent = res.value;
+  });
+</script>
+
+<div>Page views: <span id="visits">…</span></div>
   </div>
 </footer>
 <!-- Cool randomised background code -->
@@ -139,6 +149,7 @@
 <script src="/scripts/Easter_Egg.js"></script>
 </body>
 </html>
+
 
 
 
