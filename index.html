@@ -137,8 +137,8 @@ document.addEventListener('DOMContentLoaded', function() {
     return;
   }
 
-  const client = new Counter({ workspace: 'luastro-homepage' });
-  client.up('counters')
+  const client = new Counter({ workspace: 'counters' });
+  client.up('luastro-homepage')
     .then(res => {
       console.log('Raw CounterAPI response:', res);
       const val = res.value ?? (res.data && res.data.value);
@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="/scripts/Easter_Egg.js"></script>
 </body>
 </html>
+
 
 
 
