@@ -96,7 +96,7 @@ header .follow-logo {
 
 header h1 {
   position: absolute;       /* take it out of flow, overlay */
-  bottom: clamp(5rem, 4.5vh, 3rem);                 /* vertical centering */
+  bottom: clamp(5.5rem, 4.5vh, 3rem);                 /* vertical centering */
   left: 50%;                /* horizontal centering */
   transform: translateX(-50%); /* perfect center */
   text-align: center;
@@ -1059,15 +1059,11 @@ footer {
     padding: 0.5rem 2%;
   }
 
-  header h1 img.follow-logo {
-    width: clamp(100px, 30vw, 200px);
-    height: auto;
-  }
-
   .star-bar {
     height: 100px;
   }
 }
+
 
 
 
