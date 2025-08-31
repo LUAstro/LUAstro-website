@@ -131,21 +131,19 @@
     <p>Last updated: August 31st, 2025 | Last edited by: <a href:"https://www.johnray.co.uk">John Ray</a> <div>Page views: <span id="visits">…</span></div> </p>
 <script src="https://cdn.jsdelivr.net/npm/counterapi/dist/counter.browser.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  if (!window.Counter) {
-    console.error('Counter library not loaded');
-    return;
-  }
+document.addEventListener('DOMContentLoaded', function () {
+  if (!window.Counter) { console.error('Counter library not loaded'); return; }
 
-  const client = new Counter({ workspace: 'counters' });
-  client.up('luastro-homepage')
+  const client = new Counter({ workspace: 'counters' }); // <-- workspace slug
+  client.up('luastro-homepage')                                  // <-- counter slug
     .then(res => {
-      console.log('Raw CounterAPI response:', res);
-      const val = res.value ?? (res.data && res.data.value);
-      document.getElementById('visits').textContent = val ?? 'n/a';
+      console.log('Client response:', res);
+      // defensive: check common shapes
+      const val = res?.value ?? res?.data?.value ?? res?.result?.value ?? null;
+      document.getElementById('visits').textContent = val ?? 'no value';
     })
     .catch(err => {
-      console.error('Counter error:', err);
+      console.error('Client error:', err);
       document.getElementById('visits').textContent = 'n/a';
     });
 });
@@ -158,6 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="/scripts/Easter_Egg.js"></script>
 </body>
 </html>
+
 
 
 
