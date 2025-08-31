@@ -73,11 +73,49 @@ a {
 header {
   background: #212121;
   padding: 0.2rem 0;
+  overflow-x: hidden;
+  /* if you want horizontal padding, keep it here and the image will respect it */
+  padding-inline: 1rem; /* optional: adjusts horizontal breathing room on narrow screens */
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* responsive header logo — fluid but constrained, centered, and respects header padding */
+header .follow-logo {
+  display: block;                 /* enables margin:0 auto centering */
+  width: clamp(220px, 60vw, 600px);
+    /* 220px minimum on tiny phones, 60vw for fluid scaling on small -> medium screens,
+       600px maximum on large desktop so it doesn't grow too big. Adjust numbers to taste. */
+  max-width: 100%;                /* never exceed the header's content width */
+  height: auto;                   /* preserve aspect ratio */
+  margin: 0 auto;                 /* horizontally center inside header */
+  box-sizing: border-box;         /* ensures padding/borders don't cause overflow */
+  object-fit: contain;            /* safety for replaced content fit */
+  -webkit-backface-visibility: hidden; /* tiny performance smoothing on some mobile browsers */
 }
 
 header h1 {
+  position: absolute;       /* take it out of flow, overlay */
+  bottom: clamp(5rem, 4.5vh, 3rem);                 /* vertical centering */
+  left: 50%;                /* horizontal centering */
+  transform: translateX(-50%); /* perfect center */
   text-align: center;
-  color: #fff;
+  color: #fff;              /* text color */
+  font-size: clamp(1rem, 2.5vw, 2rem); /* responsive sizing */
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* make text readable over image */
+  z-index: 2;               /* ensures it’s above the image */
+  pointer-events: none;     /* text won’t block clicks on image (optional) */
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    white-space: normal;
+    transform: translate(-50%, -75%);
+    font-size: clamp(0.5rem, 2vw, 1rem);
+    bottom: clamp(16rem, 2.5vh, 14rem); /* give slightly more gap on tiny phones */
+    padding: 0 1rem;
+  }
 }
 
 
@@ -1030,5 +1068,6 @@ footer {
     height: 100px;
   }
 }
+
 
 
