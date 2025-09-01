@@ -194,11 +194,13 @@ Finally, the following code sets the CSS `--page-bg` variable that represents th
 
 <h1>Creating or editing a HTML page</h1>
 
-Now you know the basics of Web Development, we're ready to move onto specifics. Every webpage on **[www.luastro.space](https://www.luastro.space)** has the same basic template. Each page has a header LUAstro image, a navigation bar and search bar underneath, some main text, images, or other content, and a footer at the bottom of the page. In this section, I will explain how each part of code works for these sections, before moving onto to how to use this knowledge to create new pages or blog posts in the next section. **This part is optional**, as you can likely just copy-and-paste things from the next section if you wish to make changes or additions, but it will provide you with a better knowledge of how the site functions, and I recommend giving it a short read if you have the time.
+Now you know the basics of Web Development, we're ready to move onto specifics. Every webpage on **[www.luastro.space](https://www.luastro.space)** has the same basic template. Each page has a header LUAstro image, a navigation bar and search bar underneath, some main text, images, or other content, and a footer at the bottom of the page. In this section, I will explain how each part of code works for these sections, before moving onto to how to use this knowledge to create new pages or blog posts in the next section. **This part is recommended**, as it will provide you with a better knowledge of how the site functions, and allow you to make changes without damaging essential parts of page code. However if you just want to make minor editions like creating new blog posts or adding new images to the Astrophotography page, and not create entire new pages, feel free to skip this part. Details of how to easily make minor changes will be explained in a later section.
 
-<h1>The Head and Header</h1>
+<h1>The Head & Header</h1>
 
-All pages on the site have the same Header code. This code defines the title of the page (on the physical page, on tabs, and even in search engine results), the keywords that give the page as a result when typed in the site's search bar, the top LUAstro image and flavicon, the navigation bar, and the search bar. Let's begin!
+All pages on the site have a similar Head & Header code. This code defines the title of the page (on the physical page, on tabs, and even in search engine results), the keywords that give the page as a result when typed in the site's search bar, the top LUAstro image and flavicon, the navigation bar, and the search bar. Let's begin!
+
+<h2>Head code</h2>
 
 `<!DOCTYPE html>` <br>
 `<html lang="en">`
@@ -220,6 +222,78 @@ The third `<meta>` line creates a description for the page. This description app
 
 The fourth, and final, `<meta>` line defines the "keywords" for the page. This forms [luastro.space's](https://www.luastro.space) entire SEO, or "Search-Engine Optimisation"; each keyword is tied to the page in search results. For example, searching for "latest news" on the site's searchbar will return this page as an entry (as we're using the Newsletters page code as an example here), but also increases the rating of the page to appear when "luastro latest news" is searched for in Google.
 
-**Please ensure to tailor both the description and keywords to each page!** Additionally, please include **luastro** as a keyword on every page that is added to improve the overall site's rating in Search Engine results.
+> **IMPORTANT: Please ensure to tailor both the description and keywords to each page!**
 
-The `<title>` code defines the text that shows at the top of a browser tab for the webpage.
+Additionally, please include **luastro** as a keyword on every page that is added, to improve the overall site's rating in Search Engine results.
+
+The `<title>` code defines the text that shows at the top of a browser tab for the webpage. For consistency, it's best to use the format of "PAGENAME | LUAstro".
+
+`<link rel="preconnect" href="https://fonts.googleapis.com">` <br>
+`<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>` <br>
+`<link` <br>
+`  href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap"` <br>
+`  rel="stylesheet"` <br>
+`/>` <br>
+`  <link rel="stylesheet" href="/styles.css" />` <br>
+`  <link rel="icon" href="/images/JR's LUAstro Logo.png" type="png">` <br>
+`</head>`
+
+This is the second part of the `<head>` code. Unlike the previous part, this is the same for **ALL** pages, so you can just copy-and-paste this in for any new webpages. The first two lines allow the webpage to use all of the site's default fonts. The first closing `<link/>` specifically loads in the font Source Sans Pro. The second closing `<link/>` links to the website's main CSS stylesheet. This line is essential, without it the page will have no actual format and will display as black HTML code on a white background (in default light mode), without any images, links, or elements. The final closing `<link/>` links the page to the Newer LUAstro logo, for use as a "flavicon". A flavicon is the image displayed on tabs, search engines, or browser favourites to represent a page. Feel free to change this if desired.
+
+Finally, the `<head>` tag is closed.
+
+<h2>Header code</h2>
+
+The confusingly-named `<header>` is where the code for the physical top of the webpage is kept. As it's code that creates a physical display on the page (unlike the `<head>` code which just adds properties to the page), it is inside the `<body>` tag of the main page.
+
+`<body>` <br>
+`  <header>` <br>
+`    <div class="star-bar"></div>` <br>
+`    <h1>Archive of Society Newsletters</h1>` <br>
+`    <img class="follow-logo" src="/images/LUAstro_NavBar.png" alt="LUAstro">` <br>
+
+As mentioned earlier, the `<body>` tag is initialised first. This is finalised with a `</body>` tag at the absolute end of all the webpage code.
+
+After this, the `<header>` tag is initialised too. Code for the area where stars can be created when clicking by the "Easter_Egg.js" file is called in the next line. Please include this - it's very fun!
+
+Next, a webpage header is included. This shows up underneath the main LUAstro text in the image, and resizes according to the size of the browser window. Without it, the header image looks a bit off, so try and include something here.
+
+Finally, the header image is inserted. It's best to copy-and-paste this line, again. The `alt="LUAstro"` bit at the end is just an alternative text associated with the image, just so you know if you didn't already. Images are usually called on the website with the `<img>` tag, but occasionally a reference `<href>` tag is used instead like for the flavicon earlier. The header image **must** have the class of `"follow-logo"`, or else it won't fit properly at the top of the page. Images are usually called using the source property of the image file, which is done using the `<src>` tag as shown. You will see this again later for images in the footer, as well as in the code for Blog Posts and for the Astrophotography Gallery.
+
+`<nav>` <br>
+`      <ul>`<br>
+`        <li><a href="/">Home</a></li>`<br>
+`        <li><a href="/astrophotography/">Astrophotography</a></li>`<br>
+`        <li><a href="/store/">Store</a></li>`<br>
+`        <li><a href="/newsletters/">Newsletters</a></li>`<br>
+`        <li><a href="/blog/">Blog</a></li>`<br>
+`        <li><a href="/exec/">Exec</a></li>`<br>
+`        <li><a href="/aboutus/">About us</a></li>`<br>
+`      </ul>`<br>
+`    </nav>`
+
+Next, is the code for the Navigation Bar. This is the bit where users can click on links to other pages. It is called using the `<nav>` tag, and contains each link as a member of a HTML list. Lists are called with the Unordered List `<ul>` tag, with each member called by containing the name of the list entry in a list item tag `<li>`.
+
+Importantly, all Navigation Bar entries are links - they link to the appropriate page. Links in HTML are created using Action tags, paired with the reference property with the appropriate link name. As you can see, this is done with `<a href="/PAGENAMEINDIRECTORY/">PAGE NAME ON WEBPAGE</a>` and is done in the same format for links in all HTML text.
+
+As you should have guessed by now, the `<ul>` and `<nav>` tags are then closed, in that respective order.
+
+` <form id="siteSearchForm"` <br>
+`      class="site-search-form"`<br>
+`      action="/search/"`<br>
+`      method="get">`<br>
+`    <input type="text"`<br>
+`         id="siteSearchInput"`<br>
+`         name="q"`<br>
+`         placeholder="Search the site…"`<br>
+`         aria-label="Site search"/>`<br>
+`    <button type="submit">🔍</button>`<br>
+`    </form>`<br>
+`  </header>`<br>
+
+The last part of the `<header>` code is for the Search Bar. This code is complicated, and the Search Bar itself actually uses an entirely different coding language called PHP to function. Thankfully, all you need to do is copy-and-paste this code, so no worries there. The Search Bar uses a `<form>` tag to allow user-input, with the corresponding `action="/search/"` which redirects the user to the `/search/index.html` page. A search page specific to the query is then created using the corresponding query request (represented by a letter q), to give the user the correct results. A `<button>` tag is used to create a physical search button too, and the `<form>` and `<header>` tags are then closed. The Search Bar code will explained in greater detail later on.
+
+<h1>Main code</h1>
+
+Text boxes, images, and most general page content is contained inside `<main>` tags. Here, I will explain all the different types of containers you might see on pages, how to use them, and how they function.
+
