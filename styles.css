@@ -78,6 +78,7 @@ header {
   padding-inline: 1rem; /* optional: adjusts horizontal breathing room on narrow screens */
   box-sizing: border-box;
   position: relative;
+  overflow: visible;
 }
 
 /* responsive header logo — fluid but constrained, centered, and respects header padding */
@@ -137,28 +138,196 @@ header h1 {
   transform: translateX(-50%);
   /* display and flow no longer matter */
 }
-nav ul {
-  display: flex; /* Horizontal layout for nav items :contentReference[oaicite:0]{index=0} */
+nav {
+  font-family: system-ui, sans-serif;
+  overflow: visible;
+}
+
+/* ----- TOP-LEVEL NAV (only the direct child UL) ----- */
+/* IMPORTANT: use "nav > ul" so nested ULs (submenu) are NOT flex containers */
+nav > ul {
+  display: flex;              /* top-level items are horizontal */
   justify-content: center;
   list-style: none;
-  border-top: 5px solid #b5121b;
-  background: #555656;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border-top: 5px solid var(--secondary-color);
+  background: var(--nav-bg);
+  align-items: center;
+  gap: 0.5rem;
 }
 
-nav ul li {
-  margin: 0 1.5rem;
+/* style the top-level LI (direct children) */
+nav > ul > li {
+  margin: 0 1.25rem;
+  position: relative; /* anchor for absolute submenu */
 }
 
-nav ul li a {
+/* top-level links */
+nav > ul > li > a {
   color: var(--nav-text-color);
+  text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease;
+  padding: 0.5rem 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.25s ease;
+}
+nav > ul > li > a:hover,
+nav > ul > li > a:focus {
+  color: var(--secondary-color);
+  outline: none;
 }
 
-nav ul li a:hover {
+/* keep generic anchor focus accessible anywhere */
+a:focus {
+  outline: 2px solid rgba(181,18,27,0.18);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* dropdown arrow on the parent link (no extra markup) */
+.dropdown > a::after {
+  content: "▾";
+  font-size: 0.8em;
+  margin-left: 0.45rem;
+  transition: transform 0.25s ease;
+  display: inline-block;
+  transform-origin: center;
+}
+.dropdown:hover > a::after,
+.dropdown:focus-within > a::after {
+  transform: rotate(180deg);
+}
+
+/* ----- SUBMENU: absolutely positioned, vertically stacked, centered ----- */
+.submenu {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 50%;                                /* center under the parent */
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 180px;
+  max-width: calc(100vw - 40px);            /* prevents overflow/scrollbar */
+  list-style: none;
+  margin: 0;
+  padding: 0.35rem 0;
+  background: var(--submenu-bg);
+  border: 1px solid var(--submenu-border);
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
+  z-index: 99999;
+  box-sizing: border-box;
+  white-space: normal;                      /* allow wrapping to avoid overflow */
+  overflow: hidden;
+  text-align: center;                       /* center each submenu item text */
+  display: block;                           /* ensure it's a block-level list */
+}
+
+/* show submenu on hover or keyboard focus-within (pure CSS) */
+.dropdown:hover > .submenu,
+.dropdown:focus-within > .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* make submenu items full-width stacked rows (one below the other) */
+.submenu li {
+  margin: 0;
+  width: 100%;
+  display: block;
+}
+.submenu a {
+  display: block;                           /* each link is its own row */
+  padding: 0.55rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: var(--nav-text-color);
+  font-weight: 600;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;                       /* centre submenu text */
+}
+.submenu a:hover,
+.submenu a:focus {
+  background: rgba(255,255,255,0.03);
   color: var(--secondary-color);
 }
 
+/* ------------------------- MOBILE (UNCHANGED LOGIC) ------------------------- */
+@media (max-width: 768px) {
+
+  /* exact mobile adjustments you supplied — I preserved them */
+  header {
+    padding: 0.5rem 0;
+  }
+
+  header h1,
+  nav,
+  .site-search-form {
+    margin: 0.5rem auto;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  /* stack the top-level nav vertically (use direct child selector) */
+  nav > ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* top-level items become full-width rows */
+  nav > ul > li {
+    margin: 0.25rem 0;
+    width: 100%;
+  }
+
+  /* Make submenu part of the flow on small screens (rows under the parent) */
+  .submenu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding-left: 0;
+    display: none; /* keep hidden until parent hovered/focused (no JS) */
+    max-width: none;
+  }
+
+  /* show submenu on focus/hover in mobile (CSS-only) */
+  .dropdown:focus-within > .submenu,
+  .dropdown:hover > .submenu {
+    display: block;
+  }
+
+  /* arrow floats to the right on mobile */
+  .dropdown > a {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .dropdown > a::after {
+    margin-left: 0;
+    margin-right: 0.4rem;
+  }
+
+  /* submenu links full width, centered */
+  .submenu a {
+    padding: 0.7rem 0;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+/* Nav Bar */
 /* Search */
 .site-search-form {
   z-index: 3;
@@ -1063,6 +1232,7 @@ footer {
     height: 100px;
   }
 }
+
 
 
 
