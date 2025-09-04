@@ -78,7 +78,6 @@ header {
   padding-inline: 1rem; /* optional: adjusts horizontal breathing room on narrow screens */
   box-sizing: border-box;
   position: relative;
-  overflow: visible;
 }
 
 /* responsive header logo — fluid but constrained, centered, and respects header padding */
@@ -138,7 +137,7 @@ header h1 {
   transform: translateX(-50%);
   /* display and flow no longer matter */
 }
- nav ul {
+nav ul {
   display: flex; /* Horizontal layout for nav items :contentReference[oaicite:0]{index=0} */
   justify-content: center;
   list-style: none;
@@ -1064,13 +1063,3 @@ footer {
     height: 100px;
   }
 }
-
-
-
-
-
-
-
-
-
-
