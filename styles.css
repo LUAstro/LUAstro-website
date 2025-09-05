@@ -1067,12 +1067,12 @@ footer {
 /* Generic figure styling */
 /* Side-by-side image gallery */
 .image-row {
-  display: flex;                 /* put children side by side */
+  display: inline-block;     /* shrink-wrap the figure to the image width. No longer: flex put children side by side */
   justify-content: center;       /* center them in the row */
   gap: 1rem;                     /* space between images */
   margin: 1.5rem auto;
   margin-top: 2.5rem;
-  max-width: 100%;            /* responsive */
+  vertical-align: top;
   flex-wrap: wrap;               /* allows stacking on small screens */
 }
 
@@ -1093,8 +1093,10 @@ footer {
 .image-row figcaption {
   margin-top: 0.5rem;
   font-size: 0.9rem;
+  width: 100%;
   color: #ffffff;
 }
+
 
 
 
@@ -1393,3 +1395,4 @@ footer {
     height: 100px;
   }
 }
+
