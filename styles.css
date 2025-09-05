@@ -1064,48 +1064,59 @@ footer {
 
 /* ---- Figure / image helpers ---- */
 
-/* Generic figure styling */
 /* Side-by-side image gallery */
 .image-row {
-  display: inline-block;     /* shrink-wrap the figure to the image width. No longer: flex put children side by side */
-  justify-content: center;       /* center them in the row */
-  gap: 1rem;                     /* space between images */
-  margin: 1.5rem auto;
-  margin-top: 2.5rem;
-  vertical-align: top;
-  flex-wrap: wrap;               /* allows stacking on small screens */
-}
-
-.image-row figure {
-  margin: 0;
-  text-align: center;            /* captions centered under image */
-}
-
-.image-row img {
-  max-height: 360px;
+  display: flex;                 /* layout children side-by-side */
+  justify-content: center;       /* center the row group */
+  gap: 1rem;                     /* spacing between figures */
+  margin: 2.5rem auto 1.5rem;    /* keep your vertical spacing */
+  flex-wrap: wrap;               /* stack on narrow screens */
+  align-items: flex-start;       /* don't stretch children vertically */
   max-width: 100%;
-  height: auto;
+  box-sizing: border-box;
+}
+
+/* each figure should shrink-wrap its image and NOT grow */
+.image-row figure {
+  display: inline-flex;          /* shrink-wrap while supporting column layout */
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;                /* crucial: do NOT grow or shrink to fill row */
+  width: auto;                   /* use intrinsic image width */
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* images remain responsive but keep their natural aspect and size */
+.image-row img {
   display: block;
+  width: auto;                   /* use natural width unless constrained by max-width */
+  max-width: 100%;
+  max-height: 360px;             /* keep your limit */
+  height: auto;
   margin: 0 auto;
-  border-radius: 6px;            /* optional: rounded corners */
+  border-radius: 6px;
 }
 
+/* caption exactly the width of the figure (thus the image) */
 .image-row figcaption {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+  display: block;
   width: 100%;
+  box-sizing: border-box;
+  margin-top: 0.5rem;
+  text-align: center;
   color: #ffffff;
+  font-size: 0.9rem;
+  word-wrap: break-word;
 }
 
-
-
-
-/* small responsive tweak: make floated images full-width on narrow screens */
+/* small screens: keep images smaller and stacked if needed */
 @media (max-width: 600px) {
-  .image-row img{
-    float: none;
-    display: block;
-    margin: 0.5rem auto;
+  .image-row {
+    gap: 0.75rem;
+  }
+  .image-row img {
     max-width: 80%;
   }
 }
@@ -1395,4 +1406,5 @@ footer {
     height: 100px;
   }
 }
+
 
