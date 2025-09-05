@@ -297,3 +297,5 @@ The last part of the `<header>` code is for the Search Bar. This code is complic
 
 Text boxes, images, and most general page content is contained inside `<main>` tags. Here, I will explain all the different types of containers you might see on pages, how to use them, and how they function.
 
+<h2>The Container div class</h2>
+
