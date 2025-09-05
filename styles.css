@@ -1066,49 +1066,37 @@ footer {
 
 /* Side-by-side image gallery */
 .image-row {
-  display: flex;                 /* layout children side-by-side */
-  justify-content: center;       /* center the row group */
-  gap: 1rem;                     /* spacing between figures */
-  margin: 2.5rem auto 1.5rem;    /* keep your vertical spacing */
-  flex-wrap: wrap;               /* stack on narrow screens */
-  align-items: flex-start;       /* don't stretch children vertically */
-  max-width: 100%;
-  box-sizing: border-box;
+  display: flex;                 /* puts pictures side by side */
+  justify-content: center;       /* centers them in the row */
+  gap: 1rem;                     /* and puts gaps inbetween them */
+  margin: 1.5rem auto;
+  margin-top: 2.5rem;
+  max-width: 100%;            
+  flex-wrap: wrap;               /* allows stacking on small screens */
 }
 
-/* each figure should shrink-wrap its image and NOT grow */
 .image-row figure {
-  display: inline-flex;          /* shrink-wrap while supporting column layout */
-  flex-direction: column;
-  align-items: center;
-  flex: 0 0 auto;                /* crucial: do NOT grow or shrink to fill row */
-  width: auto;                   /* use intrinsic image width */
   margin: 0;
-  text-align: center;
-  box-sizing: border-box;
+  text-align: center;            /* captions centered under image */
 }
 
-/* images remain responsive but keep their natural aspect and size */
 .image-row img {
-  display: block;
-  width: auto;                   /* use natural width unless constrained by max-width */
+  max-height: 360px;
   max-width: 100%;
-  max-height: 360px;             /* keep your limit */
   height: auto;
+  display: block;
   margin: 0 auto;
-  border-radius: 6px;
+  border-radius: 6px;            
 }
 
-/* caption exactly the width of the figure (thus the image) */
 .image-row figcaption {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
   margin-top: 0.5rem;
-  text-align: center;
-  color: #ffffff;
   font-size: 0.9rem;
-  word-wrap: break-word;
+  color: #ffffff;
+  max-width: 60ch;
+  text-align: center;
+  background: rgba(33, 33, 33,0.7);   /* Same background colour as container boxes */
+  
 }
 
 /* small screens: keep images smaller and stacked if needed */
@@ -1406,5 +1394,6 @@ footer {
     height: 100px;
   }
 }
+
 
 
