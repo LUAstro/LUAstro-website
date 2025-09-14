@@ -7,7 +7,8 @@
   <meta name="keywords" content="LUAstro, homepage, luastrosoc, luastro, Astrosoc, index, main page, Astronomy, society, lancaster astronomy, lancaster,
     lancaster astronomy society, astronomy society, student society, lancaster university, lancaster university astronomy, lancaster university astronomy society,
     astro, lancaster physics, lancaster university physics, student society, students, astrophysics, observing, observing nights, telescopes, observatory,
-    lancaster university observatory, lancaster astronomy, Dame Kathleen Ollerenshaw Observatory, Lancaster University Astrolab, Astrophysics labs, astro labs">
+    lancaster university observatory, lancaster astronomy, Dame Kathleen Ollerenshaw Observatory, Lancaster University Astrolab, Astrophysics labs, astro labs, 
+    astrolab, John Ray">
   <title>Homepage | LUAstro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,14 +27,25 @@
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
+    <li class="dropdown">
+      <a href="/blog/">Events & Announcements</a>
+      <ul class="submenu">
+        <li><a href="/blog/">All Announcements</a></li>
+        <li><a href="/newsletters/">Newsletters</a></li>
+        <li><a href="/socials/">Socials Calendar</a></li>
+      </ul>
+    </li>
         <li><a href="/astrophotography/">Astrophotography</a></li>
         <li><a href="/store/">Store</a></li>
-        <li><a href="/newsletters/">Newsletters</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/exec/">Exec</a></li>
-        <li><a href="/aboutus/">About us</a></li>
+    <li class="dropdown">
+      <a href="/aboutus/">About us</a>
+      <ul class="submenu">
+        <li><a href="/aboutus/">Our Society</a></li>
+        <li><a href="/exec/">Our Exec</a></li>
       </ul>
+    </li>
     </nav>
+    
     <form id="siteSearchForm"
       class="site-search-form"
       action="/search/"
@@ -58,7 +70,7 @@
     </section>
 
     <section class="intro">
-      <p>This is the website for LUAstro! We are a student-run society at Lancaster University, passionate about sharing the wonders of the cosmos. Whether you're an experienced astronomer or just curious about the night sky, our society offers events, workshops, and observing sessions for all levels.</p>
+      <p>This is the website for LUAstro! We are a student-run society at Lancaster University, passionate about sharing the wonders of Astronomy. Whether you're an experienced Astronomer or just curious about the night sky, our society offers observing nights, Astrophotography workshops, and other events for all levels.</p>
       <p>You can stay updated with our latest activities and events through our <a href="https://www.instagram.com/luastrosoc/">Instagram</a> and <a href="https://x.com/luastrosoc">Twitter</a> pages, 
       or (if you're a student at Lancaster University) become a member <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc">TODAY!</a></p>
     </section>
@@ -159,6 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <script src="/scripts/Easter_Egg.js"></script>
 </body>
 </html>
+
 
 
 
