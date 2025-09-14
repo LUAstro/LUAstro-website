@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="The About us page for the Society - general information about LUAstro">
-  <meta name="keywords" content="About us, about, info, information, history, what, who, where, why, LUAstro ">
+  <meta name="keywords" content="About us, about, info, information, history, links, what, who, where, why, LUAstro ">
   <title>About us | LUAstro</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,13 +23,23 @@
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/astrophotography/">Astrophotography</a></li>
-        <li><a href= "/store/">Store</a></li>
+    <li class="dropdown">
+      <a href="/blog/">Events & Announcements</a>
+      <ul class="submenu">
+        <li><a href="/blog/">All Announcements</a></li>
         <li><a href="/newsletters/">Newsletters</a></li>
-        <li><a href= "/blog/">Blog</a></li>
-        <li><a href="/exec/">Exec</a></li>
-        <li><a href="/aboutus/">About us</a></li>
+        <li><a href="/socials/">Socials Calendar</a></li>
       </ul>
+    </li>
+        <li><a href="/astrophotography/">Astrophotography</a></li>
+        <li><a href="/store/">Store</a></li>
+    <li class="dropdown">
+      <a href="/aboutus/">About us</a>
+      <ul class="submenu">
+        <li><a href="/aboutus/">Our Society</a></li>
+        <li><a href="/exec/">Our Exec</a></li>
+      </ul>
+    </li>
     </nav>
     
     <form id="siteSearchForm"
@@ -52,8 +62,9 @@
     </section>
     <section class="intro">
       <p>Hello, we're LUAstro - the Astronomy Society at Lancaster University! We offer the opportunity to use a semi-professional observatory on the rooftop of the University's Physics Department
-        , with a 14" Schmidt-Cassegrain telescope, 11" Schmidt-Cassegrain telescope, a Coronado Solar H-alpha solar telescope, and our RedCat51 Astrophotography telescope - along with lots more.
-         Whether you have no prior experience, or are a lifelong astronomer, we'd love to have you join us!</p>
+        , with a 14" Schmidt-Cassegrain telescope, 11" Schmidt-Cassegrain telescope, a Coronado Solar H-alpha solar telescope, and our RedCat51 Astrophotography telescope - along with lots more - all 
+		  available for use by members, for free! As well as Astronomy, we also run weekly socials and events for members, ranging from quizzes and film nights, to tutorials on Astrophotgraphy.
+		  Whether you have no prior experience in Astronomy, or are a lifelong Astronomer, we'd love to have you join us!</p>
     </section>
   </div>
   <div class="container">
@@ -237,6 +248,7 @@ of telescopes, including a 14" Schmidt-Cassegrain Telescope (SCT) that remains p
 
 </body>
 </html>
+
 
 
 
