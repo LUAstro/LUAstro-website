@@ -1,9 +1,21 @@
 /*
+                           ~ Photo Search Code ~
+                               ~ by John Ray ~
+                   (Assisted by AI, as this code is tricky.)
+                        
 
+This code is functionally similar to the Search_Code.js file, but instead of 
+redirecting users to a new query-specific page, it only changes the results on 
+the local Astrophotography page. It creates a "master list" of labels that
+correspond to each image, with appropriate aliases (terms that will return each 
+corresponding image as a result), then normalises search terms (so that it's 
+indifferent to grammar or capitalisation), then returns the appropriate results, 
+reorganising their size / format on the page to ensure that they fit the best, and 
+creates a reactive caption that changes depending on the search query. Like for the 
+Search_Code.js file, please only change the first section, the master list, if 
+possible, as the rest of the code is highly complex. Unless you feel really confident!
 
-
-
-
+                              Cheers! John Ray - 2025
 
 */
 
