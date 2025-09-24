@@ -1,3 +1,24 @@
+/*
+                               ~ Search Code ~
+                               ~ by John Ray ~
+                   (Assisted by AI, as this code is tricky.)
+                        
+
+This code establishes the link between pages on the site and the search page.
+It defines a large function that's called on the search page. Firstly, it creates
+a constant array that stores the title and redirect URL of each page (including
+descriptions for PDFs that obviously can't contain metadata themselves as they're
+not HTML pages), then, it fetches the metadata from the appropriate page, builds a
+search entry, creates a URL specific to the search query, filters results specific
+to the query, and then, finally, renders the results themselves with the appropriate
+fonts and styles. I won't lie, I don't really understand most of this code - so take
+caution altering any parts of it after section 1. If adding an entry, please copy and
+paste a previous entry's code (it's different for HTML pages and PDFs), and all should
+be okay! Remember to include a , after any non-final search entries or it will break!
+
+                             Cheers! John Ray - 2025
+
+*/
 (async function(){
   // 1) List all the pages here (include a title and url like the ones included and put any blog entries below "LUAstro Blog")
   const pages = [
