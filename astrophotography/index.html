@@ -384,23 +384,9 @@
     </div>
 
     <div class="footer-bottom">
-      <p>Last updated: August 31st, 2025 | Last edited by: <a href="https://www.johnray.co.uk">John Ray</a></p>
+      <p>Last updated: 25th September, 2025 | Last edited by: <a href="https://www.johnray.co.uk">John Ray</a></p>
     </div>
   </footer>
-
-  <script>
-    (function() {
-      const images = [
-        '/images/JRAndromedaRevisited.jpg',
-        '/images/bgRosetteNebulabyFinlay.jpg',
-        '/images/bgOrionNebulabyIanto.jpg',
-        '/images/JRCalNebREPROCESSED.jpg',
-        '/images/bgPleiadesbyOrlando.jpg'
-      ];
-      const choice = images[Math.floor(Math.random() * images.length)];
-      document.body.style.setProperty('--page-bg', `url(${choice})`);
-    })();
-  </script>
 
   <div id="lightbox" class="lightbox">
     <div class="lightbox-content">
@@ -413,235 +399,19 @@
     </div>
   </div>
 
-  <script>
-  (function() {
-    const figures   = Array.from(document.querySelectorAll('.photo-grid figure'));
-    const lightbox  = document.getElementById('lightbox');
-    const lbContent = lightbox.querySelector('.lightbox-content');
-    const lbImg     = lbContent.querySelector('img');
-    const lbCaption = lbContent.querySelector('.lb-caption');
-    const closeBtn  = lbContent.querySelector('.lb-close');
-    const maxBtn    = lbContent.querySelector('.lb-maximize');
-    const prevBtn   = lbContent.querySelector('.lb-prev');
-    const nextBtn   = lbContent.querySelector('.lb-next');
-    let currentIndex = 0;
-
-    function showLightbox(idx) {
-      currentIndex = idx;
-      const fig = figures[idx];
-      const img = fig.querySelector('img');
-      lbImg.src       = img.src;
-      lbImg.alt       = img.alt;
-      lbCaption.textContent = fig.querySelector('figcaption').innerText;
-      lightbox.classList.add('open');
-    }
-    function hideLightbox() {
-      lightbox.classList.remove('open');
-      if (document.fullscreenElement) document.exitFullscreen();
-    }
-    function showPrev() { showLightbox((currentIndex - 1 + figures.length) % figures.length); }
-    function showNext() { showLightbox((currentIndex + 1) % figures.length); }
-
-    figures.forEach((fig, idx) => {
-      fig.addEventListener('click', e => {
-        e.preventDefault();
-        showLightbox(idx);
-      });
-    });
-
-    closeBtn.addEventListener('click', e => { e.stopPropagation(); hideLightbox(); });
-    lightbox.addEventListener('click', hideLightbox);
-    lbContent.addEventListener('click', e => e.stopPropagation());
-    prevBtn.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
-    nextBtn.addEventListener('click', e => { e.stopPropagation(); showNext(); });
-    maxBtn.addEventListener('click', e => {
-      e.stopPropagation();
-      if (!document.fullscreenElement) {
-        lbContent.requestFullscreen?.();
-      } else {
-        document.exitFullscreen();
-      }
-    });
-
-    document.addEventListener('keydown', e => {
-      if (!lightbox.classList.contains('open')) return;
-      if (e.key === 'Escape') hideLightbox();
-      if (e.key === 'ArrowLeft') showPrev();
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'Enter') maxBtn.click();
-    });
-  })();
-  </script>
-
-  <script>
-  (function() {
-    const header = document.querySelector('header');
-    const bar    = document.querySelector('.star-bar');
-    const stars  = [];
-
-    function createStar(x,y) {
-      const s = document.createElement('span');
-      s.className = 'star';
-      s.textContent = '★';
-      s.x = x; s.y = y;
-      s.vx = Math.random()*4 - 2;
-      s.vy = Math.random()*4 - 2;
-      bar.appendChild(s);
-      stars.push(s);
-      update(s);
-    }
-
-    function update(s) {
-      s.style.left = s.x + 'px';
-      s.style.top  = s.y + 'px';
-    }
-
-    function animate() {
-      const w = bar.clientWidth, h = bar.clientHeight;
-      stars.forEach(s => {
-        s.x += s.vx; s.y += s.vy;
-        if (s.x < 0 || s.x > w) s.vx *= -1;
-        if (s.y < 0 || s.y > h) s.vy *= -1;
-        s.x = Math.max(0, Math.min(w, s.x));
-        s.y = Math.max(0, Math.min(h, s.y));
-        update(s);
-      });
-      requestAnimationFrame(animate);
-    }
-
-    header.addEventListener('click', e => {
-      if (e.offsetY > 100) return;
-      if ( e.target.closest('a, button, input, nav, h1 img') ) return;
-      const rect = bar.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      createStar(x, y);
-    });
-
-    animate();
-  })();
-  </script>
-
-  <script>
-  (function(){
-    const searchInput     = document.getElementById('photoSearch');
-    const equipFilter     = document.getElementById('equipmentFilter');
-    const creatorFilter   = document.getElementById('creatorFilter');
-    const yearFilter      = document.getElementById('yearFilter');
-    const captionEl       = document.getElementById('galleryCaption');
-    const figures         = Array.from(document.querySelectorAll('.photo-grid figure'));
-
-    // Master list with our labels & aliases
-    const objects = [
-      { label: 'Andromeda Galaxy (M31)',             aliases: ['andromeda galaxy','m31'] },
-      { label: 'Pinwheel Galaxy (M101)',             aliases: ['pinwheel galaxy','m101'] },
-      { label: 'Fireworks Galaxy (NGC 6946)',        aliases: ['fireworks galaxy','ngc 6946','ngc6946'] },
-      { label: 'Orion Nebula (M42)',                 aliases: ['orion nebula','m42'] },
-      { label: 'Rosette Nebula (NGC 2237)',          aliases: ['rosette nebula','ngc 2237','ngc2237'] },
-      { label: 'California Nebula (NGC 1499)',       aliases: ['california nebula','ngc 1499','ngc1499'] },
-      { label: 'Heart Nebula (IC 1805)',             aliases: ['heart nebula','ic 1805','ic1805'] },
-      { label: 'North America Nebula (NGC 7000)',    aliases: ['north america nebula','ngc 7000','ngc7000'] },
-      { label: 'Veil Nebula (NGC 6960)',             aliases: ['veil nebula','ngc 6960','ngc6960','Caldwell 33', 'Cygnus Loop'] },
-      { label: 'Horsehead, Flame & Orion Nebulae (Barnard 33, NGC 2024, & M42)',
-        aliases: [
-          'horsehead nebula','barnard 33','barnard33','b33','b 33',
-          'flame nebula','ngc 2024','ngc2024','orion nebula','m42','Dark Nebula'
-        ]
-      },
-      { label: 'Horsehead & Flame Nebulae (Barnard 33 & NGC 2024)',
-        aliases: [
-          'horsehead nebula','barnard 33','barnard33','b33','b 33',
-          'flame nebula','ngc 2024','ngc2024','Dark Nebula'
-        ]
-      },
-      { label: 'Pleiades (M45)',                     aliases: ['pleiades','m45'] },
-      { label: 'Beehive Cluster (M44)',              aliases: ['beehive cluster','m44'] },
-      { label: 'Hercules Cluster (M13)',             aliases: ['hercules cluster','m13'] },
-      { label: 'Eagle Nebula (M16)',                 aliases: ['eagle nebula', 'm16'] },
-      { label: 'Carina Nebula (NGC 3372)',           aliases: [
-          'carina nebula','ngc 3372','ngc3372','jwst','jwst two‑channel image'
-        ]
-      },
-      { label: 'Sun',             aliases: ['Sun','Sol','Sol 1','The Sun','Planetary'] },
-      { label: 'Moon',             aliases: ['Moon','The Moon','Cheese','Planetary'] },
-      { label: 'Seahorse Nebula, Fireworks Galaxy, & the NGC 6939 Star Cluster',             aliases: [
-        'Seahorse Nebula','NGC 6939','ngc6939','Fireworks Galaxy','NGC 6946','ngc6946','Barnard 150', 'B150', 'B 150','Dark Nebula'] },
-    ];
-
-    // normalize: lowercase, collapse whitespace (including NBSP), strip punctuation
-    function normalize(str) {
-      return str
-        .toLowerCase()
-        .replace(/\u00A0/g,' ')    // non‑breaking spaces → normal space
-        .replace(/\s+/g,' ')      // collapse any whitespace
-        .replace(/[^\w\s]/g,'')   // strip punctuation
-        .trim();
-    }
-
-    function filterAndCaption() {
-      const rawSearchQuery = searchInput.value.trim();
-      const normalizedSearchQuery = normalize(rawSearchQuery);
-      const equipFilterValue = equipFilter.value;
-      const creatorFilterValue = creatorFilter.value;
-      const yearFilterValue = yearFilter.value;
-
-      figures.forEach(fig => {
-        const figureObjectRaw = fig.dataset.object || '';
-        const figureEquipment = fig.dataset.equipment || '';
-        const figureCreator = fig.dataset.creator || '';
-        const figureYear = fig.dataset.year || '';
-
-        // Object name matching logic
-        let objectMatch = true;
-        if (normalizedSearchQuery) {
-          objectMatch = false;
-          // Find the object definition that corresponds to this figure's data-object
-          const matchedObjectDef = objects.find(objDef => {
-            const normalizedObjLabel = normalize(objDef.label);
-            const normalizedFigureObject = normalize(figureObjectRaw);
-
-            // Check if the figure's data-object matches the object definition's label or any of its aliases
-            return normalizedObjLabel === normalizedFigureObject ||
-                   objDef.aliases.some(alias => normalize(alias) === normalizedFigureObject);
-          });
-
-          if (matchedObjectDef) {
-            // Now, check if the normalized search query is included in any of the aliases or the label
-            objectMatch = matchedObjectDef.aliases.some(alias => normalize(alias).includes(normalizedSearchQuery)) ||
-                          normalize(matchedObjectDef.label).includes(normalizedSearchQuery);
-          }
-        }
-
-        const equipmentMatch = !equipFilterValue || figureEquipment === equipFilterValue;
-        const creatorMatch = !creatorFilterValue || figureCreator === creatorFilterValue;
-        const yearMatch = !yearFilterValue || figureYear === yearFilterValue;
-
-        fig.style.display = (objectMatch && equipmentMatch && creatorMatch && yearMatch) ? '' : 'none';
-      });
-
-      // Update caption
-      let subject = rawSearchQuery || 'LUAstro';
-      let text = '';
-      if (!yearFilterValue && !creatorFilterValue && !equipFilterValue && !rawSearchQuery) {
-        text = 'All LUAstro photos';
-      } else {
-        text = `${yearFilterValue || 'All'} ${subject} photos`;
-        if (creatorFilterValue) text += ` by ${creatorFilterValue}`;
-        if (equipFilterValue) text += ` using ${equipFilterValue}`;
-      }
-      captionEl.textContent = text;
-    }
-
-    [searchInput, equipFilter, creatorFilter, yearFilter]
-      .forEach(el => el.addEventListener('input', filterAndCaption));
-
-    filterAndCaption(); // Initial filter on page load
-  })();
-  </script>
-
+  
+<!-- Cool randomised background code -->
+<script src="/scripts/Astro_Background.js"></script>
+<!-- Imports a fun Easter Egg code-->
+<script src="/scripts/Easter_Egg.js"></script>
+<!-- Lightbox code (enables image magnification) -->
+<script src="/scripts/Lightbox.js"></script>
+<!-- Photo Search code to create a reactive gallery-->
+<script src="/scripts/Photo_Search.js"></script>
 
 </body>
 </html>
+
 
 
 
