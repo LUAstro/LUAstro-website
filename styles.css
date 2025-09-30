@@ -1221,7 +1221,7 @@ footer {
 .footer-bottom p {
   margin: 0;
   white-space: nowrap;         /* keep the timestamp on one line where possible */
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1.2;
   color: inherit;
 }
@@ -1256,7 +1256,7 @@ footer {
   display: inline-block;
   line-height: 1;
   vertical-align: middle;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: inherit;
 }
 
@@ -1465,6 +1465,7 @@ footer {
     height: 100px;
   }
 }
+
 
 
 
