@@ -1249,17 +1249,6 @@ footer {
   box-sizing: border-box;
 }
 
-/* Icon sizing: enforce block display and controlled height */
-.footer-bottom .counterapi img,
-.footer-bottom .counterapi svg,
-.footer-bottom .counterapi > a > img,
-.footer-bottom .counterapi > a > svg {
-  display: block !important;
-  height: 1.05rem !important;  /* tweak to taste (1.05rem is a good baseline) */
-  width: auto !important;
-  line-height: 1 !important;
-}
-
 /* Numeric text inside the widget */
 .footer-bottom .counterapi span,
 .footer-bottom .counterapi .count,
@@ -1267,7 +1256,7 @@ footer {
   display: inline-block;
   line-height: 1;
   vertical-align: middle;
-  font-size: 0.95rem;
+  font-size: 0.75rem;
   color: inherit;
 }
 
@@ -1476,6 +1465,7 @@ footer {
     height: 100px;
   }
 }
+
 
 
 
