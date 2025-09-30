@@ -1206,6 +1206,34 @@ footer {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.footer-bottom {
+  display: flex;
+  align-items: center;       /* vertically center text and counter */
+  gap: 0.5rem;               /* horizontal spacing if items are adjacent */
+  justify-content: space-between;
+  padding: 0.5rem 1rem;      /* adjust as needed */
+}
+
+/* ensure paragraph doesn't add unwanted margin */
+.footer-bottom p {
+  margin: 0;
+  white-space: nowrap;       /* optional: keep the timestamp on one line */
+}
+
+/* keep the counter compact */
+.footer-bottom .counterapi {
+  flex: 0 0 auto;
+  min-width: 2ch;           /* keeps space even when blocked by adblockers */
+}
+
+/* badge sizing if needed */
+.footer-bottom .counterapi img,
+.footer-bottom .counterapi svg {
+  max-height: 1.25rem;
+  height: 1.25rem;
+}
+
+
 /* Join button */
 .join-btn {
   display: inline-block;
@@ -1394,6 +1422,7 @@ footer {
     height: 100px;
   }
 }
+
 
 
 
