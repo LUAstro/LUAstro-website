@@ -1206,31 +1206,85 @@ footer {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+/* ---------- Footer / Counter: full replacement ---------- */
+
 .footer-bottom {
   display: flex;
-  align-items: center;       /* vertically center text and counter */
-  gap: 0.5rem;               /* horizontal spacing if items are adjacent */
-  justify-content: space-between;
-  padding: 0.5rem 1rem;      /* adjust as needed */
+  align-items: center;         /* vertical centering of text + counter */
+  justify-content: space-between; /* text left, counter right */
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  flex-wrap: wrap;             /* allow wrapping on very small screens */
+  box-sizing: border-box;
 }
 
-/* ensure paragraph doesn't add unwanted margin */
 .footer-bottom p {
   margin: 0;
-  white-space: nowrap;       /* optional: keep the timestamp on one line */
+  white-space: nowrap;         /* keep the timestamp on one line where possible */
+  font-size: 0.95rem;
+  line-height: 1.2;
+  color: inherit;
 }
 
-/* keep the counter compact */
+/* Compact, centered counter container */
 .footer-bottom .counterapi {
+  display: inline-flex;        /* tight horizontal layout for icon + number */
+  align-items: center;         /* vertically center icon + number */
+  gap: 0.35rem;
+  vertical-align: middle;
+  line-height: 1;
   flex: 0 0 auto;
-  min-width: 2ch;           /* keeps space even when blocked by adblockers */
+  min-width: 3ch;              /* reserve space if widget is blocked */
+  min-height: 0 !important;    /* override any inline min-height from widget */
+  height: auto !important;
+  padding: 0.125rem 0.35rem;   /* slight internal spacing — adjust if desired */
+  border-radius: 0.25rem;
+  background: transparent;     /* allow widget to set its own bg if desired */
+  box-sizing: border-box;
 }
 
-/* badge sizing if needed */
+/* Normalize all inner elements so they obey our sizing */
+.footer-bottom .counterapi,
+.footer-bottom .counterapi > * {
+  box-sizing: border-box;
+}
+
+/* Icon sizing: enforce block display and controlled height */
 .footer-bottom .counterapi img,
-.footer-bottom .counterapi svg {
-  max-height: 1.25rem;
-  height: 1.25rem;
+.footer-bottom .counterapi svg,
+.footer-bottom .counterapi > a > img,
+.footer-bottom .counterapi > a > svg {
+  display: block !important;
+  height: 1.05rem !important;  /* tweak to taste (1.05rem is a good baseline) */
+  width: auto !important;
+  line-height: 1 !important;
+}
+
+/* Numeric text inside the widget */
+.footer-bottom .counterapi span,
+.footer-bottom .counterapi .count,
+.footer-bottom .counterapi > a > span {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+  font-size: 0.95rem;
+  color: inherit;
+}
+
+/* Keep visual space if the widget is removed/blocked by an adblocker */
+.footer-bottom .counterapi:empty {
+  min-width: 3ch;
+  height: 1.05rem;
+}
+
+/* Responsive: on small screens allow the text to wrap and keep counter right-aligned */
+@media (max-width: 480px) {
+  .footer-bottom { justify-content: flex-start; }
+  .footer-bottom p { white-space: normal; }
+  .footer-bottom .counterapi {
+    margin-left: auto;  /* push counter to the right on the wrapped row */
+    order: 2;
+  }
 }
 
 
@@ -1422,6 +1476,7 @@ footer {
     height: 100px;
   }
 }
+
 
 
 
