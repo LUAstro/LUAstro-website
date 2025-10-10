@@ -16,7 +16,7 @@
   <link rel="icon" href="/images/JR's LUAstro Logo.png" type="png">
 <style>
   body {
-    display: flex;
+    display: inline;
     margin: 0;
     height: 100vh;
     background-color: black;
@@ -31,6 +31,8 @@
     width: 60vw;
     padding: 20px;
     background-color: black;
+    margin-right: 15vh;
+    margin-left: 20vh;
   }
   .grid-item {
     position: relative;
@@ -65,7 +67,7 @@
   }
   #info-container {
     width: 40vw;
-    display: flex;
+    display: inline;
     flex-direction: column;
     padding: 20px;
     align-items: center;
@@ -198,8 +200,10 @@
   </header>
 <main>
 <div class="container">
-<section class="intro">
 <div id="grid-container"></div>
+</div>
+<div class="container">
+<section class="intro">
 <div id="info-container">
   <div id="title">The Space Pirate Game</div>
   <div id="message">Welcome to the Space Pirate Game! Click a cell to start.</div>
@@ -508,3 +512,4 @@
 </script>
 </body>
 </html>
+
