@@ -156,25 +156,26 @@
   <div id="message">Welcome to the Space Pirate Game! Click a cell to start.</div>
   <div id="footer">
     <div class="button-container">
-      <img id="undo-button" src="undo.webp" alt="Undo">
+      <img id="undo-button" src="/space-pirate-game/undo.webp" alt="Undo">
       <span>Undo</span>
     </div>
     <div class="button-container">
-      <img id="random-button" src="random.webp" alt="Random">
+      <img id="random-button" src="/space-pirate-game/random.webp" alt="Random">
       <span>Random</span>
     </div>
     <div class="button-container">
-      <img id="reset-button" src="restart.webp" alt="Restart">
+      <img id="reset-button" src="/space-pirate-game/restart.webp" alt="Restart">
       <span>Restart</span>
     </div>
     <div class="button-container">
-      <img id="rules-button" src="rules.webp" alt="Rules">
+      <img id="rules-button" src="/space-pirate-game/rules.webp" alt="Rules">
       <span>Rules</span>
     </div>
   </div>
   <div class="small-text">
     Created by Orlando P-B and Finlay Daniel-MᶜKeigue<br>
-    <a id="pdf-link" href="pirate_game.pdf" target="_blank">Download Grid PDF</a>
+    Transferred to <a href="www.luastro.space">www.luastro.space</a> by <a href="www.johnray.co.uk">John Ray</a>.
+    <a id="pdf-link" href="/space-pirate-game/pirate_game.pdf" target="_blank">Download Grid PDF</a>
   </div>
 </div>
 
@@ -199,7 +200,7 @@
       <li><strong>B (Bank):</strong> Bank your current score (safe from future attacks).</li>
       <li><strong>Choose Next Square:</strong> You choose the next grid reference to be selected.</li>
     </ul>
-    <p>Use the <a id="pdf-link-modal" href="pirate_game.pdf" target="_blank">grid PDF</a> to play the game.</p>
+    <p>Use the <a id="pdf-link-modal" href="/space-pirate-game/pirate_game.pdf" target="_blank">grid PDF</a> to play the game.</p>
   </div>
 </div>
 
@@ -272,7 +273,7 @@
         cell.dataset.col = col;
 
         // Set up background image and positioning
-        cell.style.backgroundImage = "url('background.jpg')";
+        cell.style.backgroundImage = "url('/space-pirate-game/background.jpg')";
         cell.style.backgroundPosition = `${(col - 1) * -100}px ${(row) * -100}px`;
         cell.style.backgroundSize = "700%";
 
@@ -392,3 +393,4 @@
 
 </body>
 </html>
+
