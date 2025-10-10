@@ -33,6 +33,7 @@ be okay! Remember to include a , after any non-final search entries or it will b
     { title: 'Search page', url: '/search/' },
     { title: 'Socials Calendar', url: '/socials/' },
     { title: 'History of LUAstro', url: '/history/' },
+    { title: 'LUAstro Space Pirate Game', url: '/space-pirate-game/' },
     
     // Add any newsletter pdfs here (include a description & keywords)
     { title: 'Week 16, 22/23 Newsletter', url: '/newsletters/February 2023 (Week 16).pdf', description: 'ARCHIVE: LUAstro Newsletter from Feb 2023 (Week 16)' , keywords: 'newsletters, archive, 2023, feb 2023, week 16, newsletter, 22/23'},
