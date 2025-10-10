@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Space Pirate Game</title>
+<style>
+  body {
+    display: flex;
+    margin: 0;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  #grid-container {
+    display: grid;
+    grid-template-columns: auto repeat(7, 1fr);
+    grid-template-rows: auto repeat(7, 1fr);
+    gap: 5px;
+    width: 60vw;
+    padding: 20px;
+    background-color: black;
+  }
+  .grid-item {
+    position: relative;
+    border: 1px solid white;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 700%;
+    transition: background-color 0.3s ease, border 0.3s ease;
+  }
+  .grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: black;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+  }
+  .grid-item.revealed::before {
+    opacity: 0;
+  }
+  .label {
+    background-color: black;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+  #info-container {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  #title {
+    font-size: 2.5em;
+    text-align: center;
+    margin-top: 20px;
+  }
+  #message {
+    font-size: 2em; /* Increased font size */
+    text-align: center;
+    margin-top: 50px; /* Positioned lower */
+  }
+  #footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    margin-top: auto;
+    padding-bottom: 20px;
+  }
+  .button-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 10px;
+  }
+  .button-container img {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #333;
+  }
+  .button-container span {
+    margin-top: 5px;
+  }
+  .coordinates {
+    font-weight: bold;
+  }
+  .small-text {
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 10px;
+  }
+  /* Modal Styles */
+  #rules-modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+  }
+  #rules-content {
+    background-color: #111;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #444;
+    width: 80%;
+    max-width: 800px;
+    color: white;
+  }
+  #rules-content h2 {
+    text-align: center;
+  }
+  #rules-content p {
+    line-height: 1.6;
+  }
+  #close-rules {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #pdf-link {
+    color: #0af;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  #pdf-link:hover {
+    color: #0cf;
+  }
+</style>
+</head>
+<body>
+
+<div id="grid-container"></div>
+
+<div id="info-container">
+  <div id="title">The Space Pirate Game</div>
+  <div id="message">Welcome to the Space Pirate Game! Click a cell to start.</div>
+  <div id="footer">
+    <div class="button-container">
+      <img id="undo-button" src="undo.webp" alt="Undo">
+      <span>Undo</span>
+    </div>
+    <div class="button-container">
+      <img id="random-button" src="random.webp" alt="Random">
+      <span>Random</span>
+    </div>
+    <div class="button-container">
+      <img id="reset-button" src="restart.webp" alt="Restart">
+      <span>Restart</span>
+    </div>
+    <div class="button-container">
+      <img id="rules-button" src="rules.webp" alt="Rules">
+      <span>Rules</span>
+    </div>
+  </div>
+  <div class="small-text">
+    Created by Orlando P-B and Finlay Daniel-MᶜKeigue<br>
+    <a id="pdf-link" href="pirate_game.pdf" target="_blank">Download Grid PDF</a>
+  </div>
+</div>
+
+<!-- Rules Modal -->
+<div id="rules-modal">
+  <div id="rules-content">
+    <span id="close-rules">&times;</span>
+    <h2>The Space Pirate Game - Rules</h2>
+    <p>The Space Pirate Game is an activity where each player, on their game worksheet, places a set of symbols and values in a 7x7 blank grid. The grid is labeled with Greek letters α-η across the columns and numbers 1-7 down the rows.</p>
+    <p>Cells are selected at random unless a player gets the "Choose Next Square" symbol, which allows them to pick the next cell. When a cell is selected, everyone crosses off that grid reference and receives the symbol or value in that cell. If a player gets a value, they add it to their score, keeping a running total throughout the game. If they get a symbol, they perform the action associated with it.</p>
+    <p>Fill the grid with the following tiles: 1 x 5000 points, 2 x 3000 points, 10 x 1000 points, the special symbols listed below, and fill the rest of the grid with 10 x 200 point tiles.</p>
+    <h3>Symbols and Their Actions:</h3>
+    <ul>
+      <li><strong>Boarding Action:</strong> Steal another player's points.</li>
+      <li><strong>Fire Lasers:</strong> Reset another player's score to zero.</li>
+      <li><strong>Gift:</strong> Give 1000 points to a chosen player.</li>
+      <li><strong>Swap:</strong> Swap scores with another player.</li>
+      <li><strong>Raise Shields:</strong> Block one attack against you.</li>
+      <li><strong>Deflectors Online:</strong> Reflect one attack back to the attacker.</li>
+      <li><strong>2X:</strong> Double your current score.</li>
+      <li><strong>Anti-matter Containment Fault:</strong> Reset your score to zero.</li>
+      <li><strong>B (Bank):</strong> Bank your current score (safe from future attacks).</li>
+      <li><strong>Choose Next Square:</strong> You choose the next grid reference to be selected.</li>
+    </ul>
+    <p>Use the <a id="pdf-link-modal" href="pirate_game.pdf" target="_blank">grid PDF</a> to play the game.</p>
+  </div>
+</div>
+
+<script>
+  const gridContainer = document.getElementById("grid-container");
+  const messageDiv = document.getElementById("message");
+  const undoButton = document.getElementById("undo-button");
+  const resetButton = document.getElementById("reset-button");
+  const randomButton = document.getElementById("random-button");
+  const rulesButton = document.getElementById("rules-button");
+  const rulesModal = document.getElementById("rules-modal");
+  const closeRules = document.getElementById("close-rules");
+
+  const greekLetters = ["α", "β", "γ", "δ", "ε", "ζ", "η"];
+  const rowLabels = ["1", "2", "3", "4", "5", "6", "7"];
+  
+  let filledCells = [];
+  let phrases = [];
+  let actionStack = [];
+
+  // Original phrases
+  const originalPhrases = [
+    "Captured the Cosmic Booty", "Found Star Treasure", "Navigated a Nebula",
+    "Secured the Galactic Gold", "Charted a New Star", "Discovered Alien Relics",
+    "Intercepted Space Cargo", "Claimed an Asteroid's Bounty", "Unveiled Stardust Vault",
+    "Seized Quantum Crystals", "Located a Wormhole Stash", "Raided the Asteroid Belt",
+    "Decoded Alien Coordinates", "Looted a Derelict Ship", "Hijacked Satellite Wealth",
+    "Unlocked the Celestial Chest", "Reclaimed Dark Matter Riches", "Gained Astral Gold",
+    "Crashed the Comet Cargo", "Claimed the Black Hole Bounty", "Discovered Space Gems",
+    "Extracted Stellar Stones", "Hoarded Cosmic Crowns", "Harvested the Solar Spoils",
+    "Found the Starfield Cache", "Mined a Galaxy's Heart", "Plundered Planetary Prizes",
+    "Secured Solar Sapphires", "Discovered Lunar Loot", "Raided the Celestial Cache",
+    "Claimed the Nebula Nexus", "Broke into the Star System Vault", "Unearthed Asteroid Amulets",
+    "Seized the Celestial Citadel", "Bagged the Cosmic Cache", "Collected the Universe's Fortune",
+    "Confiscated the Alien Vault", "Secured Intergalactic Ingots", "Absconded with Space Gold",
+    "Scavenged Meteorite Medals", "Found the Quasar Cache", "Captured a Comet's Core",
+    "Secured Stardust Spoils", "Looted Exoplanet Jewels", "Seized the Space Horde",
+    "Secured Nebula Nuggets", "Plundered the Galactic Grid", "Bagged the Meteorite's Riches",
+    "Secured Space Pirate's Bounty", "Claimed Celestial Crowns"
+  ];
+
+  function initializeGame() {
+    gridContainer.innerHTML = "";
+    filledCells = [];
+    phrases = [...originalPhrases].sort(() => Math.random() - 0.5);
+
+    // Add an empty cell at the top-left corner
+    gridContainer.appendChild(document.createElement("div"));
+    
+    // Create column labels (Greek letters)
+    greekLetters.forEach(letter => {
+      const colLabel = document.createElement("div");
+      colLabel.classList.add("label");
+      colLabel.innerText = letter;
+      gridContainer.appendChild(colLabel);
+    });
+
+    // Create rows with cells
+    rowLabels.forEach((label, row) => {
+      // Row label (numbers)
+      const rowLabel = document.createElement("div");
+      rowLabel.classList.add("label");
+      rowLabel.innerText = label;
+      gridContainer.appendChild(rowLabel);
+
+      for (let col = 1; col <= 7; col++) {
+        const cell = document.createElement("div");
+        cell.classList.add("grid-item");
+        cell.dataset.row = row + 1;
+        cell.dataset.col = col;
+
+        // Set up background image and positioning
+        cell.style.backgroundImage = "url('background.jpg')";
+        cell.style.backgroundPosition = `${(col - 1) * -100}px ${(row) * -100}px`;
+        cell.style.backgroundSize = "700%";
+
+        // Add click event to reveal the cell
+        cell.addEventListener("click", () => revealCell(cell));
+        gridContainer.appendChild(cell);
+      }
+    });
+    
+    messageDiv.innerText = "Welcome to the Space Pirate Game! Click a cell to start.";
+  }
+
+  function revealCell(cell) {
+    const row = cell.dataset.row;
+    const col = cell.dataset.col;
+    if (filledCells.some(c => c.row === row && c.col === col) || phrases.length === 0) return;
+    
+    const phrase = phrases.pop();
+    filledCells.push({ cell, row, col, phrase });
+    cell.classList.add('revealed');  // Reveal the cell by adding the 'revealed' class
+    cell.style.border = "none";  // Optionally remove the border
+    const colGreek = greekLetters[col - 1];
+    messageDiv.innerHTML = `${phrase} in <span class="coordinates">${colGreek} ${row}</span>!`;
+
+    // Push action onto actionStack
+    actionStack.push({ type: 'reveal', cell, phrase });
+  }
+
+  function undoLast() {
+    if (actionStack.length === 0) {
+      messageDiv.innerText = "Nothing to undo!";
+      return;
+    }
+
+    const lastAction = actionStack.pop();
+
+    if (lastAction.type === 'reveal') {
+      const { cell, phrase } = lastAction;
+      // Undo cell reveal
+      filledCells = filledCells.filter(c => c.cell !== cell);
+      phrases.push(phrase);
+      cell.classList.remove('revealed');
+      cell.style.border = "1px solid white";
+      messageDiv.innerText = "Last action undone!";
+    } else if (lastAction.type === 'reset') {
+      // Undo game reset
+      const { previousState } = lastAction;
+      phrases = [...previousState.phrases];
+      filledCells = [...previousState.filledCells];
+      gridContainer.innerHTML = previousState.gridHTML;
+      messageDiv.innerText = previousState.message;
+
+      // Reassign cell references and reattach event listeners
+      const cells = gridContainer.querySelectorAll('.grid-item');
+      cells.forEach(cell => {
+        cell.addEventListener('click', () => revealCell(cell));
+      });
+      filledCells.forEach(c => {
+        const cell = gridContainer.querySelector(`.grid-item[data-row="${c.row}"][data-col="${c.col}"]`);
+        c.cell = cell;
+        if (cell) {
+          cell.classList.add('revealed');
+          cell.style.border = "none";
+        }
+      });
+      messageDiv.innerText = "Reset undone!";
+    }
+  }
+
+  function resetGame() {
+    // Save previous state
+    const previousState = {
+      phrases: [...phrases],
+      filledCells: filledCells.map(c => ({ ...c })),
+      gridHTML: gridContainer.innerHTML,
+      message: messageDiv.innerText
+    };
+    actionStack.push({ type: 'reset', previousState });
+
+    initializeGame();
+    messageDiv.innerText = "Game reset! Click a cell to start.";
+  }
+
+  function revealRandomCell() {
+    const coveredCells = Array.from(document.querySelectorAll(".grid-item"))
+      .filter(cell => !cell.classList.contains('revealed'));
+    if (coveredCells.length > 0) {
+      const randomCell = coveredCells[Math.floor(Math.random() * coveredCells.length)];
+      revealCell(randomCell);
+    }
+  }
+
+  // Event listeners for buttons and keyboard shortcuts
+  undoButton.addEventListener("click", undoLast);
+  resetButton.addEventListener("click", resetGame);
+  randomButton.addEventListener("click", revealRandomCell);
+  rulesButton.addEventListener("click", () => {
+    rulesModal.style.display = "block";
+  });
+  closeRules.addEventListener("click", () => {
+    rulesModal.style.display = "none";
+  });
+  window.addEventListener("click", (event) => {
+    if (event.target == rulesModal) {
+      rulesModal.style.display = "none";
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") undoLast();
+    if (event.key === "r" || event.key === "R") revealRandomCell();
+    if (event.key === "Escape") rulesModal.style.display = "none";
+  });
+
+  // Initialize the game when the page loads
+  initializeGame();
+</script>
+
+</body>
+</html>
