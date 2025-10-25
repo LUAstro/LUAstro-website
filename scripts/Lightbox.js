@@ -64,7 +64,5 @@ letting it take a current Z-index of zero (it's a layer behind the basis HTML),
       if (e.key === 'ArrowRight') showNext();
       if (e.key === 'Enter') maxBtn.click();
     });
-  })();
-
-    animate();
+      animate();
   })();
