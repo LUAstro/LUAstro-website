@@ -178,10 +178,9 @@ Here, an array is defined with the name of "images". An array is an object type 
       '/images/bgPleiadesbyOrlando.jpg' // image selected if choice = 4
     ];`
     
-Here, the array is filled with a set of 5 images denotes by file names that are in the images folder of the directory. Notice the `//` single-line comments. The array is importantly closed with another square bracket to prevent further code from being mistaken for any further entries. A single `;` is put afterwards.
+Here, the array is filled with a set of 5 images, each denoted by their file names (with all of them in the images folder of the directory). Notice the `//` single-line comments. The array is importantly closed with another square bracket to prevent further code from being mistaken for any further entries. A single `;` is put afterwards so the browser knows to proceed to the next piece of code.
 
    ` const choice = images[Math.floor(Math.random() * images.length)];`
-
 
 Next, a constant variable named "choice" is created. Constant variables cannot be redefined (notice how the array earlier is defined using the `const` keyword too). The keywords `var` or preferably `let` are used to define variables that can be redefined. "choice" is defined further as being an item of the array "images". Array items can be referenced by writing `arrayname[0]` for the first item in an array called "arrayname", or `arrayname[1]` for the second item, etc. so therefore, to make the image chosen random, the value in the square brackets (called the "index" of the array) must be randomised. We use the `Math.random()` function available as a default in JavaScript to do this, which chooses a random number from 0 to 1. We then multiply this number by the length of the array which is defined using a `.length` function assigned to the images array (this length will be 5 for the current array as there are 5 total entries). Lastly, the code would break if we defined "choice" as something like `images[1.36437247432]`; an array index **must** be an integer value. The `Math.floor` function fixes this, and would round the value down to 1, so the second entry (in this case a picture of the Rosette Nebula by Finlay) would be chosen as the background.
 
