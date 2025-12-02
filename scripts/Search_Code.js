@@ -36,6 +36,7 @@ be okay! Remember to include a , after any non-final search entries or it will b
     { title: 'LUAstro Space Pirate Game', url: '/space-pirate-game/' },
     
     // Add any newsletter pdfs here (include a description & keywords)
+   { title: 'Handout document by Giacomo Rossetti', url: '/images/GR-Handout-Space-Careers.pdf', description: 'Handout document by Giacomo Rossetti, from his talk on careers in the Space Industry', keywords: 'giacomo, giacomo rossetti, handout, ESA, careers, Space Industry, Careers in the space industry talk, archive, dec 2025, 2025, week 9, 25/26' },
     { title: 'Week 16, 22/23 Newsletter', url: '/newsletters/February 2023 (Week 16).pdf', description: 'ARCHIVE: LUAstro Newsletter from Feb 2023 (Week 16)' , keywords: 'newsletters, archive, 2023, feb 2023, week 16, newsletter, 22/23'},
     { title: 'Week 15, 22/23 Newsletter', url: '/newsletters/LYMAN-alpha Special Edition February 2023 (Week 15).pdf', description: 'ARCHIVE: LYMAN-alpha Special-edition LUAstro Newsletter from Feb 2023 (Week 15)', 
      keywords: 'newsletters, archive, 2023, feb 2023, week 15, LYMAN-alpha, Roses, University of York, University of york astronomy society, competition, newsletter, 22/23' },
