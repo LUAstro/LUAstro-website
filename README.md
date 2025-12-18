@@ -13,15 +13,14 @@ another Exec member will take over from you at some point, so try and leave comm
 <h1>An Introduction to GitHub</h1>
 
 Hosting a website in GitHub has numerous benefits. Firstly, it's free, which is a massive plus! Secondly, it enables easy changes to be made via the green "Commit changes..." button you'll see when you open pages or by 
-creating a new pull request (we'll get into them later), and lastly, it has a decent storage capability and good updating time. However it has its drawbacks too, which you should be made away of.
+creating a new pull request (we'll get into them later), and lastly, it has a decent storage capability and good updating time. Lots of student societies, students like myself, and even the odd lecturer use it to host websites for this reason (e.g. the [University of Oxford's Astronomy Society](https://ouspaceastronomy.github.io/), [Lancaster University's Computing Society](https://www.compsoc.io/), the Astrophysics lecturer [Professor Brooke Simmons](https://vrooje.github.io/), and [this cool guy](https://johnray.co.uk)). However it has its drawbacks too, which you should be made aware of.
 
 <h2>Downsides to GitHub hosting</h2>
 
-As you can maybe guess already, GitHub isn't built solely around website hosting. Usually, it's used as a public repository for coding projects (whether that be the code for Siril, or for some niche Minecraft plugin, all 
-sorts of code is put on here). As a result, some of the parts of GitHub can actually seem a little counter-intuitive for website development, making things more difficult for people who are inexperienced at web development. 
+As you can maybe guess already, GitHub isn't built solely around website hosting - in fact, it is used as a public repository for tons of coding projects (whether that be the code for Siril, or for some niche Minecraft plugin, all 
+sorts of code is put on here). As a result, some of the parts of GitHub can actually seem a little counter-intuitive for website development, making things more difficult for people who are inexperienced at it. 
 Another drawback is that free GitHub repositories can be "forked". What this means is that all of this code you see here, including this README file, is technically publically accessible by anyone, and can be "forked" (copied 
-whilst sharing visibility settings) by absolutely anyone too. As a result, I'd recommend that you keep the name of this GitHub account confidential (which I didn't really make easy when I just called the account "LUAstro", 
-sorry about that). The most major drawback though is that there is no easy UI for web development - you have to write the fundamental CSS, HTML & JavaScript code yourself (or use an AI chatbot to do it). This is a benefit too 
+whilst sharing visibility settings) by absolutely anyone too. As a result, **please don't put anything confidential on the website**! That includes members' details, of course, but also means that you **should NOT add any user accounts to the website**. The most major drawback though (as you have probably realised already) is that there is no easy UI for web development - you have to write the fundamental CSS, HTML & JavaScript code yourself (or correct the broken code an AI chatbot would make instead). This is a benefit too 
 in that you'll hopefully get a neat bit of coding experience from all this, but does make adding in new things, even just a new container type, a bit of a pain. Sites like Wordpress, SquareSpace, Wix, etc. exist that can 
 enable developers to just easily add things in without coding at all, even with basic templates available to begin with, so maybe one day the site will be moved to one of them instead - I'll leave that up to future Execs.
 
@@ -290,7 +289,7 @@ As you should have guessed by now, the `<ul>` and `<nav>` tags are then closed, 
 `    </form>`<br>
 `  </header>`<br>
 
-The last part of the `<header>` code is for the Search Bar. This code is complicated, and the Search Bar itself actually uses an entirely different coding language called PHP to function. Thankfully, all you need to do is copy-and-paste this code, so no worries there. The Search Bar uses a `<form>` tag to allow user-input, with the corresponding `action="/search/"` which redirects the user to the `/search/index.html` page. A search page specific to the query is then created using the corresponding query request (represented by a letter q), to give the user the correct results. A `<button>` tag is used to create a physical search button too, and the `<form>` and `<header>` tags are then closed. The Search Bar code will explained in greater detail later on.
+The last part of the `<header>` code is for the Search Bar. This code is complicated, and uses some tricky JavaScript code to generate pages based on entries. Thankfully, all you need to do is copy-and-paste this code, so no worries there. The Search Bar uses a `<form>` tag to allow user-input, with the corresponding `action="/search/"` which redirects the user to the `/search/index.html` page. A search page specific to the query is then created using the corresponding query request (represented by a letter q), to give the user the correct results. A `<button>` tag is used to create a physical search button too, and the `<form>` and `<header>` tags are then closed. The Search Bar code will be explained in greater detail later on.
 
 <h1>Main code</h1>
 
