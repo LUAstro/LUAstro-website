@@ -272,9 +272,9 @@ Finally, the header image is inserted. It's best to copy-and-paste this line, ag
 `      </ul>`<br>
 `    </nav>`
 
-Next, is the code for the Navigation Bar. This is the bit where users can click on links to other pages. It is called using the `<nav>` tag, and contains each link as a member of a HTML list. Lists are called with the Unordered List `<ul>` tag, with each member called by containing the name of the list entry in a list item tag `<li>`.
+Next, is the code for the Navigation Bar. This is the bit where users can click on links to other pages. It is called using the `<nav>` tag, and contains each link as a member of a HTML list. Lists are called with the unordered list `<ul>` tag, with each member called by containing the name of the list entry in a list item tag `<li>`.
 
-Importantly, all Navigation Bar entries are links - they link to the appropriate page. Links in HTML are created using Action tags, paired with the reference property with the appropriate link name. As you can see, this is done with `<a href="/PAGENAMEINDIRECTORY/">PAGE NAME ON WEBPAGE</a>` and is done in the same format for links in all HTML text.
+Importantly, all navigation bar entries are links - they link to the appropriate page. Links in HTML are created using action tags, paired with the reference property with the appropriate link name. As you can see, this is done with `<a href="/PAGENAMEINDIRECTORY/">PAGE NAME ON WEBPAGE</a>` and is done in the same format for links in all HTML text.
 
 As you should have guessed by now, the `<ul>` and `<nav>` tags are then closed, in that respective order.
 
@@ -301,27 +301,27 @@ Text boxes, images, and most general page content is contained inside `<main>` t
 
 The code `<div class=container> ... </div>` is something you'll see a lot across the website pages. It defines the standard text boxes you see across the site. The CSS code for it is in **Section 3** of the CSS stylesheet at this time of writing. The CSS code for the container is as follows:
 
-` .container {`
-`  padding: 20px;`
-`  max-width: 1200px;`
-`  margin: 40px auto;`
-`  --containercolour: rgba(33, 33, 33,0.7);`
-`  background-color: var(--containercolour);`
-`  --textcolour: white;`
-`  color: var(--textcolour);`
-`  --linkcolour: #bbb;`
-`  box-shadow: 0 4px 8px rgba(0,0,0,0.1);`
-`  border-radius: 8px;`
-`  text-align: center;`
-`  font-family: Helvetica, sans-serif;`
-`}`
-`.container a {`
-`  color: var(--linkcolour);`
-`  text-decoration: none;`
-`}`
-`.container a:hover {`
-`  color: white;`
-`} `
+` .container {`<br>
+`  padding: 20px;`<br>
+`  max-width: 1200px;`<br>
+`  margin: 40px auto;`<br>
+`  --containercolour: rgba(33, 33, 33,0.7);`<br>
+`  background-color: var(--containercolour);`<br>
+`  --textcolour: white;`<br>
+`  color: var(--textcolour);`<br>
+`  --linkcolour: #bbb;`<br>
+`  box-shadow: 0 4px 8px rgba(0,0,0,0.1);`<br>
+`  border-radius: 8px;`<br>
+`  text-align: center;`<br>
+`  font-family: Helvetica, sans-serif;`<br>
+`}`<br>
+`.container a {`<br>
+`  color: var(--linkcolour);`<br>
+`  text-decoration: none;`<br>
+`}`<br>
+`.container a:hover {`<br>
+`  color: white;`<br>
+`} `<br>
 
 Importantly, the background, text colour, and linked-text colour of the container are taken as variables; 
 meaning that these properties can be redefined in HTML code by replacing `<div class=container> ... </div>` with `<div class="container" style="containercolour: #HEXVALUEOFCHOSENBACKGROUNDCOLOUR; --textcolour: #HEXVALUEOFCHOSENTEXTCOLOUR; --linkcolour: #HEXVALUEOFCHOSENLINKCOLOUR;"> ... </div>` to recolour individual containers.
@@ -334,20 +334,18 @@ You will notice that the above CSS code doesn't specify the text sizes of anythi
 
 There are two types of section subclasses you will see. The "hero" subclass specifies the larger header text to the container (which also has a larger margin), whilst the "intro" subclass specifies the standard paragraph text. This part of the website's code is, admittedly, unoptimised. The "hero" subclass only generates nice headers **for text within `<h2> .. </h2>` tags** (which is pretty stupid and generates semantic errors in the browser console). If some future Exec member wishes to improve this section code - please do! I just haven't got around to it as it would require rewriting every HTML page on the site. For those who wish to do that, the CSS code for the sections can be found in **parts 4 and 5** of the stylesheet.
 
-In the HTML code, you will therefore see the full container code appearing like below:
+In the HTML code, you will therefore see the full container code appearing like below (note the indentation of each part):
 
-`  <div class="container">`
-
-`    <section class="hero">`
-`      <h2>Welcome to LUAstro.space!</h2>`
-`    </section>`
-
-`    <section class="intro">`
-`      <p>This is the website for LUAstro! We are a student-run society at Lancaster University, passionate about sharing the wonders of Astronomy. Whether you're an experienced Astronomer or just curious about ``the night sky, our society offers observing nights, Astrophotography workshops, and other events for all levels.</p>`
-`      <p>You can stay updated with our latest activities and events through our <a href="https://www.instagram.com/luastrosoc/">Instagram</a> and <a href="https://x.com/luastrosoc">Twitter</a> pages, `
-`      or (if you're a student at Lancaster University) become a member <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc">TODAY!</a></p>`
-`    </section>`
-`  </div>`
+`  <div class="container">`<br>
+`    <section class="hero">`<br>
+`      <h2>Welcome to LUAstro.space!</h2>`<br>
+`    </section>`<br>
+`    <section class="intro">`<br>
+`      <p>This is the website for LUAstro! We are a student-run society at Lancaster University, passionate about sharing the wonders of Astronomy. Whether you're an experienced Astronomer or just curious about` <br>`the night sky, our society offers observing nights, Astrophotography workshops, and other events for all levels.</p>`<br>
+`      <p>You can stay updated with our latest activities and events through our <a href="https://www.instagram.com/luastrosoc/">Instagram</a> and <a href="https://x.com/luastrosoc">Twitter</a> pages, `<br>
+`      or (if you're a student at Lancaster University) become a member <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc">TODAY!</a></p>`<br>
+`    </section>`<br>
+`  </div>`<br>
 
 To summarise:
 * The container div class creates containers on the page (who could have guessed).
@@ -359,22 +357,40 @@ To summarise:
 
 This code is exclusive to the blog page(s) of the website. Updating the blog is the most common commit for this directory - I recommend simply copying and editing previous blog-card container code to save time if you're in a rush (and to prevent errors of incorrect indentation that are easy to cause for this code). Regardless, I thought I ought to explain how the code for this works anyway.
 
-Example HTML code for a blog post container is shown below:
+Example HTML code for a blog post container is shown below (note the indentation of each part):
 
-<a class="blog-card" href="https://www.instagram.com/p/DR-5towAir8/" title="Instagram post: Week 10 25/26">
-  <div class="blog-card__content">
-    <div class="blog-card__text">
-      <div class="existing-description">
-        <h3 class="post-title">Week 10: Christmas Special Social!</h3>
-        <p class="post-excerpt">Our final event of the term was a <b>Christmas Lecture with Dr David Sloan</b> followed by a <b>festive Astronomy quiz</b>! The event took place on <b>Wednesday (10/12/25)</b>
-          from <b>7pm-9pm</b> in <b>Faraday Lecture Theatre</b>. Dr Sloan gave a talk on the <b>Intersection between Cosmology and Philosophy</b>, discussing ideas such as the fine-tuning of the Universe, 
-          Boltzmann brains, and the Anthropic Principle (alongside a small post-lecture discussion on Roko's Basilisk, and the implications of Cosmology on religious beliefs).</p>
-        <div class="meta">By John Ray • 18th Dec 2025</div>
-      </div>
-    </div>
+`<a class="blog-card" href="https://www.instagram.com/p/DR-5towAir8/" title="Instagram post: Week 10 25/26">`<br>
+`  <div class="blog-card__content">`<br>
+`    <div class="blog-card__text">`<br>
+`      <div class="existing-description">`<br>
+`        <h3 class="post-title">Week 10: Christmas Special Social!</h3>`<br>
+`        <p class="post-excerpt">Our final event of the term was a <b>Christmas Lecture with Dr David Sloan</b> followed by a <b>festive Astronomy quiz</b>! The event took place on <b>Wednesday (10/12/25)</b>`<br>
+`          from <b>7pm-9pm</b> in <b>Faraday Lecture Theatre</b>. Dr Sloan gave a talk on the <b>Intersection between Cosmology and Philosophy</b>, discussing ideas such as the fine-tuning of the Universe, `<br>
+`          Boltzmann brains, and the Anthropic Principle (alongside a small post-lecture discussion on Roko's Basilisk, and the implications of Cosmology on religious beliefs).</p>`<br>
+`        <div class="meta">By John Ray • 18th Dec 2025</div>`<br>
+`      </div>`<br>
+`    </div>`<br>
+<br>
+`    <div class="blog-card__media" aria-hidden="true">`<br>
+`      <img src="/images/Week_Ten_2025_Blog_Entry.PNG" alt="Week Ten Blog Entry">`<br>
+`    </div>`<br>
+`  </div>`<br>
+`</a>`<br>
 
-    <div class="blog-card__media" aria-hidden="true">
-      <img src="/images/Week_Ten_2025_Blog_Entry.PNG" alt="Week Ten Blog Entry">
-    </div>
-  </div>
-</a>
+The first thing you should notice about this code is how the entire container is nested within an action `<a>` tag. As explained in the "header code" section of this README file, action tags are used to create hyperlinks on pages - therefore to enable the entire blog entry to redirect to another page when clicked on, it must be nested within one. The title and "href" are changed for each post (I just have it redirect to Instagram posts if I'm in a rush). The following code of the blog post is contained within the div tag `<div class="blog-card__content">`.
+
+The next code is split into two parts.
+
+<h3>Part one: text content</h3>
+
+The main text (on the right-hand-side) is contained within another div tag - `<div class="blog-card__text">`. Awkwardly, the text then has to be put within yet another nested `<div>` tag (to ensure correct margins, formatting, and other stylistic effects). This is another unoptimised part of the website code that, again, I've put off fixing. This additional div tag is referred to as `<div class="existing-description">`.
+
+The text's header then has to be included within a header tag of the form `<h3 class="post-title">`, with the main text contained within a similar paragraph tag of the form `<p class="post-excerpt">`.
+
+Finally, the text is concluded with credit, via the div class `<div class="meta">`, which is nested within all previous div classes. As always, these tags **MUST BE CLOSED**! Additionally, they must follow the same indentation as the example I've included above.
+
+<h3>Part two: media content</h3>
+
+This bit is much easier. Images are contained within a div class of the form `<div class="blog-card__media" aria-hidden="true">`. The statement `aria-hidden="true"` removes all the visual effects of previous nesting, to improve the look of the blog posts (mainly on mobile devices).
+
+Images are then inserted via a standard `<img>` tag, shown in the example by `<img src="/images/Week_Ten_2025_Blog_Entry.PNG" alt="Week Ten Blog Entry">`. Please try and include alt text if you can, just for clarity.
