@@ -20,21 +20,23 @@ creating a new pull request (we'll get into them later), and lastly, it has a de
 As you can maybe guess already, GitHub isn't built solely around website hosting - in fact, it is used as a public repository for tons of coding projects (whether that be the code for Siril, or for some niche Minecraft plugin, all 
 sorts of code is put on here). As a result, some of the parts of GitHub can actually seem a little counter-intuitive for website development, making things more difficult for people who are inexperienced at it. 
 Another drawback is that free GitHub repositories can be "forked". What this means is that all of this code you see here, including this README file, is technically publically accessible by anyone, and can be "forked" (copied 
-whilst sharing visibility settings) by absolutely anyone too. As a result, **please don't put anything confidential on the website**! That includes members' details, of course, but also means that you **should NOT add any user accounts to the website**. The most major drawback though (as you have probably realised already) is that there is no easy UI for web development - you have to write the fundamental CSS, HTML & JavaScript code yourself (or correct the broken code an AI chatbot would make instead). This is a benefit too 
+whilst sharing visibility settings) by absolutely anyone too. As a result, **please don't put anything confidential on the website**! That includes members' details of course, but also means that you **should NOT add any user accounts to the website** or anything that involves passwords. Additionally, please keep this directory a little hidden if possible (even though I haven't), to add an extra layer of security.
+
+The most major drawback though (as you have probably realised already) is that there is no easy UI for web development - you have to write the fundamental CSS, HTML & JavaScript code yourself (or correct the broken code an AI chatbot would make instead). This is a benefit too 
 in that you'll hopefully get a neat bit of coding experience from all this, but does make adding in new things, even just a new container type, a bit of a pain. Sites like Wordpress, SquareSpace, Wix, etc. exist that can 
 enable developers to just easily add things in without coding at all, even with basic templates available to begin with, so maybe one day the site will be moved to one of them instead - I'll leave that up to future Execs.
 
 <h2>The basics</h2>
 
-So, where to begin then? First of all, navigate to the README.md file in the root directory, and click on the edit button (shown by the green triangle in the image below).
+So, where to begin then? First of all, navigate to a file (for example this README.md file) in the root directory, and click on the edit button (shown by the green triangle in the image below).
 
 ![README_INFO1](/images/README_INFO1.png)
 
-From here, you can enter the edit mode of any page in the directory. You'll see a "Cancel changes" button and a "Commit changes" button in the top right which you can use to ignore or apply changes respectively. To the top-left below the blue rectangle "Website" button in the image, you should see buttons saying "Edit" & "Preview" that allow you to easily see what your changes would look like without leaving the edit mode and before applying them. This is very handy for debugging.
+From here, you can enter the edit mode of the page. You'll see a "Cancel changes" button and a "Commit changes" button in the top right which you can use to ignore or apply changes respectively. To the top-left, below the blue rectangle "Website" button in the image, you should see buttons saying "Edit" & "Preview" that allow you to easily see what your changes would look like without leaving the edit mode and before applying them. This is very handy for debugging.
 
-The blue rectangle section is the name of your file, which you can edit by simply typing in the box (you can create a folder by typing /foldername/ before entering your file name). To get a site name in the form "luastro.space/pagename/" you would need to save a HTML file with the name showing up there as "website/pagename/index.html". The first "/" denotes the root directory folder (the main folder in which all the code is saved). For ease of access, I've put all images in a "/images/" folder (so all images must be referenced as "/images/imagename.imagetype"), and all scripts in a "/scripts/" folder (so all JavaScript scripts are referenced as "/scripts/scriptname.js"). This improves navigation of the GitHub page and, in the case of the scripts, actually reduces loading time by a small bit.
+The blue rectangle section is the name of your file, which you can edit by simply typing in the box (you can create a folder by typing /foldername/ before entering your file name). To get a site name in the form "luastro.space/pagename/" you would need to save a HTML file with the name showing up there as "website/pagename/index.html". The first "/" denotes the root directory folder (the main folder in which all the code is saved). For ease of access, I've put all images in a "/images/" folder (so all images must be referenced as "/images/imagename.imagetype"), and all scripts in a "/scripts/" folder (so all JavaScript scripts are referenced as "/scripts/scriptname.js"). This improves navigation of the GitHub page and, in the case of the scripts, actually reduces loading time slightly (or so a random website developer told me).
 
-Another file you should be aware of is the "404.html" file in the root directory. As the name suggests, this is the page that shows when any non-existent page on the site is visited. If deleted, a default Github 404 page is shown, which isn't ideal for the reason I mentioned in the Drawbacks section earlier.
+Another file you should be aware of is the "404.html" file in the root directory. As the name suggests, this is the page that shows when any non-existent page on the site is visited. If deleted, a default Github 404 page is shown, which isn't ideal for the reason I mentioned in the **Downsides to GitHub hosting** section earlier.
 
 If you make a small edit to a page and click the "Commit changes..." button, the following box appears:
 
@@ -103,7 +105,7 @@ All other parts will be explained in more detail later.
 
 CSS, or "Cascading Style Sheets" is a stylesheet language used to describe the presentation and styling of a webpage. It defines the colours of elements, padding, layout, any stylistic effects, fonts sizes, and much more. There is only one CSS file for the website, named as **styles.css**. It is this stylesheet that every page on the website references off for styling - so any changes you make to it will affect all pages on the site - and has had the code categorised into sections by me for better understanding.
 
-You will not need to create any further CSS files for the website. For simplicity, only the one CSS file is required, which you can feel free to update with new additions or changes.
+You will not need to create any further CSS files for the website (although you can if you want to, of course). For simplicity, only the one CSS file is required, which you can feel free to update with new additions or changes.
 
 I will explain how to work CSS code in more detail later on. For now, I'm just going to give a snippet of CSS code and talk you through the basics.
 
@@ -129,7 +131,7 @@ Here we define the padding, maximum width, and margins of the container in terms
   color: var(--textcolour);
   --linkcolour: #bbb;`
 
-Here we define the background colour, text colour, and linked-text colour for the container. The `--` before the names denotes the following word as representing a variable. This means that we can actually vary this value later on in a specific .HTML page (e.g. if we wanted the text for one of the containers to be blue we could change the variable `--containercolour`), whilst having the defaults set to a white text colour (given by the word "white"), a light-grey link colour (given using a HEX colour code that denotes the exact shade as `#bbb`), and a partially transparent dark-grey colour (using an RGBA format, where the A = 0.7 represents an opaqueness of 70% in the Alpha channel). I've used various different formats here for each to illustrate the options available, so don't worry if it seems confusing! Variables can have any name you wish (notice the British English "colour" in the variable names), but the properties of elements **must be referenced specifically using keywords** (notice the American English "color" in the actual property names as referring to it using the British English "colour" would not work). All CSS properties & variables are defined in the format of `Property: ValueOfTheProperty1, ValueOfTheProperty2, etc. ;`.
+Here we define the background colour, text colour, and linked-text colour for the container. The `--` before the names denotes the following word as representing a variable. This means that we can actually vary this value later on in a specific .HTML page (e.g. if we wanted the text for one of the containers to be blue we could change the variable `--containercolour`), whilst having the defaults set to a white text colour (given by the word "white"), a light-grey link colour (given using a HEX colour code that denotes the exact shade as `#bbb`), and a partially transparent dark-grey colour (using an RGBA format, where the A = 0.7 represents an opaqueness of 70% in the alpha channel). I've used various different formats here for each to illustrate the options available, so don't worry if it seems confusing! Variables can have any name you wish (notice the British English "colour" in the variable names), but the properties of elements **must be referenced specifically using keywords** (notice the American English "color" in the actual property names as referring to it using the British English "colour" would not work). All CSS properties & variables are defined in the format of `Property: ValueOfTheProperty1, ValueOfTheProperty2, etc. ;`.
 
 ` box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   border-radius: 8px;
@@ -203,7 +205,7 @@ All pages on the site have a similar Head & Header code. This code defines the t
 `<!DOCTYPE html>` <br>
 `<html lang="en">`
 
-This code initialises the page as using Modern HTML5, in English.
+This code initialises the page with modern HTML5, in English.
 
 `<head>` <br>
 `  <meta charset="UTF-8" />` <br>
@@ -295,5 +297,84 @@ The last part of the `<header>` code is for the Search Bar. This code is complic
 
 Text boxes, images, and most general page content is contained inside `<main>` tags. Here, I will explain all the different types of containers you might see on pages, how to use them, and how they function.
 
-<h2>The Container div class</h2>
+<h2>The "container" div class</h2>
 
+The code `<div class=container> ... </div>` is something you'll see a lot across the website pages. It defines the standard text boxes you see across the site. The CSS code for it is in **Section 3** of the CSS stylesheet at this time of writing. The CSS code for the container is as follows:
+
+` .container {`
+`  padding: 20px;`
+`  max-width: 1200px;`
+`  margin: 40px auto;`
+`  --containercolour: rgba(33, 33, 33,0.7);`
+`  background-color: var(--containercolour);`
+`  --textcolour: white;`
+`  color: var(--textcolour);`
+`  --linkcolour: #bbb;`
+`  box-shadow: 0 4px 8px rgba(0,0,0,0.1);`
+`  border-radius: 8px;`
+`  text-align: center;`
+`  font-family: Helvetica, sans-serif;`
+`}`
+`.container a {`
+`  color: var(--linkcolour);`
+`  text-decoration: none;`
+`}`
+`.container a:hover {`
+`  color: white;`
+`} `
+
+Importantly, the background, text colour, and linked-text colour of the container are taken as variables; 
+meaning that these properties can be redefined in HTML code by replacing `<div class=container> ... </div>` with `<div class="container" style="containercolour: #HEXVALUEOFCHOSENBACKGROUNDCOLOUR; --textcolour: #HEXVALUEOFCHOSENTEXTCOLOUR; --linkcolour: #HEXVALUEOFCHOSENLINKCOLOUR;"> ... </div>` to recolour individual containers.
+
+If these values are unchanged, the container defaults to being a grey colour with 70% opacity and having white text with grey hyperlinks.
+
+<h3>Sections of the Container</h3>
+
+You will notice that the above CSS code doesn't specify the text sizes of anything other than the default text. This is because this is done via section subclasses of the container, which specify how this text works whilst in paragraph tags (`<p> ... </p>`). 
+
+There are two types of section subclasses you will see. The "hero" subclass specifies the larger header text to the container (which also has a larger margin), whilst the "intro" subclass specifies the standard paragraph text. This part of the website's code is, admittedly, unoptimised. The "hero" subclass only generates nice headers **for text within `<h2> .. </h2>` tags** (which is pretty stupid and generates semantic errors in the browser console). If some future Exec member wishes to improve this section code - please do! I just haven't got around to it as it would require rewriting every HTML page on the site. For those who wish to do that, the CSS code for the sections can be found in **parts 4 and 5** of the stylesheet.
+
+In the HTML code, you will therefore see the full container code appearing like below:
+
+`  <div class="container">`
+
+`    <section class="hero">`
+`      <h2>Welcome to LUAstro.space!</h2>`
+`    </section>`
+
+`    <section class="intro">`
+`      <p>This is the website for LUAstro! We are a student-run society at Lancaster University, passionate about sharing the wonders of Astronomy. Whether you're an experienced Astronomer or just curious about ``the night sky, our society offers observing nights, Astrophotography workshops, and other events for all levels.</p>`
+`      <p>You can stay updated with our latest activities and events through our <a href="https://www.instagram.com/luastrosoc/">Instagram</a> and <a href="https://x.com/luastrosoc">Twitter</a> pages, `
+`      or (if you're a student at Lancaster University) become a member <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc">TODAY!</a></p>`
+`    </section>`
+`  </div>`
+
+To summarise:
+* The container div class creates containers on the page (who could have guessed).
+* Container headers are written by inserting text in a header `<h2>` tag, within a `"hero"` section class.
+* Container text is written by inserting text in a paragraph `<p>` tag, within an `"intro"` section class.
+* Colours of every part of the container can be changed by changing the style of the div class as shown earlier.
+
+<h2>The "blog-card" classes</h2>
+
+This code is exclusive to the blog page(s) of the website. Updating the blog is the most common commit for this directory - I recommend simply copying and editing previous blog-card container code to save time if you're in a rush (and to prevent errors of incorrect indentation that are easy to cause for this code). Regardless, I thought I ought to explain how the code for this works anyway.
+
+Example HTML code for a blog post container is shown below:
+
+<a class="blog-card" href="https://www.instagram.com/p/DR-5towAir8/" title="Instagram post: Week 10 25/26">
+  <div class="blog-card__content">
+    <div class="blog-card__text">
+      <div class="existing-description">
+        <h3 class="post-title">Week 10: Christmas Special Social!</h3>
+        <p class="post-excerpt">Our final event of the term was a <b>Christmas Lecture with Dr David Sloan</b> followed by a <b>festive Astronomy quiz</b>! The event took place on <b>Wednesday (10/12/25)</b>
+          from <b>7pm-9pm</b> in <b>Faraday Lecture Theatre</b>. Dr Sloan gave a talk on the <b>Intersection between Cosmology and Philosophy</b>, discussing ideas such as the fine-tuning of the Universe, 
+          Boltzmann brains, and the Anthropic Principle (alongside a small post-lecture discussion on Roko's Basilisk, and the implications of Cosmology on religious beliefs).</p>
+        <div class="meta">By John Ray • 18th Dec 2025</div>
+      </div>
+    </div>
+
+    <div class="blog-card__media" aria-hidden="true">
+      <img src="/images/Week_Ten_2025_Blog_Entry.PNG" alt="Week Ten Blog Entry">
+    </div>
+  </div>
+</a>
