@@ -152,14 +152,14 @@ JavaScript, a word that fills most programmers and web developers with fear, is 
 
 Below, I explain some of the basics of JavaScript with reference to the [Astro_Background.js](/scripts/Astro_Background.js) script that determines the background image for webpages once they are loaded. This barely scrapes the surface of JavaScript coding - again, online tutorials would explain it much better.
 
-` /*
+` /*`
 
                        ~ Astronomy Background selector ~
                          ~ randomises on page load ~
 
                                 by John Ray
 
-*/ `
+`*/ `
 
 Here, a multi-line comment introduces the file. As mentioned earlier, JavaScript comments are the same as in CSS.
 
