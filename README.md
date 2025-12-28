@@ -394,3 +394,214 @@ Finally, the text is concluded with credit, via the div class `<div class="meta"
 This bit is much easier. Images are contained within a div class of the form `<div class="blog-card__media" aria-hidden="true">`. The statement `aria-hidden="true"` removes all the visual effects of previous nesting, to improve the look of the blog posts (mainly on mobile devices).
 
 Images are then inserted via a standard `<img>` tag, shown in the example by `<img src="/images/Week_Ten_2025_Blog_Entry.PNG" alt="Week Ten Blog Entry">`. Please try and include alt text if you can, just for clarity.
+
+<h2>The "photo-grid" div class</h2>
+
+This code is exclusive to the Astrophotography page of the website. As time goes on, more members will take more photos; all of which can be appended to the Astrophotography gallery. The gallery allows the user to view photos based on their object, the equipment used to take the picture, the photographer, and the year the photo was taken on. This is done by calling the Photo_Search.js file (which **MUST** be used to accurately append entries to the search results), alongside appending any new photos into the Astrophotography page's HTML file. The Photo_Search.js file will be explained later in the scripts section of this README. Here I'll talk you through how to append entries onto the HTML file.
+
+Example HTML code for the photo-grid container:
+
+    <div class="photo-grid">
+      <section class="gallery">
+
+        <figure
+          data-object="Andromeda Galaxy (M31)"
+          data-equipment="RedCat51"
+          data-creator="John Ray"
+          data-year="2024">
+          <img src="/images/bgAndromedabyJohn.jpg"
+               alt="Andromeda Galaxy, taken by our current President, John.">
+          <figcaption>Andromeda Galaxy (M31) with ~3.5 h exposure, taken by John Ray using RedCat51 Telescope.</figcaption>
+        </figure>
+        
+        Other entries in the same figure tags...
+        
+      </section>
+    </div>
+
+The grid of images is initialised by the `<div class="photo-grid">` container, with a nested `<section class="gallery">` within it. Each image within the grid must have some properties alongside it. These properties are:
+
+* The name of the object shown in the image (given by assigning a value to data-object).
+* The name of the equipment used to take the picture (given by assigning a value to data-equipment).
+* The name of the photographer who took the picture (given by assigning a value to data-creator).
+* The year the photograph was taken (given by assigning a value to data-year).
+* A filepath for the image (where it is in the directory of the website), with alt text that shows upon magnification and an appropriate caption that shows when non-magnified.
+
+All the data properties are necessary so that the image appears if the correct settings are put into the search bar. The figure caption and alt-text are necessary to explain the object of the image in any additional detail (which can be useful if you're showing the page on open days or other events). The filepath of the image is the most vital, obviously, as it loads the correct image to begin with. This is done by including the filepath in the form shown above, with an `<img src="/FILEPATH" alt="ALTTEXT">` tag.
+
+In practice, I recommend simply copying-and-pasting a previous entry, and changing the properties manually. This prevents any annoying indent errors, or missing information. The top entry on the HTML file is not necessarily going to be the entry at the top of the page (due to how the grid places images based on scale, rather than order).
+
+<h1>Footer code</h1>
+
+The footer code is the same on each page. It is modelled after the footer seen on NASA's website, and was a mild pain to get working (so please be careful with it). It is especially sensitive on mobile.
+
+The footer code begins as follows:
+
+`<footer class="site-footer">`
+`  <div class="footer-container">`
+`    <!-- Mission (left) -->`
+`  <div class="footer-section footer-mission">`
+`      <h4>Lancaster University Astronomy Society</h4>`
+`      <p>LUAstro observes the wonders of space and the stars all from the top of the Physics Building! Join us for observing nights, Astrophotography workshops, socials, and more!</p>`
+`      <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc" class="join-btn">Join Us →</a>`
+`  </div>`
+
+This initialises the footer, and fills its left-most section with the mission text, title, and red "Join us →" button. Multiple div tags are used to ensure correct formatting.
+
+    <!-- Quick Links (centre-left) -->
+    <div class="footer-section footer-links">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/astrophotography/">Astrophotography</a></li>
+        <li><a href="/store/">Store</a></li>
+        <li><a href="/newsletters/">Newsletters</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/exec/">Exec Team</a></li>
+        <li><a href="/aboutus/">About Us</a></li>
+      </ul>
+    </div>
+
+This creates the centre-left list of links in the footer. Similar to the exec page, the `<ul>` and `<li>` tags are used to create an unordered list, and individual list entries, respectively.
+
+<!-- LUAstro New Logo (centre-right) -->
+    <div class="footer-section footer-logo">
+      <img src="/images/JR's LUAstro Logo.png" alt="LUAstro Logo">
+    </div>
+
+This creates the centre-right logo on the webpage. Previously, it showed the older logo, as I created this website before updating the logo to its present form.
+
+    <!-- Follow Us + Newsletters (right) -->
+    <div class="footer-section footer-social">
+      <h4>Follow <img src="/images/LUAstro_Wormstyle_DarkMode.png" alt="LUAstro" class="follow-logo">
+      </h4>
+      <div class="social-icons">
+        <a href="https://discord.gg/pvbhCKtJYw" aria-label="Discord">
+          <img src="/images/discord.png" alt="Discord">
+        </a>
+        <a href="https://www.instagram.com/luastrosoc/" aria-label="Instagram">
+          <img src="/images/instagram.png" alt="Instagram">
+        </a>
+          <a href="https://luastro.substack.com/" aria-label="Substack">
+          <img src="/images/substack.png" alt="Substack">
+        </a>
+        <a href="https://twitter.com/luastrosoc" aria-label="Twitter">
+          <img src="/images/twitter.png" alt="Twitter">
+        </a>
+        <a href="https://www.youtube.com/@lancasteruniversityastrono1095" aria-label="YouTube">
+          <img src="/images/youtube.png" alt="YouTube">
+        </a>
+        <a href="https://www.facebook.com/LuAstroSoc/" aria-label="Facebook">
+          <img src="/images/facebook.png" alt="Facebook">
+        </a>
+      </div>
+      <a href="/newsletters/" class="footer-link">Newsletters</a>
+    </div>
+  
+  The "Follow LUAstro" text is created by a very awkward div class called "footer-section footer-social", with the appropriate list of social links created as a series of action tags below it (followed by another link to the newsletters page to keep a format similar to the NASA site).
+
+`</div>`
+
+Finally, the `<div class="footer-container">` tag is closed.
+
+`  <!-- Bottom bar -->`
+`  <div class="footer-bottom">`
+`    <p>Last updated: 10th October, 2025 | Last edited by: <a href="https://www.johnray.co.uk">John Ray</a></p>`
+
+Here, the bottom section of the footer is initialised. This text, annoyingly, has to be edited manually whenever the page is edited. Alternatively, you can just forget to change it like I do (as I doubt anyone will notice if it's out of date). If a future LUAstro member wants to automate this text somehow, that would be excellent!
+
+`<script src="https://counterapi.com/c.js?ns=luastro.space" async ></script>`
+`<!-- Added the counter instance here: -->`
+`<div class="counterapi" style="min-height:44px" key="socials" nolink="true" color="#ffffff" bg="#878787" noIcon="false"></div>`
+
+Currently, the website uses www.counterapi.com to track the views of each webpage. This site is prone to crashing, and is generally unreliable. Google Analytics is a better alternative that I have yet to get working (please change to this if you're a future member!). Regardless for now, this is the best way I could figure out to monitor the site's traffic. The script calls the www.counterapi.com's half-broken API, and the `<div class="counterapi" ...>`tag creates the individual tracker for the page. The key "socials" assigns the tracker to the name "socials" (this must be individual to each page). Ensure that nolink="true" so that visitors cannot easily view the site's traffic, but keep noIcon="false" if you can, as they must be reminded that Big Brother is watching them.
+
+`</div>`
+`</footer>`
+
+Then, the `<div class="footer-bottom">` and the footer tags are closed.
+
+It is here that any JavaScript scripts must be called. This is done like below:
+
+`<!-- Cool randomised background code -->`
+`<script src="/scripts/Astro_Background.js"></script>`
+`<!-- Imports a fun Easter Egg code-->`
+`<script src="/scripts/Easter_Egg.js"></script>`
+
+These two scripts are necessary for each page (yep, the Easter Egg code is *definitely* necessary, trust me). For pages like the search page, history page, and astrophotgraphy page, the other relevant scripts are also necessary. If the lightbox code is required (to magnify images like on the astrophotography or history pages), this following `<div class="lightbox">` code **MUST ALSO BE INCLUDED**:
+
+`  <div id="lightbox" class="lightbox">`
+`    <div class="lightbox-content">`
+`      <button class="lb-close"    title="Close">✕</button>`
+`      <button class="lb-maximize" title="Maximize">⤢</button>`
+`      <img src="" alt="">`
+`      <p class="lb-caption"></p>`
+`      <button class="lb-prev"     title="Previous">‹</button>`
+`      <button class="lb-next"     title="Next">›</button>`
+`    </div>`
+`  </div>`
+
+This creates the Lightbox element upon clicking (creating the fancy buttons and stuff like that). The lightbox code is all completely copied from my own website, and as such is a little broken on mobile.
+
+Finally, the HTML code must be completely closed.
+
+`</body>`
+`</html>`
+
+Congrats, you now know how to write a new HTML file on the website!
+
+<h1>The final essentials:</h1>
+
+By now you should know:
+
+* How GitHub works (how to create new pages using it, etc.).
+* The basics of Web Development (the barebones essentials of HTML, JavaScript, and CSS code).
+* How to create a new HTML page on the website (with new specific SEO metadata and API counters).
+* How to update the blog with new entries.
+* How to update the Astrophotography page with new images (on the HTML side).
+
+So what's left?
+
+* How to update the Astrophotography page on the JavaScript side.
+* How the search bar works and how to add new entries.
+* How updating lots of things at once can be made a whole lot easier with GitHub Desktop.
+* And a big well done!
+
+So let me explain the last few final essentials.
+
+<h2>Updating Photo_Search.js</h2>
+
+Photo_Search.js is the JavaScript code that allows images of new objects on the Astrophotography page to be correctly sorted by user entries (e.g. typing M33 will show pictures of the Andromeda Galaxy). This file can be viewed in the `/scripts/` folder of the base directory.
+
+**Updating this is therefore necessary if you wish to add new images to the Astrophotgraphy page that are of new objects. If a photo is merely taken by a new photographer, taken during a new year, or with new equipment, you can simply update the options list on the Astrophotography page. If a photo is of multiple objects in a new combination (e.g. of B33, NGC 2024, & M42, instead of just M42) a new entry on the Photo_Search.js file MUST be created for that image, so that it returns the image as a result for each entry.**
+
+Updating this is actually quite simple. Find the part of the file that begins:
+
+`// Master list with our labels & aliases`
+`    const objects = [`
+`      { label: 'Andromeda Galaxy (M31)',             aliases: ['andromeda galaxy','m31'] },`
+
+After the comma of any entry, insert a new entry with code of the form:
+
+` { label: 'NEW ENTRY NAME', aliases: ['Comma Separated list of search aliases', 'like', 'this'] }, `
+
+Labels must be distinct, and should preferably be called after the subject of the image in question. The data-object of the appropriate image on the HTML page is then assigned to the appropriate allias. Aliases, to reiterate, are the terms that must be typed to return the image as an entry (e.g. as said earlier typing "M31" should show pictures of the Andromeda Galaxy, so "M31" should be an alias alongside "Andromeda Galaxy" for an image of that object).
+
+The Photo_Search.js code strips any aliases of punctuation, converts non-breaking spaces into regular spaces, and then removes any regular spaces (e.g. typing "androm.e/da  ga@lax'y" would still return Andromeda Galaxy as a result). Aliases also work regardless of capitalisation. This unfortunately means that any names like Orlando Prugel-Bennett cannot be put as the names of photographers on the Astrophotography page (as the "-" is removed, causing an error). I've taken to simply abbreviating double-barrelled names in this case as a workaround.
+
+<h2>Updating the Search Bar</h2>
+
+This is the most complex bit of code on the site, so I've left it until last to explain. From tracking every visitor to the website like a completely normal person, I've realised that virtually no-one uses the search bar (and that a lot of American bots frequent the site for some reason); so there's little worry if you can't get this bit working.
+
+The basics of the Search Bar was mentioned earlier in the Header Code subsection. It works by generating a page from the `/search/index.html` page. That page contains the following specific HTML code:
+
+`<main>`
+`    <div class="container regular">`
+`      <h2>Search results:</h2>`
+`      <div id="searchResults"></div>`
+`    </div>`
+`    <div class="extra-space"></div>`
+` </main>`
+
+Simple enough, right? All that does is create a container with the header "Search results:" and an internal id provided by `<div id="searchResults"></div>`. The real complexity comes from the JavaScript side, which defines that internal id by having the Search_Code.js file attached to the HTML page like below:
+
+`<script src="/scripts/Search_Code.js"></script>`
