@@ -152,14 +152,14 @@ JavaScript, a word that fills most programmers and web developers with fear, is 
 
 Below, I explain some of the basics of JavaScript with reference to the [Astro_Background.js](/scripts/Astro_Background.js) script that determines the background image for webpages once they are loaded. This barely scrapes the surface of JavaScript coding - again, online tutorials would explain it much better.
 
-/*
+`/*` <br>
 
                        ~ Astronomy Background selector ~
                          ~ randomises on page load ~
 
                                 by John Ray
 
-*/ 
+`*/` <br>
 
 Here, a multi-line comment introduces the file. As mentioned earlier, JavaScript comments are the same as in CSS.
 
@@ -185,8 +185,8 @@ Here, the array is filled with a set of 5 images, each denoted by their file nam
 
 Next, a constant variable named "choice" is created. Constant variables cannot be redefined (notice how the array earlier is defined using the `const` keyword too). The keywords `var` or preferably `let` are used to define variables that can be redefined. "choice" is defined further as being an item of the array "images". Array items can be referenced by writing `arrayname[0]` for the first item in an array called "arrayname", or `arrayname[1]` for the second item, etc. so therefore, to make the image chosen random, the value in the square brackets (called the "index" of the array) must be randomised. We use the `Math.random()` function available as a default in JavaScript to do this, which chooses a random number from 0 to 1. We then multiply this number by the length of the array which is defined using a `.length` function assigned to the images array (this length will be 5 for the current array as there are 5 total entries). Lastly, the code would break if we defined "choice" as something like `images[1.36437247432]`; an array index **must** be an integer value. The `Math.floor` function fixes this, and would round the value down to 1, so the second entry (in this case a picture of the Rosette Nebula by Finlay) would be chosen as the background.
 
- `   document.body.style.setProperty('--page-bg', /url(${choice}));
-  })();`
+ `   document.body.style.setProperty('--page-bg', /url(${choice}));` <br>
+`  })();`
 
 Finally, the following code sets the CSS `--page-bg` variable that represents the page's background as the chosen image using an awkward mix of references in the form of `document.body.style.setProperty(...)`. This variable must be defined as a URL to a specific image, hence the `URL(${choice})` code (which would usually be inside a set of dropticks), where the dollar symbol references the JavaScript variable of "choice". Finally, each line is ended with a `;` and a suitable number and type of brackets.
 
@@ -207,12 +207,14 @@ All pages on the site have a similar Head & Header code. This code defines the t
 
 This code initialises the page with modern HTML5, in English.
 
-`<head>` <br>
-`  <meta charset="UTF-8" />` <br>
-`  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>` <br>
-`  <meta name="description" content="Newsletters page - contains all the most recent newsletters by the Society">` <br>
-`  <meta name="keywords" content="Newsletters, News, updates, info, latest news, communications, LUAstro">` <br>
-`  <title>Newsletters | LUAstro</title>` <br>
+<!--
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Newsletters page - contains all the most recent newsletters by the Society">
+  <meta name="keywords" content="Newsletters, News, updates, info, latest news, communications, LUAstro">
+  <title>Newsletters | LUAstro</title>
+-->
 
 This begins the `<head>` code (the rather confusingly-named `<header>` code will be initialised later on), followed by the webpage's specific `<meta>` code. The `<meta>` code is vital for the webpage to work correctly. The first line of `<meta>` code specifies that the page will run using UTF-8 character encoding (which is already the standard) to enable the search bar magnifying glass to load correctly, as well as enabling the use of other emoticons on the page.
 
@@ -228,15 +230,17 @@ Additionally, please include **luastro** as a keyword on every page that is adde
 
 The `<title>` code defines the text that shows at the top of a browser tab for the webpage. For consistency, it's best to use the format of "PAGENAME | LUAstro".
 
-`<link rel="preconnect" href="https://fonts.googleapis.com">` <br>
-`<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>` <br>
-`<link` <br>
-`  href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap"` <br>
-`  rel="stylesheet"` <br>
-`/>` <br>
-`  <link rel="stylesheet" href="/styles.css" />` <br>
-`  <link rel="icon" href="/images/JR's LUAstro Logo.png" type="png">` <br>
-`</head>`
+<!--
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+  href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap"
+  rel="stylesheet"
+/>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="/images/JR's LUAstro Logo.png" type="png">
+</head>
+-->
 
 This is the second part of the `<head>` code. Unlike the previous part, this is the same for **ALL** pages, so you can just copy-and-paste this in for any new webpages. The first two lines allow the webpage to use all of the site's default fonts. The first closing `<link/>` specifically loads in the font Source Sans Pro. The second closing `<link/>` links to the website's main CSS stylesheet. This line is essential, without it the page will have no actual format and will display as black HTML code on a white background (in default light mode), without any images, links, or elements. The final closing `<link/>` links the page to the Newer LUAstro logo, for use as a "flavicon". A flavicon is the image displayed on tabs, search engines, or browser favourites to represent a page. Feel free to change this if desired.
 
@@ -245,12 +249,13 @@ Finally, the `<head>` tag is closed.
 <h2>Header code</h2>
 
 The confusingly-named `<header>` is where the code for the physical top of the webpage is kept. As it's code that creates a physical display on the page (unlike the `<head>` code which just adds properties to the page), it is inside the `<body>` tag of the main page.
-
-`<body>` <br>
-`  <header>` <br>
-`    <div class="star-bar"></div>` <br>
-`    <h1>Archive of Society Newsletters</h1>` <br>
-`    <img class="follow-logo" src="/images/LUAstro_NavBar.png" alt="LUAstro">` <br>
+<!--
+<body>
+  <header>
+    <div class="star-bar"></div>
+    <h1>Archive of Society Newsletters</h1>
+    <img class="follow-logo" src="/images/LUAstro_NavBar.png" alt="LUAstro">
+-->
 
 As mentioned earlier, the `<body>` tag is initialised first. This is finalised with a `</body>` tag at the absolute end of all the webpage code.
 
@@ -303,27 +308,29 @@ Text boxes, images, and most general page content is contained inside `<main>` t
 
 The code `<div class=container> ... </div>` is something you'll see a lot across the website pages. It defines the standard text boxes you see across the site. The CSS code for it is in **Section 3** of the CSS stylesheet at this time of writing. The CSS code for the container is as follows:
 
-` .container {`<br>
-`  padding: 20px;`<br>
-`  max-width: 1200px;`<br>
-`  margin: 40px auto;`<br>
-`  --containercolour: rgba(33, 33, 33,0.7);`<br>
-`  background-color: var(--containercolour);`<br>
-`  --textcolour: white;`<br>
-`  color: var(--textcolour);`<br>
-`  --linkcolour: #bbb;`<br>
-`  box-shadow: 0 4px 8px rgba(0,0,0,0.1);`<br>
-`  border-radius: 8px;`<br>
-`  text-align: center;`<br>
-`  font-family: Helvetica, sans-serif;`<br>
-`}`<br>
-`.container a {`<br>
-`  color: var(--linkcolour);`<br>
-`  text-decoration: none;`<br>
-`}`<br>
-`.container a:hover {`<br>
-`  color: white;`<br>
-`} `<br>
+`
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  --containercolour: rgba(33, 33, 33,0.7);
+  background-color: var(--containercolour);
+  --textcolour: white;
+  color: var(--textcolour);
+  --linkcolour: #bbb;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+}
+.container a {
+  color: var(--linkcolour);
+  text-decoration: none;
+}
+.container a:hover {
+  color: white;
+} 
+`
 
 Importantly, the background, text colour, and linked-text colour of the container are taken as variables; 
 meaning that these properties can be redefined in HTML code by replacing `<div class=container> ... </div>` with `<div class="container" style="containercolour: #HEXVALUEOFCHOSENBACKGROUNDCOLOUR; --textcolour: #HEXVALUEOFCHOSENTEXTCOLOUR; --linkcolour: #HEXVALUEOFCHOSENLINKCOLOUR;"> ... </div>` to recolour individual containers.
