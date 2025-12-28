@@ -152,14 +152,14 @@ JavaScript, a word that fills most programmers and web developers with fear, is 
 
 Below, I explain some of the basics of JavaScript with reference to the [Astro_Background.js](/scripts/Astro_Background.js) script that determines the background image for webpages once they are loaded. This barely scrapes the surface of JavaScript coding - again, online tutorials would explain it much better.
 
-` /*`
+/*
 
                        ~ Astronomy Background selector ~
                          ~ randomises on page load ~
 
                                 by John Ray
 
-`*/ `
+*/ 
 
 Here, a multi-line comment introduces the file. As mentioned earlier, JavaScript comments are the same as in CSS.
 
@@ -514,36 +514,36 @@ Here, the bottom section of the footer is initialised. This text, annoyingly, ha
 
 Currently, the website uses www.counterapi.com to track the views of each webpage. This site is prone to crashing, and is generally unreliable. Google Analytics is a better alternative that I have yet to get working (please change to this if you're a future member!). Regardless for now, this is the best way I could figure out to monitor the site's traffic. The script calls the www.counterapi.com's half-broken API, and the `<div class="counterapi" ...>`tag creates the individual tracker for the page. The key "socials" assigns the tracker to the name "socials" (this must be individual to each page). Ensure that nolink="true" so that visitors cannot easily view the site's traffic, but keep noIcon="false" if you can, as they must be reminded that Big Brother is watching them.
 
-`</div>`
+`</div>` <br>
 `</footer>`
 
 Then, the `<div class="footer-bottom">` and the footer tags are closed.
 
 It is here that any JavaScript scripts must be called. This is done like below:
 
-`<!-- Cool randomised background code -->`
-`<script src="/scripts/Astro_Background.js"></script>`
-`<!-- Imports a fun Easter Egg code-->`
-`<script src="/scripts/Easter_Egg.js"></script>`
+`<!-- Cool randomised background code -->` <br>
+`<script src="/scripts/Astro_Background.js"></script>` <br>
+`<!-- Imports a fun Easter Egg code-->` <br>
+`<script src="/scripts/Easter_Egg.js"></script>` <br>
 
-These two scripts are necessary for each page (yep, the Easter Egg code is *definitely* necessary, trust me). For pages like the search page, history page, and astrophotgraphy page, the other relevant scripts are also necessary. If the lightbox code is required (to magnify images like on the astrophotography or history pages), this following `<div class="lightbox">` code **MUST ALSO BE INCLUDED**:
+These two scripts are necessary for each page (yep, the Easter Egg code is *definitely* necessary, trust me). For pages like the search page, history page, and astrophotgraphy page, the other relevant scripts are also necessary. If the lightbox code is required (to magnify images like on the astrophotography or history pages), this following `<div class="lightbox"> ... </div>` code **MUST ALSO BE INCLUDED**:
 
-`  <div id="lightbox" class="lightbox">`
-`    <div class="lightbox-content">`
-`      <button class="lb-close"    title="Close">✕</button>`
-`      <button class="lb-maximize" title="Maximize">⤢</button>`
-`      <img src="" alt="">`
-`      <p class="lb-caption"></p>`
-`      <button class="lb-prev"     title="Previous">‹</button>`
-`      <button class="lb-next"     title="Next">›</button>`
-`    </div>`
-`  </div>`
+<!-- <div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+      <button class="lb-close"    title="Close">✕</button> 
+      <button class="lb-maximize" title="Maximize">⤢</button>    
+      <img src="" alt="">
+      <p class="lb-caption"></p>   
+      <button class="lb-prev"     title="Previous">‹</button> 
+      <button class="lb-next"     title="Next">›</button>
+    </div>
+</div> -->
 
 This creates the Lightbox element upon clicking (creating the fancy buttons and stuff like that). The lightbox code is all completely copied from my own website, and as such is a little broken on mobile.
 
 Finally, the HTML code must be completely closed.
 
-`</body>`
+`</body>` <br>
 `</html>`
 
 Congrats, you now know how to write a new HTML file on the website!
@@ -575,13 +575,13 @@ Photo_Search.js is the JavaScript code that allows images of new objects on the 
 
 Updating this is actually quite simple. Find the part of the file that begins:
 
-`// Master list with our labels & aliases`
-`    const objects = [`
-`      { label: 'Andromeda Galaxy (M31)',             aliases: ['andromeda galaxy','m31'] },`
+`// Master list with our labels & aliases` <br>
+`    const objects = [`<br>
+`      { label: 'Andromeda Galaxy (M31)',             aliases: ['andromeda galaxy','m31'] },`<br>
 
 After the comma of any entry, insert a new entry with code of the form:
 
-` { label: 'NEW ENTRY NAME', aliases: ['Comma Separated list of search aliases', 'like', 'this'] }, `
+` { label: 'NEW ENTRY NAME', aliases: ['Comma Separated list of search aliases', 'like', 'this'] }, `<br>
 
 Labels must be distinct, and should preferably be called after the subject of the image in question. The data-object of the appropriate image on the HTML page is then assigned to the appropriate allias. Aliases, to reiterate, are the terms that must be typed to return the image as an entry (e.g. as said earlier typing "M31" should show pictures of the Andromeda Galaxy, so "M31" should be an alias alongside "Andromeda Galaxy" for an image of that object).
 
@@ -593,13 +593,13 @@ This is the most complex bit of code on the site, so I've left it until last to 
 
 The basics of the Search Bar was mentioned earlier in the Header Code subsection. It works by generating a page from the `/search/index.html` page. That page contains the following specific HTML code:
 
-`<main>`
-`    <div class="container regular">`
-`      <h2>Search results:</h2>`
-`      <div id="searchResults"></div>`
-`    </div>`
-`    <div class="extra-space"></div>`
-` </main>`
+    <main>
+    <div class="container regular">
+      <h2>Search results:</h2>
+      <div id="searchResults"></div>
+    </div>
+    <div class="extra-space"></div>
+    </main>
 
 Simple enough, right? All that does is create a container with the header "Search results:" and an internal id provided by `<div id="searchResults"></div>`. The real complexity comes from the JavaScript side, which defines that internal id by having the Search_Code.js file attached to the HTML page like below:
 
