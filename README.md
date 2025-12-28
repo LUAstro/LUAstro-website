@@ -436,15 +436,13 @@ In practice, I recommend simply copying-and-pasting a previous entry, and changi
 The footer code is the same on each page. It is modelled after the footer seen on NASA's website, and was a mild pain to get working (so please be careful with it). It is especially sensitive on mobile.
 
 The footer code begins as follows:
-
-`<footer class="site-footer">`
-`  <div class="footer-container">`
-`    <!-- Mission (left) -->`
-`  <div class="footer-section footer-mission">`
-`      <h4>Lancaster University Astronomy Society</h4>`
-`      <p>LUAstro observes the wonders of space and the stars all from the top of the Physics Building! Join us for observing nights, Astrophotography workshops, socials, and more!</p>`
-`      <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc" class="join-btn">Join Us →</a>`
-`  </div>`
+<!--
+<footer class="site-footer">
+  <div class="footer-container">
+  <div class="footer-section footer-mission">
+      <h4>Lancaster University Astronomy Society</h4>
+      <p>LUAstro observes the wonders of space and the stars all from the top of the Physics Building! Join us for observing nights, Astrophotography workshops, socials, and more!</p>
+      <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc" class="join-btn">Join Us →</a> -->
 
 This initialises the footer, and fills its left-most section with the mission text, title, and red "Join us →" button. Multiple div tags are used to ensure correct formatting.
 
@@ -503,15 +501,16 @@ This creates the centre-right logo on the webpage. Previously, it showed the old
 
 Finally, the `<div class="footer-container">` tag is closed.
 
-`  <!-- Bottom bar -->`
-`  <div class="footer-bottom">`
-`    <p>Last updated: 10th October, 2025 | Last edited by: <a href="https://www.johnray.co.uk">John Ray</a></p>`
+  <!-- Bottom bar -->
+<!--
+  <div class="footer-bottom">
+    <p>Last updated: 10th October, 2025 | Last edited by: <a href="https://www.johnray.co.uk">John Ray</a></p> -->
 
 Here, the bottom section of the footer is initialised. This text, annoyingly, has to be edited manually whenever the page is edited. Alternatively, you can just forget to change it like I do (as I doubt anyone will notice if it's out of date). If a future LUAstro member wants to automate this text somehow, that would be excellent!
 
-`<script src="https://counterapi.com/c.js?ns=luastro.space" async ></script>`
-`<!-- Added the counter instance here: -->`
-`<div class="counterapi" style="min-height:44px" key="socials" nolink="true" color="#ffffff" bg="#878787" noIcon="false"></div>`
+<!-- <script src="https://counterapi.com/c.js?ns=luastro.space" async ></script>
+\\ Added the counter instance here:
+<div class="counterapi" style="min-height:44px" key="socials" nolink="true" color="#ffffff" bg="#878787" noIcon="false"></div> -->
 
 Currently, the website uses www.counterapi.com to track the views of each webpage. This site is prone to crashing, and is generally unreliable. Google Analytics is a better alternative that I have yet to get working (please change to this if you're a future member!). Regardless for now, this is the best way I could figure out to monitor the site's traffic. The script calls the www.counterapi.com's half-broken API, and the `<div class="counterapi" ...>`tag creates the individual tracker for the page. The key "socials" assigns the tracker to the name "socials" (this must be individual to each page). Ensure that nolink="true" so that visitors cannot easily view the site's traffic, but keep noIcon="false" if you can, as they must be reminded that Big Brother is watching them.
 
