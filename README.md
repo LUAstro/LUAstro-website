@@ -260,17 +260,17 @@ Next, a webpage header is included. This shows up underneath the main LUAstro te
 
 Finally, the header image is inserted. It's best to copy-and-paste this line, again. The `alt="LUAstro"` bit at the end is just an alternative text associated with the image, just so you know if you didn't already. Images are usually called on the website with the `<img>` tag, but occasionally a reference `<href>` tag is used instead like for the flavicon earlier. The header image **must** have the class of `"follow-logo"`, or else it won't fit properly at the top of the page. Images are usually called using the source property of the image file, which is done using the `<src>` tag as shown. You will see this again later for images in the footer, as well as in the code for Blog Posts and for the Astrophotography Gallery.
 
-`<nav>` <br>
-`      <ul>`<br>
-`        <li><a href="/">Home</a></li>`<br>
-`        <li><a href="/astrophotography/">Astrophotography</a></li>`<br>
-`        <li><a href="/store/">Store</a></li>`<br>
-`        <li><a href="/newsletters/">Newsletters</a></li>`<br>
-`        <li><a href="/blog/">Blog</a></li>`<br>
-`        <li><a href="/exec/">Exec</a></li>`<br>
-`        <li><a href="/aboutus/">About us</a></li>`<br>
-`      </ul>`<br>
-`    </nav>`
+    <nav>
+       <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/astrophotography/">Astrophotography</a></li>
+        <li><a href="/store/">Store</a></li>
+        <li><a href="/newsletters/">Newsletters</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/exec/">Exec</a></li>
+        <li><a href="/aboutus/">About us</a></li>
+      </ul>
+    </nav>
 
 Next, is the code for the Navigation Bar. This is the bit where users can click on links to other pages. It is called using the `<nav>` tag, and contains each link as a member of a HTML list. Lists are called with the unordered list `<ul>` tag, with each member called by containing the name of the list entry in a list item tag `<li>`.
 
@@ -278,18 +278,20 @@ Importantly, all navigation bar entries are links - they link to the appropriate
 
 As you should have guessed by now, the `<ul>` and `<nav>` tags are then closed, in that respective order.
 
-` <form id="siteSearchForm"` <br>
-`      class="site-search-form"`<br>
-`      action="/search/"`<br>
-`      method="get">`<br>
-`    <input type="text"`<br>
-`         id="siteSearchInput"`<br>
-`         name="q"`<br>
-`         placeholder="Search the site…"`<br>
-`         aria-label="Site search"/>`<br>
-`    <button type="submit">🔍</button>`<br>
-`    </form>`<br>
-`  </header>`<br>
+<!--
+ <form id="siteSearchForm"
+      class="site-search-form"
+      action="/search/"
+      method="get">
+    <input type="text"
+         id="siteSearchInput"
+         name="q"
+         placeholder="Search the site…"
+         aria-label="Site search"/>
+    <button type="submit">🔍</button>
+ </form>
+
+</header> -->
 
 The last part of the `<header>` code is for the Search Bar. This code is complicated, and uses some tricky JavaScript code to generate pages based on entries. Thankfully, all you need to do is copy-and-paste this code, so no worries there. The Search Bar uses a `<form>` tag to allow user-input, with the corresponding `action="/search/"` which redirects the user to the `/search/index.html` page. A search page specific to the query is then created using the corresponding query request (represented by a letter q), to give the user the correct results. A `<button>` tag is used to create a physical search button too, and the `<form>` and `<header>` tags are then closed. The Search Bar code will be explained in greater detail later on.
 
@@ -336,16 +338,18 @@ There are two types of section subclasses you will see. The "hero" subclass spec
 
 In the HTML code, you will therefore see the full container code appearing like below (note the indentation of each part):
 
-`  <div class="container">`<br>
-`    <section class="hero">`<br>
-`      <h2>Welcome to LUAstro.space!</h2>`<br>
-`    </section>`<br>
-`    <section class="intro">`<br>
-`      <p>This is the website for LUAstro! We are a student-run society at Lancaster University, passionate about sharing the wonders of Astronomy. Whether you're an experienced Astronomer or just curious about` <br>`the night sky, our society offers observing nights, Astrophotography workshops, and other events for all levels.</p>`<br>
-`      <p>You can stay updated with our latest activities and events through our <a href="https://www.instagram.com/luastrosoc/">Instagram</a> and <a href="https://x.com/luastrosoc">Twitter</a> pages, `<br>
-`      or (if you're a student at Lancaster University) become a member <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc">TODAY!</a></p>`<br>
-`    </section>`<br>
-`  </div>`<br>
+  <!--
+  <div class="container">
+    <section class="hero">
+      <h2>Welcome to LUAstro.space!</h2>
+    </section>
+    <section class="intro">
+      <p>This is the website for LUAstro! We are a student-run society at Lancaster University, passionate about sharing the wonders of Astronomy. Whether you're an experienced Astronomer or just curious about            the night sky, our society offers observing nights, Astrophotography workshops, and other events for all levels.</p>
+      <p>You can stay updated with our latest activities and events through our <a href="https://www.instagram.com/luastrosoc/">Instagram</a> and <a href="https://x.com/luastrosoc">Twitter</a> pages, 
+      or (if you're a student at Lancaster University) become a member <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc">TODAY!</a></p>
+    </section>
+  </div>
+  -->
 
 To summarise:
 * The container div class creates containers on the page (who could have guessed).
@@ -359,23 +363,25 @@ This code is exclusive to the blog page(s) of the website. Updating the blog is 
 
 Example HTML code for a blog post container is shown below (note the indentation of each part):
 
-`<a class="blog-card" href="https://www.instagram.com/p/DR-5towAir8/" title="Instagram post: Week 10 25/26">`<br>
-`  <div class="blog-card__content">`<br>
-`    <div class="blog-card__text">`<br>
-`      <div class="existing-description">`<br>
-`        <h3 class="post-title">Week 10: Christmas Special Social!</h3>`<br>
-`        <p class="post-excerpt">Our final event of the term was a <b>Christmas Lecture with Dr David Sloan</b> followed by a <b>festive Astronomy quiz</b>! The event took place on <b>Wednesday (10/12/25)</b>`<br>
-`          from <b>7pm-9pm</b> in <b>Faraday Lecture Theatre</b>. Dr Sloan gave a talk on the <b>Intersection between Cosmology and Philosophy</b>, discussing ideas such as the fine-tuning of the Universe, `<br>
-`          Boltzmann brains, and the Anthropic Principle (alongside a small post-lecture discussion on Roko's Basilisk, and the implications of Cosmology on religious beliefs).</p>`<br>
-`        <div class="meta">By John Ray • 18th Dec 2025</div>`<br>
-`      </div>`<br>
-`    </div>`<br>
-<br>
-`    <div class="blog-card__media" aria-hidden="true">`<br>
-`      <img src="/images/Week_Ten_2025_Blog_Entry.PNG" alt="Week Ten Blog Entry">`<br>
-`    </div>`<br>
-`  </div>`<br>
-`</a>`<br>
+<!--
+<a class="blog-card" href="https://www.instagram.com/p/DR-5towAir8/" title="Instagram post: Week 10 25/26">
+  <div class="blog-card__content">
+    <div class="blog-card__text">
+      <div class="existing-description">
+        <h3 class="post-title">Week 10: Christmas Special Social!</h3>
+        <p class="post-excerpt">Our final event of the term was a <b>Christmas Lecture with Dr David Sloan</b> followed by a <b>festive Astronomy quiz</b>! The event took place on <b>Wednesday (10/12/25)</b>
+          from <b>7pm-9pm</b> in <b>Faraday Lecture Theatre</b>. Dr Sloan gave a talk on the <b>Intersection between Cosmology and Philosophy</b>, discussing ideas such as the fine-tuning of the Universe,
+          Boltzmann brains, and the Anthropic Principle (alongside a small post-lecture discussion on Roko's Basilisk, and the implications of Cosmology on religious beliefs).</p>
+        <div class="meta">By John Ray • 18th Dec 2025</div>
+      </div>
+    </div>
+
+    <div class="blog-card__media" aria-hidden="true">
+      <img src="/images/Week_Ten_2025_Blog_Entry.PNG" alt="Week Ten Blog Entry">
+    </div>
+  </div>
+</a>
+-->
 
 The first thing you should notice about this code is how the entire container is nested within an action `<a>` tag. As explained in the "header code" section of this README file, action tags are used to create hyperlinks on pages - therefore to enable the entire blog entry to redirect to another page when clicked on, it must be nested within one. The title and "href" are changed for each post (I just have it redirect to Instagram posts if I'm in a rush). The following code of the blog post is contained within the div tag `<div class="blog-card__content">`.
 
