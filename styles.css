@@ -1093,7 +1093,7 @@ footer {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   color: #ffffff;
-  max-width: 60ch;
+  max-width: 100ch;
   text-align: center;
   background: rgba(33, 33, 33,0.7);   /* Same background colour as container boxes */
   
@@ -1465,6 +1465,7 @@ footer {
     height: 100px;
   }
 }
+
 
 
 
