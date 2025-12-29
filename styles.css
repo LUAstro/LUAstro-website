@@ -1093,12 +1093,21 @@ footer {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   color: #ffffff;
-  max-width: 100ch;
+  max-width: 60ch;
   text-align: center;
   background: rgba(33, 33, 33,0.7);   /* Same background colour as container boxes */
   
 }
 
+.image-row longfigcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #ffffff;
+  max-width: 100ch;
+  text-align: center;
+  background: rgba(33, 33, 33,0.7);   /* Same background colour as container boxes */
+  
+}
 /* small screens: keep images smaller and stacked if needed */
 @media (max-width: 600px) {
   .image-row {
@@ -1465,6 +1474,7 @@ footer {
     height: 100px;
   }
 }
+
 
 
 
