@@ -1106,6 +1106,8 @@ footer {
   max-width: 40ch;
   text-align: center;
   background: rgba(33, 33, 33,0.7);   /* Same background colour as container boxes */
+
+}
   
 .image-row figcaption.long {
   display: block;      /* Caption for longer images (set class="long") */
@@ -1483,6 +1485,7 @@ footer {
     height: 100px;
   }
 }
+
 
 
 
