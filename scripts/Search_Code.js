@@ -34,6 +34,9 @@ be okay! Remember to include a , after any non-final search entries or it will b
     { title: 'Socials Calendar', url: '/socials/' },
     { title: 'History of LUAstro', url: '/history/' },
     { title: 'LUAstro Space Pirate Game', url: '/space-pirate-game/' },
+    { title: 'Documents page', url: '/documents/' },    
+    { title: 'Siril processing data', url: '/documents/Siril-data/' },
+    { title: 'JWST processing data', url: '/documents/JWST-data/' },
     
     // Add any newsletter pdfs here (include a description & keywords)
    { title: 'Handout document by Giacomo Rossetti', url: '/documents/GR-Handout-Space-Careers.pdf', description: 'Handout document by Giacomo Rossetti, from his talk on careers in the Space Industry', keywords: 'giacomo, giacomo rossetti, handout, ESA, careers, Space Industry, Careers in the space industry talk, archive, dec 2025, 2025, week 9, 25/26' },
