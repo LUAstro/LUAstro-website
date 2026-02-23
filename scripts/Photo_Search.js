@@ -50,7 +50,7 @@ possible, as the rest of the code is highly complex. Unless you feel really conf
           'flame nebula','ngc 2024','ngc2024','Dark Nebula'
         ]
       },
-      { label: 'Pleiades (M45)',                     aliases: ['pleiades','m45'] },
+      { label: 'Pleiades (M45)',                     aliases: ['pleiades','m45','seven sisters','7 sisters'] },
       { label: 'Beehive Cluster (M44)',              aliases: ['beehive cluster','m44'] },
       { label: 'Hercules Cluster (M13)',             aliases: ['hercules cluster','m13'] },
       { label: 'Eagle Nebula (M16)',                 aliases: ['eagle nebula', 'm16'] },
@@ -62,6 +62,11 @@ possible, as the rest of the code is highly complex. Unless you feel really conf
       { label: 'Moon',             aliases: ['Moon','The Moon','Cheese','Planetary'] },
       { label: 'Seahorse Nebula, Fireworks Galaxy, & the NGC 6939 Star Cluster',             aliases: [
         'Seahorse Nebula','NGC 6939','ngc6939','Fireworks Galaxy','NGC 6946','ngc6946','Barnard 150', 'B150', 'B 150','Dark Nebula'] },
+      { label: 'Comet Lemmon', 			aliases: ['Comet Lemmon','Comet', 'Comet C/2025 A6 (Lemmon)', 'Comet C/2025','Lemmon'] },
+      { label: 'Northern Lights',        aliases: ['Northern Lights', 'Aurora', 'Aurora Borealis']},
+      { label: 'Jupiter with Ganymede and Europa', 		aliases: ['Jupiter', 'Planetary', 'Planet', 'Ganymede', 'Europa']},
+      { label: 'Heart and Soul Nebulae', 		aliases: ['Heart Nebula', 'Soul Nebula', 'Heart and Soul Nebula', 'Heart and Soul', 'Romantic',
+	'NGC 896', 'NGC896', 'Westerhout 3', 'IC 1805', 'IC1805', 'Nebula Complex']}
     ];
 
     // normalize: lowercase, collapse whitespace (including NBSP), strip punctuation
