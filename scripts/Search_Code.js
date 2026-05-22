@@ -37,7 +37,8 @@ be okay! Remember to include a , after any non-final search entries or it will b
     { title: 'Documents page', url: '/documents/' },    
     { title: 'Siril processing data', url: '/documents/Siril-data/' },
     { title: 'JWST processing data', url: '/documents/JWST-data/' },
-    
+    // I have archived all the Lancaster Physics past papers, and other revision material here: (enjoy!)
+    { title: 'Physics past papers', url: '/documents/physics-past-papers/' },    
     // Add any newsletter pdfs here (include a description & keywords)
    { title: 'Handout document by Giacomo Rossetti', url: '/documents/GR-Handout-Space-Careers.pdf', description: 'Handout document by Giacomo Rossetti, from his talk on careers in the Space Industry', keywords: 'giacomo, giacomo rossetti, handout, ESA, careers, Space Industry, Careers in the space industry talk, archive, dec 2025, 2025, week 9, 25/26' },
     { title: 'Week 16, 22/23 Newsletter', url: '/newsletters/February 2023 (Week 16).pdf', description: 'ARCHIVE: LUAstro Newsletter from Feb 2023 (Week 16)' , keywords: 'newsletters, archive, 2023, feb 2023, week 16, newsletter, 22/23'},
