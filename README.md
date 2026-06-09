@@ -207,8 +207,20 @@ All pages on the site have a similar Head & Header code. This code defines the t
 
 This code initialises the page with modern HTML5, in English.
 
+`<head>` <br>
+<!-- Google tag (gtag.js) -->
+`<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FWPYEEFDM"></script>` <br>
+`<script>` <br>
+`  window.dataLayer = window.dataLayer || [];` <br>
+`  function gtag(){dataLayer.push(arguments);}` <br>
+`  gtag('js', new Date());` <br>
+
+`  gtag('config', 'G-9FWPYEEFDM');` <br>
+`</script>`
+
+This begins the `<head>` code (the rather confusingly-named `<header>` code will be initialised later on), followed by a Google tag that is used to track the traffic of each webpage (using some JavaScript code nested in `<script>` tags). Previously, this was done in a much worse way - as is mentioned later on. This new method allows the number of visitors to each webpage to be easily tracked using Google Analytics, when signed into the society's gmail account. Ensure to include this code on each webpage with the same Google tag - Big Brother must always be watching.
+
 <!--
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Newsletters page - contains all the most recent newsletters by the Society">
@@ -216,7 +228,7 @@ This code initialises the page with modern HTML5, in English.
   <title>Newsletters | LUAstro</title>
 -->
 
-This begins the `<head>` code (the rather confusingly-named `<header>` code will be initialised later on), followed by the webpage's specific `<meta>` code. The `<meta>` code is vital for the webpage to work correctly. The first line of `<meta>` code specifies that the page will run using UTF-8 character encoding (which is already the standard) to enable the search bar magnifying glass to load correctly, as well as enabling the use of other emoticons on the page.
+This begins the webpage's specific `<meta>` code. The `<meta>` code is vital for the webpage to work correctly. The first line of `<meta>` code specifies that the page will run using UTF-8 character encoding (which is already the standard) to enable the search bar magnifying glass to load correctly, as well as enabling the use of other emoticons on the page.
 
 The next line ensures that the page is viewed exactly as large as the browser window (again, this is also a standard, but is good for safeguarding).
 
@@ -525,7 +537,11 @@ Here, the bottom section of the footer is initialised. This text, annoyingly, ha
 \\ Added the counter instance here:
 <div class="counterapi" style="min-height:44px" key="socials" nolink="true" color="#ffffff" bg="#878787" noIcon="false"></div> -->
 
-Currently, the website uses www.counterapi.com to track the views of each webpage. This site is prone to crashing, and is generally unreliable. Google Analytics is a better alternative that I have yet to get working (please change to this if you're a future member!). Regardless for now, this is the best way I could figure out to monitor the site's traffic. The script calls the www.counterapi.com's half-broken API, and the `<div class="counterapi" ...>`tag creates the individual tracker for the page. The key "socials" assigns the tracker to the name "socials" (this must be individual to each page). Ensure that nolink="true" so that visitors cannot easily view the site's traffic, but keep noIcon="false" if you can, as they must be reminded that Big Brother is watching them.
+~~Currently, the website uses www.counterapi.com to track the views of each webpage. This site is prone to crashing, and is generally unreliable. Google Analytics is a better alternative that I have yet to get working (please change to this if you're a future member!). Regardless for now, this is the best way I could figure out to monitor the site's traffic. The script calls the www.counterapi.com's half-broken API, and the `<div class="counterapi" ...>`tag creates the individual tracker for the page. The key "socials" assigns the tracker to the name "socials" (this must be individual to each page). Ensure that nolink="true" so that visitors cannot easily view the site's traffic, but keep noIcon="false" if you can, as they must be reminded that Big Brother is watching them.~~
+
+Previously, the website "www.counterapi.com" was used to track the views of each webpage on the LUAstro website. For unknown reasons (though likely due to a mix CounterAPI's Cloudflare servers always crashing and their domain server not handling requests correctly), this website has now ceased functioning and the number of visitors can no longer be viewed this way - which was previously done by visiting [www.counterapi.com/stats/luastro.space](https://counterapi.com/stats/luastro.space).
+
+Since then, I've improved the code to now use Google Analytics to track webpage traffic instead, as I explained earlier. Any old counterapi code can be deleted if wished (unless you're hopeful like me and think that it will randomly start working again, or too lazy like me and can't be bothered editing it out).
 
 `</div>` <br>
 `</footer>`
@@ -552,7 +568,7 @@ These two scripts are necessary for each page (yep, the Easter Egg code is *defi
     </div>
 </div> -->
 
-This creates the Lightbox element upon clicking (creating the fancy buttons and stuff like that). The lightbox code is all completely copied from my own website, and as such is a little broken on mobile.
+This creates the Lightbox element upon clicking (creating the fancy buttons and stuff like that). The lightbox code is all completely copied from my own website, and as such is a little broken on mobile - a future IT Officer will hopefully fix this! :)
 
 Finally, the HTML code must be completely closed.
 
@@ -598,7 +614,7 @@ After the comma of any entry, insert a new entry with code of the form:
 
 Labels must be distinct, and should preferably be called after the subject of the image in question. The data-object of the appropriate image on the HTML page is then assigned to the appropriate allias. Aliases, to reiterate, are the terms that must be typed to return the image as an entry (e.g. as said earlier typing "M31" should show pictures of the Andromeda Galaxy, so "M31" should be an alias alongside "Andromeda Galaxy" for an image of that object).
 
-The Photo_Search.js code strips any aliases of punctuation, converts non-breaking spaces into regular spaces, and then removes any regular spaces (e.g. typing "androm.e/da  ga@lax'y" would still return Andromeda Galaxy as a result). Aliases also work regardless of capitalisation. This unfortunately means that any names like Orlando Prugel-Bennett cannot be put as the names of photographers on the Astrophotography page (as the "-" is removed, causing an error). I've taken to simply abbreviating double-barrelled names in this case as a workaround.
+The Photo_Search.js code strips any aliases of punctuation, converts non-breaking spaces into regular spaces, and then removes any regular spaces (e.g. typing "androm.e/da  ga@lax'y" would still return Andromeda Galaxy as a result). Aliases also work regardless of capitalisation. This unfortunately means that any names like Orlando Prugel-Bennett cannot be put as the names of photographers on the Astrophotography page (as the "-" is removed, causing an error). I've taken to simply abbreviating double-barrelled names in this case as a workaround. ~~If only I could remove double-barrelled names in real life too.~~
 
 <h2>Updating the Search Bar</h2>
 
@@ -617,3 +633,47 @@ The basics of the Search Bar was mentioned earlier in the Header Code subsection
 Simple enough, right? All that does is create a container with the header "Search results:" and an internal id provided by `<div id="searchResults"></div>`. The real complexity comes from the JavaScript side, which defines that internal id by having the Search_Code.js file attached to the HTML page like below:
 
 `<script src="/scripts/Search_Code.js"></script>`
+
+This loads the aforementioned "Search_Code.js" file. This file is composed of 6 parts - please click [HERE](https://github.com/LUAstro/LUAstro-website/blob/main/scripts/Search_Code.js) to view the file and see what I'm talking about.
+
+The only part of this file that needs understanding / updating is the first section, which is a list of all the entries that can show up when searching. As you'll hopefully remember earlier, each webpage has metadata attached to it using `<meta>` tags. An example of this is shown below:
+
+<!--
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Newsletters page - contains all the most recent newsletters by the Society">
+  <meta name="keywords" content="Newsletters, News, updates, info, latest news, communications, LUAstro">
+  <title>Newsletters | LUAstro</title>
+-->
+
+The relevant bits here are the "description" and "keywords" pieces of metadata. These show the description of a webpage as it appears when searched for, and the list of potential search queries that yield the said page as a result. This metadata is fetched and parsed in the second section of the Search_Code.js file, which is then built into a page, read, filtered, and rendered using the final sections of the code.
+
+<!--
+// 1) List all the pages here (include a title and url like the ones included and put any blog entries below "LUAstro Blog")
+  const pages = [
+    { title: 'Homepage',            url: '/' },
+    { title: 'LUAstro Store', url: '/store/' },
+    ...
+    { title: 'Week 1, 22/23 Newsletter', url: '/newsletters/November 2022 (Week 1).pdf', description: 'ARCHIVE: The first LUAstro Newsletter from Nov 2022 (Week 1)', keywords: 'newsletters, archive, 2022, nov 2022, week 1, first newsletter, newsletter, 22/23' },
+    
+    // Add new pages here—and they'll be fetched automatically
+  ];
+-->
+
+This is the format of the first section - a long JavaScript array. More accurately, this defines a constant list called "pages" that has each entry defined via a JavaScript dictionary (definiing in-turn a variable called "title", a URL called "url", and, in some cases, the aforementioned "description" and "keywords" metadata if it is not already defined).
+
+To allow new webpages to appear in search results, they must first be added to this array. The title of the page as you want it to appear should be defined via the `title` variable (in the form of `title: 'TITLE',`), and the URL should be defined by taking the path of the webpage relative to the main directory (e.g. for the store page at www.luastro.space/store/, you define the URL as `url: '/store/'`). What you might notice is that there's a different structure to the entries for webpages than there is for .pdfs. This is because .pdfs cannot contain HTML-style meta data - so it must be added here instead.
+
+**PLEASE ENSURE THAT A COMMA IS KEPT AFTER EACH ENTRY, OR IT WILL BREAK AFTER FURTHER ADDITIONS!!!**
+
+<h2>GitHub Desktop, Git, and other methods</h2>
+
+There are other ways to update, copy, and download this webpage's code directory. The main method I personally use for larger changes is [GitHub Desktop](https://desktop.github.com/download/). This allows commits / merge requests to be done much easier by enabling you to easily download a copy of the entire website's code into a local folder on your device. Then, you can simply add, edit, or remove files using your device's file explorer, before committing changes via the application's UI.
+
+This helps greatly for larger changes - such as if you wanted to reorganise files or perform lots of edits simultaneously.
+
+For the more advanced IT Officer, you can also use [Git](https://github.com/git-guides/install-git), a lovely version control system that works via command-line scripts instead of a web or desktop application. It can be installed by clicking on the link above, but also comes pre-installed on some devices (you can test whether your device has it by typing `git version` in your device's command prompt or terminal). Experience with Git looks good on a CV - I'd recommend trying to use this to update the website if you get the chance!
+
+<h1>Final thanks</h1>
+
+Thank you for reading, or skipping to the end if you've done that! I've put a lot of time and effort into maintaining this website and it would be nice for it to last a good while if it can, so please take care of it. Best of luck to any future LUAstro exec, and clear skies!
