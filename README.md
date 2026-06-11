@@ -208,7 +208,7 @@ All pages on the site have a similar Head & Header code. This code defines the t
 This code initialises the page with modern HTML5, in English.
 
 `<head>` <br>
-<!-- Google tag (gtag.js) -->
+`<!-- Google tag (gtag.js) -->` <br>
 `<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FWPYEEFDM"></script>` <br>
 `<script>` <br>
 `  window.dataLayer = window.dataLayer || [];` <br>
@@ -220,13 +220,13 @@ This code initialises the page with modern HTML5, in English.
 
 This begins the `<head>` code (the rather confusingly-named `<header>` code will be initialised later on), followed by a Google tag that is used to track the traffic of each webpage (using some JavaScript code nested in `<script>` tags). Previously, this was done in a much worse way - as is mentioned later on. This new method allows the number of visitors to each webpage to be easily tracked using Google Analytics, when signed into the society's gmail account. Ensure to include this code on each webpage with the same Google tag - Big Brother must always be watching.
 
-<!--
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Newsletters page - contains all the most recent newsletters by the Society">
-  <meta name="keywords" content="Newsletters, News, updates, info, latest news, communications, LUAstro">
-  <title>Newsletters | LUAstro</title>
--->
+`<!-- ` <br>
+`  <meta charset="UTF-8" />` <br>
+`  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>` <br>
+`  <meta name="description" content="Newsletters page - contains all the most recent newsletters by the Society">` <br>
+`  <meta name="keywords" content="Newsletters, News, updates, info, latest news, communications, LUAstro">` <br>
+`  <title>Newsletters | LUAstro</title>` <br>
+`-->` <br>
 
 This begins the webpage's specific `<meta>` code. The `<meta>` code is vital for the webpage to work correctly. The first line of `<meta>` code specifies that the page will run using UTF-8 character encoding (which is already the standard) to enable the search bar magnifying glass to load correctly, as well as enabling the use of other emoticons on the page.
 
@@ -242,17 +242,17 @@ Additionally, please include **luastro** as a keyword on every page that is adde
 
 The `<title>` code defines the text that shows at the top of a browser tab for the webpage. For consistency, it's best to use the format of "PAGENAME | LUAstro".
 
-<!--
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap"
-  rel="stylesheet"
-/>
-  <link rel="stylesheet" href="/styles.css" />
-  <link rel="icon" href="/images/JR's LUAstro Logo.png" type="png">
-</head>
--->
+`<!--` <br>
+`<link rel="preconnect" href="https://fonts.googleapis.com">` <br>
+`<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>` <br>
+`<link` <br>
+`  href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap"` <br>
+`  rel="stylesheet"` <br>
+`/>` <br>
+`  <link rel="stylesheet" href="/styles.css" />` <br>
+`  <link rel="icon" href="/images/JR's LUAstro Logo.png" type="png">` <br>
+`</head>` <br>
+`-->` <br>
 
 This is the second part of the `<head>` code. Unlike the previous part, this is the same for **ALL** pages, so you can just copy-and-paste this in for any new webpages. The first two lines allow the webpage to use all of the site's default fonts. The first closing `<link/>` specifically loads in the font Source Sans Pro. The second closing `<link/>` links to the website's main CSS stylesheet. This line is essential, without it the page will have no actual format and will display as black HTML code on a white background (in default light mode), without any images, links, or elements. The final closing `<link/>` links the page to the Newer LUAstro logo, for use as a "flavicon". A flavicon is the image displayed on tabs, search engines, or browser favourites to represent a page. Feel free to change this if desired.
 
@@ -261,13 +261,14 @@ Finally, the `<head>` tag is closed.
 <h2>Header code</h2>
 
 The confusingly-named `<header>` is where the code for the physical top of the webpage is kept. As it's code that creates a physical display on the page (unlike the `<head>` code which just adds properties to the page), it is inside the `<body>` tag of the main page.
-<!--
-<body>
-  <header>
-    <div class="star-bar"></div>
-    <h1>Archive of Society Newsletters</h1>
-    <img class="follow-logo" src="/images/LUAstro_NavBar.png" alt="LUAstro">
--->
+
+`<!--` <br>
+`<body>` <br>
+`  <header>` <br>
+`    <div class="star-bar"></div>` <br>
+`    <h1>Archive of Society Newsletters</h1>` <br>
+`    <img class="follow-logo" src="/images/LUAstro_NavBar.png" alt="LUAstro">` <br>
+`-->` <br>
 
 As mentioned earlier, the `<body>` tag is initialised first. This is finalised with a `</body>` tag at the absolute end of all the webpage code.
 
@@ -295,20 +296,19 @@ Importantly, all navigation bar entries are links - they link to the appropriate
 
 As you should have guessed by now, the `<ul>` and `<nav>` tags are then closed, in that respective order.
 
-<!--
- <form id="siteSearchForm"
-      class="site-search-form"
-      action="/search/"
-      method="get">
-    <input type="text"
-         id="siteSearchInput"
-         name="q"
-         placeholder="Search the site…"
-         aria-label="Site search"/>
-    <button type="submit">🔍</button>
- </form>
 
-</header> -->
+` <form id="siteSearchForm"` <br>
+`      class="site-search-form"` <br>
+`      action="/search/"` <br>
+`      method="get">` <br>
+`    <input type="text"` <br>
+`         id="siteSearchInput"` <br>
+`         name="q"` <br>
+`         placeholder="Search the site…"` <br>
+`         aria-label="Site search"/>` <br>
+`    <button type="submit">🔍</button>` <br>
+` </form>` <br>
+`</header>` <br>
 
 The last part of the `<header>` code is for the Search Bar. This code is complicated, and uses some tricky JavaScript code to generate pages based on entries. Thankfully, all you need to do is copy-and-paste this code, so no worries there. The Search Bar uses a `<form>` tag to allow user-input, with the corresponding `action="/search/"` which redirects the user to the `/search/index.html` page. A search page specific to the query is then created using the corresponding query request (represented by a letter q), to give the user the correct results. A `<button>` tag is used to create a physical search button too, and the `<form>` and `<header>` tags are then closed. The Search Bar code will be explained in greater detail later on.
 
@@ -357,18 +357,16 @@ There are two types of section subclasses you will see. The "hero" subclass spec
 
 In the HTML code, you will therefore see the full container code appearing like below (note the indentation of each part):
 
-  <!--
-  <div class="container">
-    <section class="hero">
-      <h2>Welcome to LUAstro.space!</h2>
-    </section>
-    <section class="intro">
-      <p>This is the website for LUAstro! We are a student-run society at Lancaster University, passionate about sharing the wonders of Astronomy. Whether you're an experienced Astronomer or just curious about            the night sky, our society offers observing nights, Astrophotography workshops, and other events for all levels.</p>
-      <p>You can stay updated with our latest activities and events through our <a href="https://www.instagram.com/luastrosoc/">Instagram</a> and <a href="https://x.com/luastrosoc">Twitter</a> pages, 
-      or (if you're a student at Lancaster University) become a member <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc">TODAY!</a></p>
-    </section>
-  </div>
-  -->
+`  <div class="container">` <br>
+`    <section class="hero">` <br>
+`      <h2>Welcome to LUAstro.space!</h2>` <br>
+`    </section>` <br>
+`    <section class="intro">` <br>
+`      <p>This is the website for LUAstro! We are a student-run society at Lancaster University, passionate about sharing the wonders of Astronomy. Whether you're an experienced Astronomer or just curious about            the night sky, our society offers observing nights, Astrophotography workshops, and other events for all levels.</p>` <br>
+`      <p>You can stay updated with our latest activities and events through our <a href="https://www.instagram.com/luastrosoc/">Instagram</a> and <a href="https://x.com/luastrosoc">Twitter</a> pages, ` <br>
+`      or (if you're a student at Lancaster University) become a member <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc">TODAY!</a></p>` <br>
+`    </section>` <br>
+`  </div>` <br>
 
 To summarise:
 * The container div class creates containers on the page (who could have guessed).
@@ -382,25 +380,25 @@ This code is exclusive to the blog page(s) of the website. Updating the blog is 
 
 Example HTML code for a blog post container is shown below (note the indentation of each part):
 
-<!--
-<a class="blog-card" href="https://www.instagram.com/p/DR-5towAir8/" title="Instagram post: Week 10 25/26">
-  <div class="blog-card__content">
-    <div class="blog-card__text">
-      <div class="existing-description">
-        <h3 class="post-title">Week 10: Christmas Special Social!</h3>
-        <p class="post-excerpt">Our final event of the term was a <b>Christmas Lecture with Dr David Sloan</b> followed by a <b>festive Astronomy quiz</b>! The event took place on <b>Wednesday (10/12/25)</b>
+
+`<a class="blog-card" href="https://www.instagram.com/p/DR-5towAir8/" title="Instagram post: Week 10 25/26">` <br>
+`  <div class="blog-card__content">` <br>
+`    <div class="blog-card__text">` <br>
+`      <div class="existing-description">` <br>
+`        <h3 class="post-title">Week 10: Christmas Special Social!</h3>` <br>
+`        <p class="post-excerpt">Our final event of the term was a <b>Christmas Lecture with Dr David Sloan</b> followed by a <b>festive Astronomy quiz</b>! The event took place on <b>Wednesday (10/12/25)</b>
           from <b>7pm-9pm</b> in <b>Faraday Lecture Theatre</b>. Dr Sloan gave a talk on the <b>Intersection between Cosmology and Philosophy</b>, discussing ideas such as the fine-tuning of the Universe,
-          Boltzmann brains, and the Anthropic Principle (alongside a small post-lecture discussion on Roko's Basilisk, and the implications of Cosmology on religious beliefs).</p>
-        <div class="meta">By John Ray • 18th Dec 2025</div>
-      </div>
-    </div>
+          Boltzmann brains, and the Anthropic Principle (alongside a small post-lecture discussion on Roko's Basilisk, and the implications of Cosmology on religious beliefs).</p>` <br>
+`        <div class="meta">By John Ray • 18th Dec 2025</div>` <br>
+`      </div>` <br>
+`    </div>` <br>
 
     <div class="blog-card__media" aria-hidden="true">
       <img src="/images/Week_Ten_2025_Blog_Entry.PNG" alt="Week Ten Blog Entry">
     </div>
-  </div>
-</a>
--->
+`  </div>` <br>
+`  </a>` <br>
+
 
 The first thing you should notice about this code is how the entire container is nested within an action `<a>` tag. As explained in the "header code" section of this README file, action tags are used to create hyperlinks on pages - therefore to enable the entire blog entry to redirect to another page when clicked on, it must be nested within one. The title and "href" are changed for each post (I just have it redirect to Instagram posts if I'm in a rush). The following code of the blog post is contained within the div tag `<div class="blog-card__content">`.
 
@@ -461,13 +459,13 @@ In practice, I recommend simply copying-and-pasting a previous entry, and changi
 The footer code is the same on each page. It is modelled after the footer seen on NASA's website, and was a mild pain to get working (so please be careful with it). It is especially sensitive on mobile.
 
 The footer code begins as follows:
-<!--
-<footer class="site-footer">
-  <div class="footer-container">
-  <div class="footer-section footer-mission">
-      <h4>Lancaster University Astronomy Society</h4>
-      <p>LUAstro observes the wonders of space and the stars all from the top of the Physics Building! Join us for observing nights, Astrophotography workshops, socials, and more!</p>
-      <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc" class="join-btn">Join Us →</a> -->
+
+`<footer class="site-footer">` <br>
+`  <div class="footer-container">` <br>
+`  <div class="footer-section footer-mission">` <br>
+`      <h4>Lancaster University Astronomy Society</h4>` <br>
+`      <p>LUAstro observes the wonders of space and the stars all from the top of the Physics Building! Join us for observing nights, Astrophotography workshops, socials, and more!</p>` <br>
+`      <a href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc" class="join-btn">Join Us →</a>` <br>
 
 This initialises the footer, and fills its left-most section with the mission text, title, and red "Join us →" button. Multiple div tags are used to ensure correct formatting.
 
@@ -527,15 +525,15 @@ This creates the centre-right logo on the webpage. Previously, it showed the old
 Finally, the `<div class="footer-container">` tag is closed.
 
   <!-- Bottom bar -->
-<!--
-  <div class="footer-bottom">
-    <p>Last updated: 10th October, 2025 | Last edited by: <a href="https://www.johnray.co.uk">John Ray</a></p> -->
+
+`  <div class="footer-bottom">` <br>
+`    <p>Last updated: 10th October, 2025 | Last edited by: <a href="https://www.johnray.co.uk">John Ray</a></p>` <br>
 
 Here, the bottom section of the footer is initialised. This text, annoyingly, has to be edited manually whenever the page is edited. Alternatively, you can just forget to change it like I do (as I doubt anyone will notice if it's out of date). If a future LUAstro member wants to automate this text somehow, that would be excellent!
 
-<!-- <script src="https://counterapi.com/c.js?ns=luastro.space" async ></script>
-\\ Added the counter instance here:
-<div class="counterapi" style="min-height:44px" key="socials" nolink="true" color="#ffffff" bg="#878787" noIcon="false"></div> -->
+`<script src="https://counterapi.com/c.js?ns=luastro.space" async ></script>` <br>
+`\\ Added the counter instance here:` <br>
+`<div class="counterapi" style="min-height:44px" key="socials" nolink="true" color="#ffffff" bg="#878787" noIcon="false"></div>` <br>
 
 ~~Currently, the website uses www.counterapi.com to track the views of each webpage. This site is prone to crashing, and is generally unreliable. Google Analytics is a better alternative that I have yet to get working (please change to this if you're a future member!). Regardless for now, this is the best way I could figure out to monitor the site's traffic. The script calls the www.counterapi.com's half-broken API, and the `<div class="counterapi" ...>`tag creates the individual tracker for the page. The key "socials" assigns the tracker to the name "socials" (this must be individual to each page). Ensure that nolink="true" so that visitors cannot easily view the site's traffic, but keep noIcon="false" if you can, as they must be reminded that Big Brother is watching them.~~
 
@@ -557,16 +555,16 @@ It is here that any JavaScript scripts must be called. This is done like below:
 
 These two scripts are necessary for each page (yep, the Easter Egg code is *definitely* necessary, trust me). For pages like the search page, history page, and astrophotgraphy page, the other relevant scripts are also necessary. If the lightbox code is required (to magnify images like on the astrophotography or history pages), this following `<div class="lightbox"> ... </div>` code **MUST ALSO BE INCLUDED**:
 
-<!-- <div id="lightbox" class="lightbox">
-    <div class="lightbox-content">
-      <button class="lb-close"    title="Close">✕</button> 
-      <button class="lb-maximize" title="Maximize">⤢</button>    
-      <img src="" alt="">
-      <p class="lb-caption"></p>   
-      <button class="lb-prev"     title="Previous">‹</button> 
-      <button class="lb-next"     title="Next">›</button>
-    </div>
-</div> -->
+`<div id="lightbox" class="lightbox">` <br>
+`    <div class="lightbox-content">` <br>
+`      <button class="lb-close"    title="Close">✕</button> ` <br>
+`      <button class="lb-maximize" title="Maximize">⤢</button>   ` <br> 
+`      <img src="" alt="">` <br>
+`      <p class="lb-caption"></p>   ` <br>
+`      <button class="lb-prev"     title="Previous">‹</button> ` <br>
+`      <button class="lb-next"     title="Next">›</button>` <br>
+`    </div>` <br>
+`</div>` <br>
 
 This creates the Lightbox element upon clicking (creating the fancy buttons and stuff like that). The lightbox code is all completely copied from my own website, and as such is a little broken on mobile - a future IT Officer will hopefully fix this! :)
 
@@ -638,27 +636,23 @@ This loads the aforementioned "Search_Code.js" file. This file is composed of 6 
 
 The only part of this file that needs understanding / updating is the first section, which is a list of all the entries that can show up when searching. As you'll hopefully remember earlier, each webpage has metadata attached to it using `<meta>` tags. An example of this is shown below:
 
-<!--
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Newsletters page - contains all the most recent newsletters by the Society">
-  <meta name="keywords" content="Newsletters, News, updates, info, latest news, communications, LUAstro">
-  <title>Newsletters | LUAstro</title>
--->
+`  <meta charset="UTF-8" />` <br>
+`  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>` <br>
+`  <meta name="description" content="Newsletters page - contains all the most recent newsletters by the Society">` <br>
+`  <meta name="keywords" content="Newsletters, News, updates, info, latest news, communications, LUAstro">` <br>
+`  <title>Newsletters | LUAstro</title>` <br>
 
 The relevant bits here are the "description" and "keywords" pieces of metadata. These show the description of a webpage as it appears when searched for, and the list of potential search queries that yield the said page as a result. This metadata is fetched and parsed in the second section of the Search_Code.js file, which is then built into a page, read, filtered, and rendered using the final sections of the code.
 
-<!--
-// 1) List all the pages here (include a title and url like the ones included and put any blog entries below "LUAstro Blog")
-  const pages = [
-    { title: 'Homepage',            url: '/' },
-    { title: 'LUAstro Store', url: '/store/' },
-    ...
-    { title: 'Week 1, 22/23 Newsletter', url: '/newsletters/November 2022 (Week 1).pdf', description: 'ARCHIVE: The first LUAstro Newsletter from Nov 2022 (Week 1)', keywords: 'newsletters, archive, 2022, nov 2022, week 1, first newsletter, newsletter, 22/23' },
+`// 1) List all the pages here (include a title and url like the ones included and put any blog entries below "LUAstro Blog")` <br>
+`  const pages = [` <br>
+`    { title: 'Homepage',            url: '/' },` <br>
+`    { title: 'LUAstro Store', url: '/store/' },` <br>
+`    ...` <br>
+`    { title: 'Week 1, 22/23 Newsletter', url: '/newsletters/November 2022 (Week 1).pdf', description: 'ARCHIVE: The first LUAstro Newsletter from Nov 2022 (Week 1)', keywords: 'newsletters, archive, 2022, nov 2022, week 1, first newsletter, newsletter, 22/23' },` <br>
     
-    // Add new pages here—and they'll be fetched automatically
-  ];
--->
+`    // Add new pages here—and they'll be fetched automatically` <br>
+`  ];` <br>
 
 This is the format of the first section - a long JavaScript array. More accurately, this defines a constant list called "pages" that has each entry defined via a JavaScript dictionary (definiing in-turn a variable called "title", a URL called "url", and, in some cases, the aforementioned "description" and "keywords" metadata if it is not already defined).
 
