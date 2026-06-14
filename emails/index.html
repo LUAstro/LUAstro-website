@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9FWPYEEFDM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9FWPYEEFDM');
+</script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Archived emails | LUAstro</title>
+
+  <!-- Add for this page itself -->
+  <meta name="description" content="Emails page - search old emails from LUAstro, ranging from 2018 - 2026."/>
+  <meta name="keywords" content="search, luastro, astronomy, emails, communications, archive, "/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/styles.css"/>
+  <link rel="icon" href="/images/JR's LUAstro Logo.png" type="png">
+</head>
+<body>
+  
+  <header>
+    <div class="star-bar"></div>
+     <h1>Search the site</h1>
+    <img class="follow-logo" src="/images/LUAstro_NavBar.png" alt="LUAstro" class="follow-logo">
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+    <li class="dropdown">
+      <a href="/blog/">Events & Announcements</a>
+      <ul class="submenu">
+        <li><a href="/blog/">LUAstro Blog</a></li>
+        <li><a href="/newsletters/">Newsletters</a></li>
+        <li><a href="/socials/">Socials Calendar</a></li>
+      </ul>
+    </li>
+        <li><a href="/astrophotography/">Astrophotography</a></li>
+        <li><a href="/store/">Store</a></li>
+    <li class="dropdown">
+      <a href="/documents/">Archive</a>
+      <ul class="submenu">
+        <li><a href="/documents/">Documents</a></li>
+        <li><a href="/emails/">Archived Emails</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="/aboutus/">About us</a>
+      <ul class="submenu">
+        <li><a href="/aboutus/">Our Society</a></li>
+        <li><a href="/exec/">Our Exec</a></li>
+        <li><a href="/history/">Our History</a></li>
+      </ul>
+    </li>
+    </nav>
+    
+    <form id="siteSearchForm" class="site-search-form">
+      <input type="text" id="siteSearchInput" name="q" placeholder="Search the site…" aria-label="Site search"/>
+      <button type="submit">🔍</button>
+    </form>
+  </header>
+
+  <main>
+<div class="container">
+<section class="hero">
+<h2>Archived LUAstro emails (2018-2026)</h2>
+</section>
+<section class="intro">
+<p>This page allows you to search this website's archive of society emails, which range from 2018 - 2026. They were 
+downloaded from the society's original Unioncloud page using a webcrawler, and as such some may have minor formatting 
+issues or broken image links. Nevertheless, it's better than nothing!</p>
+</section>
+</div>
+<div class="container">
+<section class="intro">
+      <h2>Search archived emails:</h2>
+</section>
+
+      <form id="searchForm" class="site-search-form">
+        <input type="text" id="q" placeholder="Search text..." aria-label="Search text" />
+
+        <input type="text" id="eventTitle" placeholder="Event title contains..." aria-label="Event title contains" />
+
+        <label for="startDate">From date</label>
+        <input type="date" id="startDate" aria-label="From date" />
+
+        <label for="endDate">To date</label>
+        <input type="date" id="endDate" aria-label="To date" />
+
+        <input type="number" id="minSent" placeholder="Min students emailed" aria-label="Minimum students emailed" />
+        <input type="number" id="maxSent" placeholder="Max students emailed" aria-label="Maximum students emailed" />
+
+        <button type="submit">Search</button>
+        <button type="button" id="clearBtn">Clear</button>
+      </form>
+
+      <p id="summary"></p>
+      <div id="searchResults"></div>
+    </div>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-section footer-mission">
+        <h4>Lancaster University Astronomy Society</h4>
+        <p>
+          LUAstro observes the wonders of space and the stars all from the top
+          of the Physics Building! Join us for observing nights,
+          Astrophotography workshops, socials, and more!
+        </p>
+        <a
+          href="https://lancastersu.co.uk/groups/astronomy-society-luastrosoc"
+          class="join-btn"
+          >Join Us →</a
+        >
+      </div>
+
+      <div class="footer-section footer-links">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/store/">Store</a></li>
+          <li><a href="/astrophotography/">Astrophotography</a></li>
+          <li><a href="/newsletters/">Newsletters</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/exec/">Exec Team</a></li>
+          <li><a href="/aboutus/">About us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section footer-logo">
+        <img src="/images/JR's LUAstro Logo.png" alt="LUAstro Logo"/>
+      </div>
+
+      <div class="footer-section footer-social">
+        <h4>
+          Follow
+          <img
+            src="/images/LUAstro_Wormstyle_DarkMode.png"
+            alt="LUAstro"
+            class="follow-logo"
+          />
+        </h4>
+        <div class="social-icons">
+          <a href="https://discord.gg/pvbhCKtJYw" aria-label="Discord"
+            ><img src="/images/discord.png" alt="Discord"
+          /></a>
+          <a href="https://www.instagram.com/luastrosoc/" aria-label="Instagram"
+            ><img src="/images/instagram.png" alt="Instagram"
+          /></a>
+          <a href="https://luastro.substack.com/" aria-label="Substack">
+          <img src="/images/substack.png" alt="Substack">
+        </a>
+          <a href="https://twitter.com/luastrosoc" aria-label="Twitter"
+            ><img src="/images/twitter.png" alt="Twitter"
+          /></a>
+          <a
+            href="https://www.youtube.com/@lancasteruniversityastrono1095"
+            aria-label="YouTube"
+            ><img src="/images/youtube.png" alt="YouTube"
+          /></a>
+          <a
+            href="https://www.facebook.com/LuAstroSoc/"
+            aria-label="Facebook"
+            ><img src="/images/facebook.png" alt="Facebook"
+          /></a>
+        </div>
+        <a href="/newsletters/" class="footer-link">Newsletters</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>
+        Last updated: 14th June, 2026 | Last edited by:
+        <a href="https://www.johnray.co.uk">John Ray</a>
+      </p>
+    </div>
+  </footer>
+
+<!-- Cool randomised background code -->
+<script src="/scripts/Astro_Background.js"></script>
+<!-- Imports a fun Easter Egg code-->
+<script src="/scripts/Easter_Egg.js"></script>
+<!-- Imports really confusing AI-assisted Emails search code -->
+<script src="/scripts/Emails_Search_Code.js"></script>
+</body>
+</html>
