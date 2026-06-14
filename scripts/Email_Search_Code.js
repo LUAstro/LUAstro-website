@@ -158,7 +158,6 @@ all 250 of these society emails to be easily searched for according to date, top
           </a>
           <div>Date: ${escapeHtml(item.date || "Unknown")}</div>
           <div>Sent to: ${escapeHtml(sentText)}</div>
-          <div>Page: ${escapeHtml(item.url)}</div>
         </div>
       `;
     }).join("");
