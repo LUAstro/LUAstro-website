@@ -15,7 +15,7 @@ all 250 of these society emails to be easily searched for according to date, top
   const EMAIL_COUNT = 250;
 
   const pages = Array.from({ length: EMAIL_COUNT }, (_, i) => ({
-    url: `/emails/${i + 1}/index.html`,
+    url: `/emails/${i + 1}/`,   // directory URL, not index.html
     pageNum: i + 1
   }));
 
@@ -43,10 +43,10 @@ all 250 of these society emails to be easily searched for according to date, top
     const parts = (raw || "").split(",").map(s => s.trim());
 
     return {
-      type: parts[0] || "",
-      title: parts[1] || "",
-      date: parts[2] || "",
-      sentTo: parts[3] ? Number(parts[3]) : null
+      title: parts[3] || "",                  // 4th entry
+      date: parts[4] || "",                   // 5th entry
+      sentTo: parts[5] ? Number(parts[5]) : null,  // 6th entry
+      raw: parts
     };
   }
 
@@ -66,8 +66,8 @@ all 250 of these society emails to be easily searched for according to date, top
         url: page.url,
         pageNum: page.pageNum,
         title: parsed.title || doc.title || `Email ${page.pageNum}`,
-        eventTitle: parsed.title,
-        date: parsed.date,
+        eventTitle: parsed.title || "",
+        date: parsed.date || "",
         sentTo: parsed.sentTo,
         description,
         keywords
@@ -150,7 +150,7 @@ all 250 of these society emails to be easily searched for according to date, top
     });
 
     els.results.innerHTML = results.map(item => {
-      const sentText = item.sentTo !== null && item.sentTo !== undefined ? item.sentTo : "Unknown";
+      const sentText = Number.isFinite(Number(item.sentTo)) ? item.sentTo : "Unknown";
       return `
         <div class="card" style="margin-bottom:1rem;padding:1rem;border:1px solid #ddd;border-radius:10px;">
           <a href="${item.url}" style="font-size:1.15rem;font-weight:600;">
