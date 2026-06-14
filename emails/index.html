@@ -10,11 +10,20 @@
 
   gtag('config', 'G-9FWPYEEFDM');
 </script>
+<style>
+  .email-search-form {
+  display: block;
+}
+
+.email-search-form input,
+.email-search-form button,
+.email-search-form label {
+  margin: 0.25rem 0.4rem 0.25rem 0;
+}
+</style>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Archived emails | LUAstro</title>
-
-  <!-- Add for this page itself -->
   <meta name="description" content="Emails page - search old emails from LUAstro, ranging from 2018 - 2026."/>
   <meta name="keywords" content="search, luastro, astronomy, emails, communications, archive, "/>
 
@@ -85,23 +94,29 @@ issues or broken image links. Nevertheless, it's better than nothing!</p>
       <h2>Search archived emails:</h2>
 </section>
 
-      <form id="searchForm" class="site-search-form">
-        <input type="text" id="q" placeholder="Search text..." aria-label="Search text" />
-        <input type="text" id="eventTitle" placeholder="Event title contains..." aria-label="Event title contains" />
-        <br>
-        <label for="startDate">From date</label>
-        <input type="date" id="startDate" aria-label="From date" />
-        <br>
-        <label for="endDate">To date</label>
-        <input type="date" id="endDate" aria-label="To date" />
-        <br>
-        <input type="number" id="minSent" placeholder="Min students emailed" aria-label="Minimum students emailed" />
-        <input type="number" id="maxSent" placeholder="Max students emailed" aria-label="Maximum students emailed" />
-        <br>
-        <button type="submit">Search</button>
-        <button type="button" id="clearBtn">Clear</button>
-        <br>
-      </form>
+<form id="searchForm" class="email-search-form">
+  <div class="search-row">
+    <input type="text" id="q" placeholder="Search text..." aria-label="Search text" />
+    <input type="text" id="eventTitle" placeholder="Event title contains..." aria-label="Event title contains" />
+  </div>
+
+  <div class="search-row">
+    <label for="startDate">Date from</label>
+    <input type="date" id="startDate" aria-label="From date" />
+    <label for="endDate">Date to</label>
+    <input type="date" id="endDate" aria-label="To date" />
+  </div>
+
+  <div class="search-row">
+    <input type="number" id="minSent" placeholder="Min students emailed" aria-label="Minimum students emailed" />
+    <input type="number" id="maxSent" placeholder="Max students emailed" aria-label="Maximum students emailed" />
+  </div>
+
+  <div class="search-row">
+    <button type="submit">Search</button>
+    <button type="button" id="clearBtn">Clear</button>
+  </div>
+</form>
 
       <p id="summary"></p>
       <div id="searchResults"></div>
