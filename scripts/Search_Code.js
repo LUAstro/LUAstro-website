@@ -35,6 +35,7 @@ be okay! Remember to include a , after any non-final search entries or it will b
     { title: 'History of LUAstro', url: '/history/' },
     { title: 'LUAstro Space Pirate Game', url: '/space-pirate-game/' },
     { title: 'Documents page', url: '/documents/' },    
+    { title: 'Archived Emails page', url: '/emails/' },
     { title: 'Siril processing data', url: '/documents/Siril-data/' },
     { title: 'JWST processing data', url: '/documents/JWST-data/' },
     // I have archived all the Lancaster Physics past papers, and other revision material here: (enjoy!)
