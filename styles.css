@@ -113,8 +113,8 @@ header h1 {
   header h1 {
     white-space: normal;
     transform: translate(-50%, -75%);
-    font-size: clamp(0.5rem, 2vw, 1rem);
-    bottom: clamp(28.5rem, 10vh, 27.5rem); /* give slightly more gap on tiny phones */
+    font-size: clamp(0rem, 2vw, 0rem); /* Gave up trying to fix the header height for when links are hovered over on mobile, and just made the font size 0 instead :) */
+    bottom: clamp(28.5rem, 10vh, 27.5rem);
     padding: 0 1rem;
   }
     /* center submenu open -> pull h1 up to reveal submenu space */
