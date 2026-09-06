@@ -553,7 +553,7 @@ It is here that any JavaScript scripts must be called. This is done like below:
 `<!-- Imports a fun Easter Egg code-->` <br>
 `<script src="/scripts/Easter_Egg.js"></script>` <br>
 
-These two scripts are necessary for each page (yep, the Easter Egg code is *definitely* necessary, trust me). For pages like the search page, history page, and astrophotgraphy page, the other relevant scripts are also necessary. If the lightbox code is required (to magnify images like on the astrophotography or history pages), this following `<div class="lightbox"> ... </div>` code **MUST ALSO BE INCLUDED**:
+These two scripts are necessary for each page (yep, the Easter Egg code is *definitely* necessary, trust me). For pages like the search page, history page, and astrophotography page, the other relevant scripts are also necessary. If the lightbox code is required (to magnify images like on the astrophotography or history pages), this following `<div class="lightbox"> ... </div>` code **MUST ALSO BE INCLUDED**:
 
 `<div id="lightbox" class="lightbox">` <br>
 `    <div class="lightbox-content">` <br>
@@ -598,7 +598,7 @@ So let me explain the last few final essentials.
 
 Photo_Search.js is the JavaScript code that allows images of new objects on the Astrophotography page to be correctly sorted by user entries (e.g. typing M33 will show pictures of the Andromeda Galaxy). This file can be viewed in the `/scripts/` folder of the base directory.
 
-**Updating this is therefore necessary if you wish to add new images to the Astrophotgraphy page that are of new objects. If a photo is merely taken by a new photographer, taken during a new year, or with new equipment, you can simply update the options list on the Astrophotography page. If a photo is of multiple objects in a new combination (e.g. of B33, NGC 2024, & M42, instead of just M42) a new entry on the Photo_Search.js file MUST be created for that image, so that it returns the image as a result for each entry.**
+**Updating this is therefore necessary if you wish to add images to the Astrophotography page that are of new objects. If a photo is merely taken by a new photographer, taken during a new year, or with new equipment, you can simply update the options list on the Astrophotography page. If a photo is of multiple objects in a new combination (e.g. of B33, NGC 2024, & M42, instead of just M42) a new entry on the Photo_Search.js file MUST be created for that image, so that it returns the image as a result for each entry.**
 
 Updating this is actually quite simple. Find the part of the file that begins:
 
@@ -654,9 +654,9 @@ The relevant bits here are the "description" and "keywords" pieces of metadata. 
 `    // Add new pages here—and they'll be fetched automatically` <br>
 `  ];` <br>
 
-This is the format of the first section - a long JavaScript array. More accurately, this defines a constant list called "pages" that has each entry defined via a JavaScript dictionary (definiing in-turn a variable called "title", a URL called "url", and, in some cases, the aforementioned "description" and "keywords" metadata if it is not already defined).
+This is the format of the first section - a long JavaScript array. More accurately, this defines a constant list called "pages" that has each entry defined via a JavaScript dictionary (defining in-turn a variable called "title", a URL called "url", and, in some cases, the aforementioned "description" and "keywords" metadata if it is not already defined).
 
-To allow new webpages to appear in search results, they must first be added to this array. The title of the page as you want it to appear should be defined via the `title` variable (in the form of `title: 'TITLE',`), and the URL should be defined by taking the path of the webpage relative to the main directory (e.g. for the store page at www.luastro.space/store/, you define the URL as `url: '/store/'`). What you might notice is that there's a different structure to the entries for webpages than there is for .pdfs. This is because .pdfs cannot contain HTML-style meta data - so it must be added here instead.
+To allow new webpages to appear in search results, they must first be added to this array. The title of the page as you want it to appear should be defined via the `title` variable (in the form of `title: 'TITLE',`), and the URL should be defined by taking the path of the webpage relative to the main directory (e.g. for the store page at www.luastro.space/store/, you define the URL as `url: '/store/'`). What you might notice is that there's a different structure to the entries for webpages than there is for .pdfs. This is because .pdfs cannot contain HTML-style metadata - so it must be added here instead.
 
 **PLEASE ENSURE THAT A COMMA IS KEPT AFTER EACH ENTRY, OR IT WILL BREAK AFTER FURTHER ADDITIONS!!!**
 
